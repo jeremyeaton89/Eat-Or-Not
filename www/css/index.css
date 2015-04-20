@@ -5,8 +5,6 @@ html, body, .Main {
   height: 100%;
   width: 100%;
 
-  font-family: 'Myriad Pro', Helvetica, serif;
-  color: black;
   overflow: hidden;
 }
 
@@ -26,15 +24,11 @@ pre {
   margin: 2em 2em;
 }
 
-.Page {
+.page {
   position: absolute;
   height: 100%;
   width: 100%;
   overflow: hidden;
-}
-
-.Page__wrapper {
-  padding: 1em;
 }
 
 .MainPage {

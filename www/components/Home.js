@@ -1,7 +1,9 @@
+/** @jsx React.DOM */
+var React = require('react');
 var Firebase = require('../firebase');
 var Utils = require('../utils');
-var ReactCSSTransitionGroup = React.addons.CSSTransitionGroup;
 var Header = require('./Header');
+var Link  = require('react-router-component').Link;
 
 var Home = React.createClass({
   getInitialState: function() {
@@ -25,7 +27,7 @@ var Home = React.createClass({
         this.mapOptions.center.lat = position.coords.latitude;
         this.mapOptions.center.lng = position.coords.longitude;
         this.map = new google.maps.Map(this.refs.map.getDOMNode(), this.mapOptions);
-        // new GeolocationMarker(this.map);  
+        new GeolocationMarker(this.map);  
         this.getNearbyPlaces();
 
       }.bind(this));
@@ -111,9 +113,9 @@ var Home = React.createClass({
     }.bind(this));
 
     return (
-      <div className={'page ' + this.props.position} style={styles.container}>
+      <div className='page' style={styles.container}>
         <Header title='Eat Or Nah' />
-        <a href={'#place/tests'} >GO TO PLACE</a>
+        <Link href='/place'>Go To Place</Link>
         <div ref='map' style={styles.map}></div>
         <button onClick={this.logout}>Logout</button>
           <ul style={styles.places} >

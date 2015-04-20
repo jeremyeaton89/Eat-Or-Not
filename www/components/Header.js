@@ -1,17 +1,19 @@
-/**
- * @jsx React.DOM
- */
- 
+/** @jsx React.DOM */
 var React = require('react');
 var Utils = require('../utils');
+var Link  = require('react-router-component').Link;
 
 var Header = React.createClass({
   render: function() {
     return(
       <header style={styles.header}>
-        <a href={'#' + document.referrer} style={styles.backButton} className={"icon icon-left-nav push-right" + (this.props.back==="true"?"":" hidden")}>
+        <Link 
+          className={this.props.back==='true' ?'':' hidden'}
+          transitionName='right'
+          href='/' 
+          style={styles.backButton}>
           <div style={Utils.merge(styles.backArrow, { backgroundImage: 'url(img/back-arrow.png)'})}></div>
-        </a>
+        </Link>
         <div style={styles.titleContainer}>
           <h1 style={styles.title}>{this.props.title}</h1>
         </div>
@@ -44,6 +46,7 @@ var styles = {
     margin: 0,
     position: 'relative',
     left: '-50%',
+    width: 300,
   },
   titleContainer: {
     position: 'absolute',

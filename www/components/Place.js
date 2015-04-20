@@ -1,3 +1,5 @@
+/** @jsx React.DOM */
+var React = require('react');
 var Header = require('./Header');
 
 var Place = React.createClass({
@@ -5,7 +7,7 @@ var Place = React.createClass({
     return (
       <div 
         style={styles.container}
-        className={'page ' + this.props.position}>
+        className='page'>
         <Header title='PLACE' back='true'/>
         THIS IS A PLACE VIEW
       </div>

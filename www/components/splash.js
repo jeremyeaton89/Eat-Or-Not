@@ -1,7 +1,10 @@
+/** @jsx React.DOM */
+var React = require('react');
+
 var Splash = React.createClass({
   render: function() {
     return (
-      <div style={styles.container} >
+      <div className='page' style={styles.container} >
         <h1 style={styles.title}>Eat Or Nah</h1>
         <div style={styles.buttonContainer}>
           <img
