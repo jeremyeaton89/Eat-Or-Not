@@ -247,3 +247,419 @@ To disable web storage backup to iCloud, set the BackupWebStorage preference to 
 2015-04-20 14:04:13.789 EatOrNot[81045:4166118] Resetting plugins due to page load.
 2015-04-20 14:04:13.868 EatOrNot[81045:4166118] Finished load of: file:///Users/jeremyeaton/Library/Developer/CoreSimulator/Devices/1754065C-D770-4CED-88C2-CBACB746E403/data/Containers/Bundle/Application/CEB2E590-7FCE-4BBE-8133-D5C16F45189A/EatOrNot.app/www/index.html
 2015-04-20 14:04:21.584 EatOrNot[81045:4166118] WARN: transition(): tried to perform an animation without an animationend or transitionend event after timeout (5000ms). You should either disable this transition in JS or add a CSS animation/transition.
+2015-04-20 15:52:50.565 EatOrNot[84904:4246415] DiskCookieStorage changing policy from 2 to 0, cookie file: file:///Users/jeremyeaton/Library/Developer/CoreSimulator/Devices/1754065C-D770-4CED-88C2-CBACB746E403/data/Containers/Data/Application/B64282DA-19AB-4AB1-AA0F-9F46B7EF89B3/Library/Cookies/Cookies.binarycookies
+2015-04-20 15:52:50.647 EatOrNot[84904:4246415] Apache Cordova native platform version 3.7.0 is starting.
+2015-04-20 15:52:50.647 EatOrNot[84904:4246415] Multi-tasking -> Device: YES, App: YES
+2015-04-20 15:52:50.648 EatOrNot[84904:4246415] Unlimited access to network resources
+2015-04-20 15:52:50.650 EatOrNot[84904:4246415] 
+
+Started backup to iCloud! Please be careful.
+Your application might be rejected by Apple if you store too much data.
+For more information please read "iOS Data Storage Guidelines" at:
+https://developer.apple.com/icloud/documentation/data-storage/
+To disable web storage backup to iCloud, set the BackupWebStorage preference to "local" in the Cordova config.xml file
+
+2015-04-20 15:52:50.799 EatOrNot[84904:4246415] Resetting plugins due to page load.
+2015-04-20 15:52:52.210 EatOrNot[84904:4246415] Finished load of: file:///Users/jeremyeaton/Library/Developer/CoreSimulator/Devices/1754065C-D770-4CED-88C2-CBACB746E403/data/Containers/Bundle/Application/0F718A26-C4C1-4F26-9CB2-8C1F7249A469/EatOrNot.app/www/index.html
+2015-04-20 15:52:54.233 EatOrNot[84904:4246415] Resetting plugins due to page load.
+2015-04-20 15:52:57.523 EatOrNot[84904:4246415] Finished load of: https://m.facebook.com/login.php?skip_api_login=1&api_key=738657189584123&signed_next=1&next=https%3A%2F%2Fm.facebook.com%2Fv2.3%2Fdialog%2Foauth%3Fredirect_uri%3Dhttps%253A%252F%252Fauth.firebase.com%252Fv2%252Fblazing-heat-5726%252Fauth%252Ffacebook%252Fcallback%26state%3D%257B%2522firebase%2522%253A%2522blazing-heat-5726%2522%252C%2522requestId%2522%253A%2522mgfid3nivyyi6c8gvl58pdxyxclmb7dar0h9%2522%252C%2522redirectTo%2522%253A%2522https%253A%252F%252Fauth.firebase.com%252Fblank%252Fpage.html%2522%252C%2522transport%2522%253A%2522redirect%2522%252C%2522v%2522%253A%2522js-2.2.3%2522%257D%26scope%3Dpublic_profile%252Cuser_friends%26response_type%3Dcode%26client_id%3D738657189584123%26ret%3Dlogin&cancel_uri=https%3A%2F%2Fauth.firebase.com%2Fv2%2Fblazing-heat-5726%2Fauth%2Ffacebook%2Fcallback%3Ferror%3Daccess_denied%26error_code%3D200%26error_description%3DPermissions%2Berror%26error_reason%3Duser_denied%26state%3D%257B%2522firebase%2522%253A%2522blazing-heat-5726%2522%252C%2522requestId%2522%253A%2522mgfid3nivyyi6c8gvl58pdxyxclmb7dar0h9%2522%252C%2522redirectTo%2522%253A%2522https%253A%252F%252Fauth.firebase.com%252Fblank%252Fpage.html%2522%252C%2522transport%2522%253A%2522redirect%2522%252C%2522v%2522%253A%2522js-2.2.3%2522%257D%23_%3D_&display=touch&_rdr
+2015-04-20 15:53:04.434 EatOrNot[84904:4246415] Resetting plugins due to page load.
+2015-04-20 15:53:06.650 EatOrNot[84904:4246415] Finished load of: https://auth.firebase.com/blank/page.html#&__firebase_request_key=4zz7dvk0BSUrutHaBgQWKCMvNxnORbUw
+2015-04-20 15:53:34.554 EatOrNot[85022:4247106] Apache Cordova native platform version 3.7.0 is starting.
+2015-04-20 15:53:34.554 EatOrNot[85022:4247106] Multi-tasking -> Device: YES, App: YES
+2015-04-20 15:53:34.556 EatOrNot[85022:4247106] Unlimited access to network resources
+2015-04-20 15:53:34.558 EatOrNot[85022:4247106] 
+
+Started backup to iCloud! Please be careful.
+Your application might be rejected by Apple if you store too much data.
+For more information please read "iOS Data Storage Guidelines" at:
+https://developer.apple.com/icloud/documentation/data-storage/
+To disable web storage backup to iCloud, set the BackupWebStorage preference to "local" in the Cordova config.xml file
+
+2015-04-20 15:53:34.694 EatOrNot[85022:4247106] Resetting plugins due to page load.
+2015-04-20 15:53:34.801 EatOrNot[85022:4247106] Finished load of: file:///Users/jeremyeaton/Library/Developer/CoreSimulator/Devices/1754065C-D770-4CED-88C2-CBACB746E403/data/Containers/Bundle/Application/0D9BD0C9-0D84-4FD2-A3F0-B9CB8F367A43/EatOrNot.app/www/index.html
+2015-04-20 15:53:36.893 EatOrNot[85022:4247106] Resetting plugins due to page load.
+2015-04-20 15:53:39.489 EatOrNot[85022:4247106] Finished load of: https://m.facebook.com/login.php?skip_api_login=1&api_key=738657189584123&signed_next=1&next=https%3A%2F%2Fm.facebook.com%2Fv2.3%2Fdialog%2Foauth%3Fredirect_uri%3Dhttps%253A%252F%252Fauth.firebase.com%252Fv2%252Fblazing-heat-5726%252Fauth%252Ffacebook%252Fcallback%26state%3D%257B%2522firebase%2522%253A%2522blazing-heat-5726%2522%252C%2522requestId%2522%253A%2522692h7vr53aix4cq5yxdla7svdp2slv3urv8z%2522%252C%2522redirectTo%2522%253A%2522https%253A%252F%252Fauth.firebase.com%252Fblank%252Fpage.html%2522%252C%2522transport%2522%253A%2522redirect%2522%252C%2522v%2522%253A%2522js-2.2.3%2522%257D%26scope%3Dpublic_profile%252Cuser_friends%26response_type%3Dcode%26client_id%3D738657189584123%26ret%3Dlogin&cancel_uri=https%3A%2F%2Fauth.firebase.com%2Fv2%2Fblazing-heat-5726%2Fauth%2Ffacebook%2Fcallback%3Ferror%3Daccess_denied%26error_code%3D200%26error_description%3DPermissions%2Berror%26error_reason%3Duser_denied%26state%3D%257B%2522firebase%2522%253A%2522blazing-heat-5726%2522%252C%2522requestId%2522%253A%2522692h7vr53aix4cq5yxdla7svdp2slv3urv8z%2522%252C%2522redirectTo%2522%253A%2522https%253A%252F%252Fauth.firebase.com%252Fblank%252Fpage.html%2522%252C%2522transport%2522%253A%2522redirect%2522%252C%2522v%2522%253A%2522js-2.2.3%2522%257D%23_%3D_&display=touch&_rdr
+2015-04-20 15:53:51.457 EatOrNot[85022:4247106] Resetting plugins due to page load.
+2015-04-20 15:53:53.001 EatOrNot[85022:4247106] Finished load of: https://auth.firebase.com/blank/page.html#&__firebase_request_key=dKgncYksy9Q63xIeHZfJrOAwDmPyvDUv
+2015-04-20 15:54:29.536 EatOrNot[85139:4247947] Apache Cordova native platform version 3.7.0 is starting.
+2015-04-20 15:54:29.537 EatOrNot[85139:4247947] Multi-tasking -> Device: YES, App: YES
+2015-04-20 15:54:29.539 EatOrNot[85139:4247947] Unlimited access to network resources
+2015-04-20 15:54:29.541 EatOrNot[85139:4247947] 
+
+Started backup to iCloud! Please be careful.
+Your application might be rejected by Apple if you store too much data.
+For more information please read "iOS Data Storage Guidelines" at:
+https://developer.apple.com/icloud/documentation/data-storage/
+To disable web storage backup to iCloud, set the BackupWebStorage preference to "local" in the Cordova config.xml file
+
+2015-04-20 15:54:29.675 EatOrNot[85139:4247947] Resetting plugins due to page load.
+2015-04-20 15:54:29.786 EatOrNot[85139:4247947] Finished load of: file:///Users/jeremyeaton/Library/Developer/CoreSimulator/Devices/1754065C-D770-4CED-88C2-CBACB746E403/data/Containers/Bundle/Application/2B63F1EF-5FBB-4FC5-A72B-46A4F97840BB/EatOrNot.app/www/index.html
+2015-04-20 15:54:32.164 EatOrNot[85139:4247947] Resetting plugins due to page load.
+2015-04-20 15:54:35.075 EatOrNot[85139:4247947] Finished load of: https://auth.firebase.com/blank/page.html#&__firebase_request_key=lCA4PWUL0nP4MitHWnurjvOm2P01PAOa
+2015-04-20 15:57:23.106 EatOrNot[85420:4250955] Apache Cordova native platform version 3.7.0 is starting.
+2015-04-20 15:57:23.107 EatOrNot[85420:4250955] Multi-tasking -> Device: YES, App: YES
+2015-04-20 15:57:23.108 EatOrNot[85420:4250955] Unlimited access to network resources
+2015-04-20 15:57:23.110 EatOrNot[85420:4250955] 
+
+Started backup to iCloud! Please be careful.
+Your application might be rejected by Apple if you store too much data.
+For more information please read "iOS Data Storage Guidelines" at:
+https://developer.apple.com/icloud/documentation/data-storage/
+To disable web storage backup to iCloud, set the BackupWebStorage preference to "local" in the Cordova config.xml file
+
+2015-04-20 15:57:23.215 EatOrNot[85420:4250955] Resetting plugins due to page load.
+2015-04-20 15:57:23.315 EatOrNot[85420:4250955] Finished load of: file:///Users/jeremyeaton/Library/Developer/CoreSimulator/Devices/1754065C-D770-4CED-88C2-CBACB746E403/data/Containers/Bundle/Application/C5EDF4F9-4CB3-4F7B-AE5B-F273D13B1719/EatOrNot.app/www/index.html
+2015-04-20 15:57:25.788 EatOrNot[85420:4250955] Setting the WebView's frame to {{0, 0}, {375, 623}}
+2015-04-20 15:57:25.797 EatOrNot[85420:4250955] THREAD WARNING: ['InAppBrowser'] took '69.736084' ms. Plugin should use a background thread.
+2015-04-20 15:57:28.126 EatOrNot[85420:4250955] render with map  end
+2015-04-20 15:57:28.145 EatOrNot[85420:4250955] THREAD WARNING: ['Geolocation'] took '10.524170' ms. Plugin should use a background thread.
+2015-04-20 15:57:28.151 EatOrNot[85420:4250955] MOUnt
+2015-04-20 15:57:29.471 EatOrNot[85420:4250955] locationManager::didFailWithError (null)
+2015-04-20 15:58:09.746 EatOrNot[85551:4252236] Apache Cordova native platform version 3.7.0 is starting.
+2015-04-20 15:58:09.746 EatOrNot[85551:4252236] Multi-tasking -> Device: YES, App: YES
+2015-04-20 15:58:09.747 EatOrNot[85551:4252236] Unlimited access to network resources
+2015-04-20 15:58:09.749 EatOrNot[85551:4252236] 
+
+Started backup to iCloud! Please be careful.
+Your application might be rejected by Apple if you store too much data.
+For more information please read "iOS Data Storage Guidelines" at:
+https://developer.apple.com/icloud/documentation/data-storage/
+To disable web storage backup to iCloud, set the BackupWebStorage preference to "local" in the Cordova config.xml file
+
+2015-04-20 15:58:09.846 EatOrNot[85551:4252236] Resetting plugins due to page load.
+2015-04-20 15:58:10.067 EatOrNot[85551:4252236] Finished load of: file:///Users/jeremyeaton/Library/Developer/CoreSimulator/Devices/1754065C-D770-4CED-88C2-CBACB746E403/data/Containers/Bundle/Application/B53DD745-F5B8-4AF6-A9C2-B11A415C8DD4/EatOrNot.app/www/index.html
+2015-04-20 15:58:26.081 EatOrNot[85551:4252236] render with map  end
+2015-04-20 15:58:26.087 EatOrNot[85551:4252236] MOUnt
+2015-04-20 15:58:26.088 EatOrNot[85551:4252236] locationManager::didFailWithError (null)
+2015-04-20 15:58:29.152 EatOrNot[85551:4252236] render with map  end
+2015-04-20 15:58:29.153 EatOrNot[85551:4252236] MOUnt
+2015-04-20 16:10:42.871 EatOrNot[86530:4263022] Apache Cordova native platform version 3.7.0 is starting.
+2015-04-20 16:10:42.871 EatOrNot[86530:4263022] Multi-tasking -> Device: YES, App: YES
+2015-04-20 16:10:42.872 EatOrNot[86530:4263022] Unlimited access to network resources
+2015-04-20 16:10:42.874 EatOrNot[86530:4263022] 
+
+Started backup to iCloud! Please be careful.
+Your application might be rejected by Apple if you store too much data.
+For more information please read "iOS Data Storage Guidelines" at:
+https://developer.apple.com/icloud/documentation/data-storage/
+To disable web storage backup to iCloud, set the BackupWebStorage preference to "local" in the Cordova config.xml file
+
+2015-04-20 16:10:42.996 EatOrNot[86530:4263022] Resetting plugins due to page load.
+2015-04-20 16:10:43.182 EatOrNot[86530:4263022] Finished load of: file:///Users/jeremyeaton/Library/Developer/CoreSimulator/Devices/1754065C-D770-4CED-88C2-CBACB746E403/data/Containers/Bundle/Application/B00958B9-6BF3-4E24-B463-9F5BF40151FD/EatOrNot.app/www/index.html
+2015-04-20 16:12:44.291 EatOrNot[86678:4264585] Apache Cordova native platform version 3.7.0 is starting.
+2015-04-20 16:12:44.292 EatOrNot[86678:4264585] Multi-tasking -> Device: YES, App: YES
+2015-04-20 16:12:44.293 EatOrNot[86678:4264585] Unlimited access to network resources
+2015-04-20 16:12:44.295 EatOrNot[86678:4264585] 
+
+Started backup to iCloud! Please be careful.
+Your application might be rejected by Apple if you store too much data.
+For more information please read "iOS Data Storage Guidelines" at:
+https://developer.apple.com/icloud/documentation/data-storage/
+To disable web storage backup to iCloud, set the BackupWebStorage preference to "local" in the Cordova config.xml file
+
+2015-04-20 16:12:44.431 EatOrNot[86678:4264585] Resetting plugins due to page load.
+2015-04-20 16:12:44.626 EatOrNot[86678:4264585] Finished load of: file:///Users/jeremyeaton/Library/Developer/CoreSimulator/Devices/1754065C-D770-4CED-88C2-CBACB746E403/data/Containers/Bundle/Application/F16439F8-E4BB-4B70-B4B8-11DE268BE5AF/EatOrNot.app/www/index.html
+2015-04-20 16:12:49.686 EatOrNot[86678:4264585] load map
+2015-04-20 16:12:49.692 EatOrNot[86678:4264585] locationManager::didFailWithError (null)
+2015-04-20 16:12:50.901 EatOrNot[86678:4264585] load map
+2015-04-20 16:13:26.156 EatOrNot[86678:4264585] load map
+2015-04-20 16:13:27.762 EatOrNot[86678:4264585] load map
+2015-04-20 16:14:47.672 EatOrNot[86678:4264585] load map
+2015-04-20 16:14:59.283 EatOrNot[86678:4264585] load map
+2015-04-20 16:16:56.717 EatOrNot[86868:4267652] Apache Cordova native platform version 3.7.0 is starting.
+2015-04-20 16:16:56.717 EatOrNot[86868:4267652] Multi-tasking -> Device: YES, App: YES
+2015-04-20 16:16:56.719 EatOrNot[86868:4267652] Unlimited access to network resources
+2015-04-20 16:16:56.721 EatOrNot[86868:4267652] 
+
+Started backup to iCloud! Please be careful.
+Your application might be rejected by Apple if you store too much data.
+For more information please read "iOS Data Storage Guidelines" at:
+https://developer.apple.com/icloud/documentation/data-storage/
+To disable web storage backup to iCloud, set the BackupWebStorage preference to "local" in the Cordova config.xml file
+
+2015-04-20 16:16:56.852 EatOrNot[86868:4267652] Resetting plugins due to page load.
+2015-04-20 16:16:57.041 EatOrNot[86868:4267652] Finished load of: file:///Users/jeremyeaton/Library/Developer/CoreSimulator/Devices/1754065C-D770-4CED-88C2-CBACB746E403/data/Containers/Bundle/Application/57A5A0EA-B9F2-4AAC-A50C-B8DBECB789F9/EatOrNot.app/www/index.html
+2015-04-20 16:17:02.933 EatOrNot[86868:4267652] load map
+2015-04-20 16:17:02.939 EatOrNot[86868:4267652] locationManager::didFailWithError (null)
+2015-04-20 16:17:43.520 EatOrNot[86989:4268353] Apache Cordova native platform version 3.7.0 is starting.
+2015-04-20 16:17:43.521 EatOrNot[86989:4268353] Multi-tasking -> Device: YES, App: YES
+2015-04-20 16:17:43.523 EatOrNot[86989:4268353] Unlimited access to network resources
+2015-04-20 16:17:43.525 EatOrNot[86989:4268353] 
+
+Started backup to iCloud! Please be careful.
+Your application might be rejected by Apple if you store too much data.
+For more information please read "iOS Data Storage Guidelines" at:
+https://developer.apple.com/icloud/documentation/data-storage/
+To disable web storage backup to iCloud, set the BackupWebStorage preference to "local" in the Cordova config.xml file
+
+2015-04-20 16:17:43.659 EatOrNot[86989:4268353] Resetting plugins due to page load.
+2015-04-20 16:17:43.847 EatOrNot[86989:4268353] Finished load of: file:///Users/jeremyeaton/Library/Developer/CoreSimulator/Devices/1754065C-D770-4CED-88C2-CBACB746E403/data/Containers/Bundle/Application/E00D3332-7360-4F9B-9F59-0D4973C3D636/EatOrNot.app/www/index.html
+2015-04-20 16:17:58.974 EatOrNot[86989:4268353] load map
+2015-04-20 16:17:58.979 EatOrNot[86989:4268353] locationManager::didFailWithError (null)
+2015-04-20 16:18:01.536 EatOrNot[86989:4268353] load map
+2015-04-20 16:18:03.366 EatOrNot[86989:4268353] load map
+2015-04-20 16:18:04.569 EatOrNot[86989:4268353] load map
+2015-04-20 16:18:53.000 EatOrNot[87119:4269419] Apache Cordova native platform version 3.7.0 is starting.
+2015-04-20 16:18:53.001 EatOrNot[87119:4269419] Multi-tasking -> Device: YES, App: YES
+2015-04-20 16:18:53.003 EatOrNot[87119:4269419] Unlimited access to network resources
+2015-04-20 16:18:53.005 EatOrNot[87119:4269419] 
+
+Started backup to iCloud! Please be careful.
+Your application might be rejected by Apple if you store too much data.
+For more information please read "iOS Data Storage Guidelines" at:
+https://developer.apple.com/icloud/documentation/data-storage/
+To disable web storage backup to iCloud, set the BackupWebStorage preference to "local" in the Cordova config.xml file
+
+2015-04-20 16:18:53.147 EatOrNot[87119:4269419] Resetting plugins due to page load.
+2015-04-20 16:18:53.408 EatOrNot[87119:4269419] Finished load of: file:///Users/jeremyeaton/Library/Developer/CoreSimulator/Devices/1754065C-D770-4CED-88C2-CBACB746E403/data/Containers/Bundle/Application/FDE662D7-77ED-4E9D-B189-88E93F5066AD/EatOrNot.app/www/index.html
+2015-04-20 16:19:03.650 EatOrNot[87119:4269419] load map
+2015-04-20 16:19:03.650 EatOrNot[87119:4269419] NAV EXISTS
+2015-04-20 16:19:03.656 EatOrNot[87119:4269419] locationManager::didFailWithError (null)
+2015-04-20 16:19:40.942 EatOrNot[87243:4270391] Apache Cordova native platform version 3.7.0 is starting.
+2015-04-20 16:19:40.943 EatOrNot[87243:4270391] Multi-tasking -> Device: YES, App: YES
+2015-04-20 16:19:40.944 EatOrNot[87243:4270391] Unlimited access to network resources
+2015-04-20 16:19:40.946 EatOrNot[87243:4270391] 
+
+Started backup to iCloud! Please be careful.
+Your application might be rejected by Apple if you store too much data.
+For more information please read "iOS Data Storage Guidelines" at:
+https://developer.apple.com/icloud/documentation/data-storage/
+To disable web storage backup to iCloud, set the BackupWebStorage preference to "local" in the Cordova config.xml file
+
+2015-04-20 16:19:41.077 EatOrNot[87243:4270391] Resetting plugins due to page load.
+2015-04-20 16:19:41.268 EatOrNot[87243:4270391] Finished load of: file:///Users/jeremyeaton/Library/Developer/CoreSimulator/Devices/1754065C-D770-4CED-88C2-CBACB746E403/data/Containers/Bundle/Application/904DA8F6-078D-487E-BA46-C342D9704DF9/EatOrNot.app/www/index.html
+2015-04-20 16:19:45.580 EatOrNot[87243:4270391] load map
+2015-04-20 16:19:45.581 EatOrNot[87243:4270391] NAV EXISTS
+2015-04-20 16:19:45.586 EatOrNot[87243:4270391] locationManager::didFailWithError (null)
+2015-04-20 16:19:46.827 EatOrNot[87243:4270391] load map
+2015-04-20 16:19:46.828 EatOrNot[87243:4270391] NAV EXISTS
+2015-04-20 16:19:47.708 EatOrNot[87243:4270391] load map
+2015-04-20 16:19:47.708 EatOrNot[87243:4270391] NAV EXISTS
+2015-04-20 16:20:14.113 EatOrNot[87365:4271141] Apache Cordova native platform version 3.7.0 is starting.
+2015-04-20 16:20:14.114 EatOrNot[87365:4271141] Multi-tasking -> Device: YES, App: YES
+2015-04-20 16:20:14.115 EatOrNot[87365:4271141] Unlimited access to network resources
+2015-04-20 16:20:14.117 EatOrNot[87365:4271141] 
+
+Started backup to iCloud! Please be careful.
+Your application might be rejected by Apple if you store too much data.
+For more information please read "iOS Data Storage Guidelines" at:
+https://developer.apple.com/icloud/documentation/data-storage/
+To disable web storage backup to iCloud, set the BackupWebStorage preference to "local" in the Cordova config.xml file
+
+2015-04-20 16:20:14.211 EatOrNot[87365:4271141] Resetting plugins due to page load.
+2015-04-20 16:20:14.404 EatOrNot[87365:4271141] Finished load of: file:///Users/jeremyeaton/Library/Developer/CoreSimulator/Devices/1754065C-D770-4CED-88C2-CBACB746E403/data/Containers/Bundle/Application/DCD187E7-4EDA-48C2-8F36-6A6B0679E4A0/EatOrNot.app/www/index.html
+2015-04-20 16:20:20.679 EatOrNot[87365:4271141] load map
+2015-04-20 16:20:20.679 EatOrNot[87365:4271141] NAV EXISTS
+2015-04-20 16:20:20.684 EatOrNot[87365:4271141] locationManager::didFailWithError (null)
+2015-04-20 16:20:21.826 EatOrNot[87365:4271141] load map
+2015-04-20 16:20:21.827 EatOrNot[87365:4271141] NAV EXISTS
+2015-04-20 16:20:22.333 EatOrNot[87365:4271141] load map
+2015-04-20 16:20:22.333 EatOrNot[87365:4271141] NAV EXISTS
+2015-04-20 16:20:24.052 EatOrNot[87365:4271141] load map
+2015-04-20 16:20:24.052 EatOrNot[87365:4271141] NAV EXISTS
+2015-04-20 16:20:39.014 EatOrNot[87365:4271141] load map
+2015-04-20 16:20:39.014 EatOrNot[87365:4271141] NAV EXISTS
+2015-04-20 16:20:42.063 EatOrNot[87365:4271141] load map
+2015-04-20 16:20:42.064 EatOrNot[87365:4271141] NAV EXISTS
+2015-04-20 16:21:05.630 EatOrNot[87485:4272223] Apache Cordova native platform version 3.7.0 is starting.
+2015-04-20 16:21:05.630 EatOrNot[87485:4272223] Multi-tasking -> Device: YES, App: YES
+2015-04-20 16:21:05.631 EatOrNot[87485:4272223] Unlimited access to network resources
+2015-04-20 16:21:05.633 EatOrNot[87485:4272223] 
+
+Started backup to iCloud! Please be careful.
+Your application might be rejected by Apple if you store too much data.
+For more information please read "iOS Data Storage Guidelines" at:
+https://developer.apple.com/icloud/documentation/data-storage/
+To disable web storage backup to iCloud, set the BackupWebStorage preference to "local" in the Cordova config.xml file
+
+2015-04-20 16:21:05.729 EatOrNot[87485:4272223] Resetting plugins due to page load.
+2015-04-20 16:21:05.834 EatOrNot[87485:4272223] Finished load of: file:///Users/jeremyeaton/Library/Developer/CoreSimulator/Devices/1754065C-D770-4CED-88C2-CBACB746E403/data/Containers/Bundle/Application/0E02A48D-FF3A-4BC5-BF89-B89020255EE0/EatOrNot.app/www/index.html
+2015-04-20 16:21:08.955 EatOrNot[87485:4272223] load map
+2015-04-20 16:21:08.955 EatOrNot[87485:4272223] NAV EXISTS
+2015-04-20 16:21:08.961 EatOrNot[87485:4272223] locationManager::didFailWithError (null)
+2015-04-20 16:21:42.383 EatOrNot[87609:4273022] Apache Cordova native platform version 3.7.0 is starting.
+2015-04-20 16:21:42.384 EatOrNot[87609:4273022] Multi-tasking -> Device: YES, App: YES
+2015-04-20 16:21:42.385 EatOrNot[87609:4273022] Unlimited access to network resources
+2015-04-20 16:21:42.386 EatOrNot[87609:4273022] 
+
+Started backup to iCloud! Please be careful.
+Your application might be rejected by Apple if you store too much data.
+For more information please read "iOS Data Storage Guidelines" at:
+https://developer.apple.com/icloud/documentation/data-storage/
+To disable web storage backup to iCloud, set the BackupWebStorage preference to "local" in the Cordova config.xml file
+
+2015-04-20 16:21:42.487 EatOrNot[87609:4273022] Resetting plugins due to page load.
+2015-04-20 16:21:42.680 EatOrNot[87609:4273022] Finished load of: file:///Users/jeremyeaton/Library/Developer/CoreSimulator/Devices/1754065C-D770-4CED-88C2-CBACB746E403/data/Containers/Bundle/Application/27787122-984D-444A-8533-2BEEEE92A40A/EatOrNot.app/www/index.html
+2015-04-20 16:22:28.318 EatOrNot[87732:4273822] Apache Cordova native platform version 3.7.0 is starting.
+2015-04-20 16:22:28.319 EatOrNot[87732:4273822] Multi-tasking -> Device: YES, App: YES
+2015-04-20 16:22:28.320 EatOrNot[87732:4273822] Unlimited access to network resources
+2015-04-20 16:22:28.322 EatOrNot[87732:4273822] 
+
+Started backup to iCloud! Please be careful.
+Your application might be rejected by Apple if you store too much data.
+For more information please read "iOS Data Storage Guidelines" at:
+https://developer.apple.com/icloud/documentation/data-storage/
+To disable web storage backup to iCloud, set the BackupWebStorage preference to "local" in the Cordova config.xml file
+
+2015-04-20 16:22:28.421 EatOrNot[87732:4273822] Resetting plugins due to page load.
+2015-04-20 16:22:28.613 EatOrNot[87732:4273822] Finished load of: file:///Users/jeremyeaton/Library/Developer/CoreSimulator/Devices/1754065C-D770-4CED-88C2-CBACB746E403/data/Containers/Bundle/Application/A95C0531-8F6B-4937-960E-A87A2F8C24D1/EatOrNot.app/www/index.html
+2015-04-20 16:22:37.548 EatOrNot[87732:4273822] load map
+2015-04-20 16:22:37.549 EatOrNot[87732:4273822] GET CUR POS EXISTS
+2015-04-20 16:22:37.555 EatOrNot[87732:4273822] locationManager::didFailWithError (null)
+2015-04-20 16:22:38.269 EatOrNot[87732:4273822] load map
+2015-04-20 16:22:38.269 EatOrNot[87732:4273822] GET CUR POS EXISTS
+2015-04-20 16:23:40.165 EatOrNot[87861:4274801] Apache Cordova native platform version 3.7.0 is starting.
+2015-04-20 16:23:40.166 EatOrNot[87861:4274801] Multi-tasking -> Device: YES, App: YES
+2015-04-20 16:23:40.167 EatOrNot[87861:4274801] Unlimited access to network resources
+2015-04-20 16:23:40.168 EatOrNot[87861:4274801] 
+
+Started backup to iCloud! Please be careful.
+Your application might be rejected by Apple if you store too much data.
+For more information please read "iOS Data Storage Guidelines" at:
+https://developer.apple.com/icloud/documentation/data-storage/
+To disable web storage backup to iCloud, set the BackupWebStorage preference to "local" in the Cordova config.xml file
+
+2015-04-20 16:23:40.275 EatOrNot[87861:4274801] Resetting plugins due to page load.
+2015-04-20 16:23:40.845 EatOrNot[87861:4274801] locationManager::didFailWithError (null)
+2015-04-20 16:23:40.851 EatOrNot[87861:4274801] Finished load of: file:///Users/jeremyeaton/Library/Developer/CoreSimulator/Devices/1754065C-D770-4CED-88C2-CBACB746E403/data/Containers/Bundle/Application/65D765CC-DABA-453A-941A-ED1354A7FE82/EatOrNot.app/www/index.html
+2015-04-20 16:23:40.861 EatOrNot[87861:4274801] load map
+2015-04-20 16:23:40.861 EatOrNot[87861:4274801] mapOptions [object Object]
+2015-04-20 16:23:53.822 EatOrNot[87861:4274801] load map
+2015-04-20 16:23:53.822 EatOrNot[87861:4274801] mapOptions [object Object]
+2015-04-20 16:24:32.059 EatOrNot[88033:4276117] Apache Cordova native platform version 3.7.0 is starting.
+2015-04-20 16:24:32.059 EatOrNot[88033:4276117] Multi-tasking -> Device: YES, App: YES
+2015-04-20 16:24:32.061 EatOrNot[88033:4276117] Unlimited access to network resources
+2015-04-20 16:24:32.063 EatOrNot[88033:4276117] 
+
+Started backup to iCloud! Please be careful.
+Your application might be rejected by Apple if you store too much data.
+For more information please read "iOS Data Storage Guidelines" at:
+https://developer.apple.com/icloud/documentation/data-storage/
+To disable web storage backup to iCloud, set the BackupWebStorage preference to "local" in the Cordova config.xml file
+
+2015-04-20 16:24:32.182 EatOrNot[88033:4276117] Resetting plugins due to page load.
+2015-04-20 16:24:32.752 EatOrNot[88033:4276117] locationManager::didFailWithError (null)
+2015-04-20 16:24:32.756 EatOrNot[88033:4276117] Finished load of: file:///Users/jeremyeaton/Library/Developer/CoreSimulator/Devices/1754065C-D770-4CED-88C2-CBACB746E403/data/Containers/Bundle/Application/BED282DA-AAA7-41B8-8F7D-6CE3055150F3/EatOrNot.app/www/index.html
+2015-04-20 16:24:32.765 EatOrNot[88033:4276117] load map
+2015-04-20 16:24:32.766 EatOrNot[88033:4276117] mapOptions  END
+2015-04-20 16:24:48.644 EatOrNot[88033:4276117] load map
+2015-04-20 16:24:48.645 EatOrNot[88033:4276117] mapOptions  END
+2015-04-20 16:27:37.854 EatOrNot[88033:4276117] load map
+2015-04-20 16:27:37.855 EatOrNot[88033:4276117] mapOptions  END
+2015-04-20 16:27:39.280 EatOrNot[88033:4276117] load map
+2015-04-20 16:27:39.281 EatOrNot[88033:4276117] mapOptions  END
+2015-04-20 16:29:46.371 EatOrNot[88321:4279546] Apache Cordova native platform version 3.7.0 is starting.
+2015-04-20 16:29:46.372 EatOrNot[88321:4279546] Multi-tasking -> Device: YES, App: YES
+2015-04-20 16:29:46.373 EatOrNot[88321:4279546] Unlimited access to network resources
+2015-04-20 16:29:46.376 EatOrNot[88321:4279546] 
+
+Started backup to iCloud! Please be careful.
+Your application might be rejected by Apple if you store too much data.
+For more information please read "iOS Data Storage Guidelines" at:
+https://developer.apple.com/icloud/documentation/data-storage/
+To disable web storage backup to iCloud, set the BackupWebStorage preference to "local" in the Cordova config.xml file
+
+2015-04-20 16:29:46.512 EatOrNot[88321:4279546] Resetting plugins due to page load.
+2015-04-20 16:29:47.130 EatOrNot[88321:4279546] locationManager::didFailWithError (null)
+2015-04-20 16:29:47.135 EatOrNot[88321:4279546] Finished load of: file:///Users/jeremyeaton/Library/Developer/CoreSimulator/Devices/1754065C-D770-4CED-88C2-CBACB746E403/data/Containers/Bundle/Application/3A2D8D27-F544-4B2F-8EE4-13CCBBE2C431/EatOrNot.app/www/index.html
+2015-04-20 16:29:47.144 EatOrNot[88321:4279546] load map
+2015-04-20 16:29:47.144 EatOrNot[88321:4279546] mapOptions  END
+2015-04-20 16:30:00.233 EatOrNot[88321:4279546] load map
+2015-04-20 16:30:00.235 EatOrNot[88321:4279546] mapOptions  END
+2015-04-20 16:30:02.394 EatOrNot[88321:4279546] load map
+2015-04-20 16:30:02.395 EatOrNot[88321:4279546] mapOptions  END
+2015-04-20 16:30:18.520 EatOrNot[88490:4280972] Apache Cordova native platform version 3.7.0 is starting.
+2015-04-20 16:30:18.521 EatOrNot[88490:4280972] Multi-tasking -> Device: YES, App: YES
+2015-04-20 16:30:18.522 EatOrNot[88490:4280972] Unlimited access to network resources
+2015-04-20 16:30:18.524 EatOrNot[88490:4280972] 
+
+Started backup to iCloud! Please be careful.
+Your application might be rejected by Apple if you store too much data.
+For more information please read "iOS Data Storage Guidelines" at:
+https://developer.apple.com/icloud/documentation/data-storage/
+To disable web storage backup to iCloud, set the BackupWebStorage preference to "local" in the Cordova config.xml file
+
+2015-04-20 16:30:18.630 EatOrNot[88490:4280972] Resetting plugins due to page load.
+2015-04-20 16:30:19.659 EatOrNot[88490:4280972] Finished load of: file:///Users/jeremyeaton/Library/Developer/CoreSimulator/Devices/1754065C-D770-4CED-88C2-CBACB746E403/data/Containers/Bundle/Application/54227278-9EF9-4F50-BC03-19C6DDA4999A/EatOrNot.app/www/index.html
+2015-04-20 16:30:19.668 EatOrNot[88490:4280972] load map
+2015-04-20 16:30:19.669 EatOrNot[88490:4280972] mapOptions  END
+2015-04-20 16:30:20.466 EatOrNot[88490:4280972] position [object Object] end
+2015-04-20 16:30:21.887 EatOrNot[88490:4280972] WARN: Each child in an array should have a unique "key" prop. Check the render method of Home. See http://fb.me/react-warning-keys for more information.
+2015-04-20 16:30:47.471 EatOrNot[88490:4280972] load map
+2015-04-20 16:30:47.473 EatOrNot[88490:4280972] mapOptions  END
+2015-04-20 16:30:47.485 EatOrNot[88490:4280972] position [object Object] end
+2015-04-20 16:32:18.800 EatOrNot[88767:4282899] Apache Cordova native platform version 3.7.0 is starting.
+2015-04-20 16:32:18.801 EatOrNot[88767:4282899] Multi-tasking -> Device: YES, App: YES
+2015-04-20 16:32:18.802 EatOrNot[88767:4282899] Unlimited access to network resources
+2015-04-20 16:32:18.804 EatOrNot[88767:4282899] 
+
+Started backup to iCloud! Please be careful.
+Your application might be rejected by Apple if you store too much data.
+For more information please read "iOS Data Storage Guidelines" at:
+https://developer.apple.com/icloud/documentation/data-storage/
+To disable web storage backup to iCloud, set the BackupWebStorage preference to "local" in the Cordova config.xml file
+
+2015-04-20 16:32:18.896 EatOrNot[88767:4282899] Resetting plugins due to page load.
+2015-04-20 16:32:19.834 EatOrNot[88767:4282899] Finished load of: file:///Users/jeremyeaton/Library/Developer/CoreSimulator/Devices/1754065C-D770-4CED-88C2-CBACB746E403/data/Containers/Bundle/Application/540F02DF-E23F-42FA-B530-1761D0178940/EatOrNot.app/www/index.html
+2015-04-20 16:32:19.835 EatOrNot[88767:4282899] load map
+2015-04-20 16:32:19.835 EatOrNot[88767:4282899] mapOptions  END
+2015-04-20 16:32:20.070 EatOrNot[88767:4282899] WARN: Each child in an array should have a unique "key" prop. Check the render method of Home. See http://fb.me/react-warning-keys for more information.
+2015-04-20 16:36:36.601 EatOrNot[88767:4282899] load map
+2015-04-20 16:36:36.603 EatOrNot[88767:4282899] mapOptions  END
+2015-04-20 16:37:42.109 EatOrNot[88767:4282899] load map
+2015-04-20 16:37:42.111 EatOrNot[88767:4282899] mapOptions  END
+2015-04-20 16:38:51.307 EatOrNot[89276:4286706] Apache Cordova native platform version 3.7.0 is starting.
+2015-04-20 16:38:51.308 EatOrNot[89276:4286706] Multi-tasking -> Device: YES, App: YES
+2015-04-20 16:38:51.309 EatOrNot[89276:4286706] Unlimited access to network resources
+2015-04-20 16:38:51.312 EatOrNot[89276:4286706] 
+
+Started backup to iCloud! Please be careful.
+Your application might be rejected by Apple if you store too much data.
+For more information please read "iOS Data Storage Guidelines" at:
+https://developer.apple.com/icloud/documentation/data-storage/
+To disable web storage backup to iCloud, set the BackupWebStorage preference to "local" in the Cordova config.xml file
+
+2015-04-20 16:38:51.431 EatOrNot[89276:4286706] Resetting plugins due to page load.
+2015-04-20 16:38:52.129 EatOrNot[89276:4286706] Finished load of: file:///Users/jeremyeaton/Library/Developer/CoreSimulator/Devices/1754065C-D770-4CED-88C2-CBACB746E403/data/Containers/Bundle/Application/72CDEC9F-19A7-45D6-A9CB-2B6D24A186AA/EatOrNot.app/www/index.html
+2015-04-20 16:38:52.140 EatOrNot[89276:4286706] load map
+2015-04-20 16:38:52.140 EatOrNot[89276:4286706] mapOptions  END
+2015-04-20 16:38:52.341 EatOrNot[89276:4286706] WARN: Each child in an array should have a unique "key" prop. Check the render method of Home. See http://fb.me/react-warning-keys for more information.
+2015-04-20 16:38:55.816 EatOrNot[89276:4286706] load map
+2015-04-20 16:38:55.818 EatOrNot[89276:4286706] mapOptions  END
+2015-04-20 16:43:59.391 EatOrNot[89276:4286706] load map
+2015-04-20 16:43:59.393 EatOrNot[89276:4286706] mapOptions  END
+2015-04-20 16:45:25.058 EatOrNot[89276:4286706] load map
+2015-04-20 16:45:25.060 EatOrNot[89276:4286706] mapOptions  END
+2015-04-20 16:45:27.616 EatOrNot[89276:4286706] load map
+2015-04-20 16:45:27.618 EatOrNot[89276:4286706] mapOptions  END
+2015-04-20 16:45:31.034 EatOrNot[89276:4286706] load map
+2015-04-20 16:45:31.036 EatOrNot[89276:4286706] mapOptions  END
+2015-04-20 16:49:56.501 EatOrNot[90240:4296175] Apache Cordova native platform version 3.7.0 is starting.
+2015-04-20 16:49:56.501 EatOrNot[90240:4296175] Multi-tasking -> Device: YES, App: YES
+2015-04-20 16:49:56.503 EatOrNot[90240:4296175] Unlimited access to network resources
+2015-04-20 16:49:56.504 EatOrNot[90240:4296175] 
+
+Started backup to iCloud! Please be careful.
+Your application might be rejected by Apple if you store too much data.
+For more information please read "iOS Data Storage Guidelines" at:
+https://developer.apple.com/icloud/documentation/data-storage/
+To disable web storage backup to iCloud, set the BackupWebStorage preference to "local" in the Cordova config.xml file
+
+2015-04-20 16:49:56.607 EatOrNot[90240:4296175] Resetting plugins due to page load.
+2015-04-20 16:49:57.862 EatOrNot[90240:4296175] mapOptions  END
+2015-04-20 16:49:57.867 EatOrNot[90240:4296175] Finished load of: file:///Users/jeremyeaton/Library/Developer/CoreSimulator/Devices/1754065C-D770-4CED-88C2-CBACB746E403/data/Containers/Bundle/Application/1ADADFDD-7180-445A-94EC-4462D7872B19/EatOrNot.app/www/index.html
+2015-04-20 16:49:58.759 EatOrNot[90240:4296175] WARN: Each child in an array should have a unique "key" prop. Check the render method of Home. See http://fb.me/react-warning-keys for more information.
+2015-04-20 16:50:44.528 EatOrNot[90425:4297684] Apache Cordova native platform version 3.7.0 is starting.
+2015-04-20 16:50:44.528 EatOrNot[90425:4297684] Multi-tasking -> Device: YES, App: YES
+2015-04-20 16:50:44.530 EatOrNot[90425:4297684] Unlimited access to network resources
+2015-04-20 16:50:44.531 EatOrNot[90425:4297684] 
+
+Started backup to iCloud! Please be careful.
+Your application might be rejected by Apple if you store too much data.
+For more information please read "iOS Data Storage Guidelines" at:
+https://developer.apple.com/icloud/documentation/data-storage/
+To disable web storage backup to iCloud, set the BackupWebStorage preference to "local" in the Cordova config.xml file
+
+2015-04-20 16:50:44.627 EatOrNot[90425:4297684] Resetting plugins due to page load.
+2015-04-20 16:50:45.035 EatOrNot[90425:4297684] Finished load of: file:///Users/jeremyeaton/Library/Developer/CoreSimulator/Devices/1754065C-D770-4CED-88C2-CBACB746E403/data/Containers/Bundle/Application/4590BBF3-DF9A-4BFE-A0B8-7ED82EC5145C/EatOrNot.app/www/index.html

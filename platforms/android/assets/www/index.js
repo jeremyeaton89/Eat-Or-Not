@@ -7,122 +7,90 @@ var CSSTransitionGroup = React.addons.CSSTransitionGroup;
 var Router             = require('react-router-component');
 var Location           = Router.Location;
 var Link               = Router.Link;
+var Firebase           = require('./firebase');
+// Components
+var Splash             = require('./components/Splash');
+var Home               = require('./components/Home');
+var Place              = require('./components/Place');
+
 
 var AnimatedLocations = React.createClass({
+  mixins: [Router.RouterMixin, Router.AsyncRouteRenderingMixin],
 
-    mixins: [Router.RouterMixin, Router.AsyncRouteRenderingMixin],
-
-    getRoutes: function() {
-      return this.props.children;
-    },
-
-    render: function() {
-
-      var handler = this.renderRouteHandler();
-      var isPopState = this.state.navigation.isPopState;
-      var enabled = isPopState ?
-                    !!this.props.popStateTransitionName :
-                    !this.state.navigation.noTransition;
-      var props = {
-        component: React.DOM.div,
-        transitionEnter: enabled,
-        transitionLeave: enabled,
-      };
-      if (isPopState && this.props.popStateTransitionName) {
-        props.transitionName = this.props.popStateTransitionName;
-      } else if (this.state.navigation.transitionName) {
-        props.transitionName = this.state.navigation.transitionName;
-      }
-
-      handler.props.key = this.state.match.path;
-      return this.transferPropsTo(CSSTransitionGroup(props, handler));
-
+  getRoutes: function() {
+    return this.props.children;
+  },
+  render: function() {
+    var handler = this.renderRouteHandler();
+    var isPopState = this.state.navigation.isPopState;
+    var enabled = isPopState ?
+                  !!this.props.popStateTransitionName :
+                  !this.state.navigation.noTransition;
+    var props = {
+      component: React.DOM.div,
+      transitionEnter: enabled,
+      transitionLeave: enabled,
+    };
+    if (isPopState && this.props.popStateTransitionName) {
+      props.transitionName = this.props.popStateTransitionName;
+    } else if (this.state.navigation.transitionName) {
+      props.transitionName = this.state.navigation.transitionName;
     }
+
+    handler.props.key = this.state.match.path;
+    return this.transferPropsTo(CSSTransitionGroup(props, handler));
+  }
 });
 
 var App = React.createClass({
   render: function() {
     return (
-      <AnimatedLocations hash className="Main" transitionName="left" >
-        <Location path="/" handler={MainPage} />
-        <Location path="/about" handler={AboutPage} />
+      <AnimatedLocations hash className="Main" transitionName="left" popStateTransitionName="fade">
+        <Location path="/" handler={Home} />
+        <Location path="/place" handler={Place} />
       </AnimatedLocations>
     )
   }
 })
 
-var MainPage = React.createClass({
-  render: function() {
-    return (
-      <div className="MainPage Page">
-        <div className="Page__wrapper">
-          <h1>Main page</h1>
-          <p>
-            This demo shows how to do <a href={githubHref}>animated page
-            transitions</a> with <a href={rrcHref}>React Router component</a>.
-          </p>
-          <p>
-            All you need is to use <code>AnimatedLocations</code> router:
-          </p>
-          <pre>{[
-            '<AnimatedLocations className="Main" transitionName="moveUp" popStateTransitionName="fade">',
-            '  <Location path="/" handler={MainPage} />',
-            '  <Location path="/about" handler={AboutPage} />',
-            '</AnimatedLocations>'
-          ].join('\n')}</pre>
-          <p>
-            Now, click on a link to go to <Link href="/about">about page</Link>.
-          </p>
-        </div>
-      </div>
-    )
+var initAuthHandler = function() {
+  var container = document.getElementById('container');
+  Firebase.onAuth(function(data) {
+    if (data) {
+      React.renderComponent(<App />, document.body);
+    } else {
+      React.renderComponent(<Splash login={login} />, document.body);
+    }
+  }); 
+}
+
+var login = function(e) {
+  Firebase.authWithOAuthPopup('facebook', function() {}, {
+    scope: 'public_profile,user_friends'
+  });
+  e.preventDefault();
+  e.stopPropagation();
+};
+
+window.debug = function() {
+  var ul = document.getElementById('debug');
+
+  if (!ul) {
+    ul = document.createElement('ul');
+    ul.id = 'debug';
+    ul.style.position = 'absolute';
+    ul.style.top = 0;
+    document.body.appendChild(ul);
   }
-})
 
-var AboutPage = React.createClass({
-  render: function() {
-    return (
-      <div className="AboutPage Page">
-        <div className="Page__wrapper">
-          <h1>About</h1>
-          <p>Then specify your CSS3 Transition in stylesheet:</p>
-          <pre>{[
-            '.moveUp-enter {',
-            '  ...',
-            '}',
-            '',
-            '.moveUp-enter.moveUp-enter-active {',
-            '  ...',
-            '}',
-            '',
-            '.moveUp-leave {',
-            '  ...',
-            '}',
-            '',
-            '.moveUp-leave.moveUp-leave-active {',
-            '  ...',
-            '}',
-          ].join('\n')}</pre>
-          <p>
-            Go back to <Link transitionName="right" href="/">main page
-            </Link> (please notice it uses another kind of animated transition).
-          </p>
-          <p>
-            This link will lead to <Link noTransition transitionName="right" href="/">main page
-            </Link> too but with no animated transition.
-          </p>
-          <p>
-            You can also use the back/forward buttons in your browser. <br />
-            Back/forward actions will use the <code>popStateTransitionName</code> specified in the props. <br />
-            It is set to a fade transition in this demo. If none is specified, no animation will be used.
-          </p>
-        </div>
-      </div>
-    )
+  for (var i in arguments) {
+    var li = document.createElement("li");
+    li.appendChild(document.createTextNode(arguments[i]));
+    ul.appendChild(li);
   }
-})
+}
 
-var rrcHref = "http://andreypopp.viewdocs.io/react-router-component";
-var githubHref = "https://github.com/andreypopp/react-router-page-transition";
-
-React.renderComponent(<App />, document.body);
+document.addEventListener('DOMContentLoaded', function() {
+  initAuthHandler();
+  if (typeof FastClick == 'function') { FastClick.attach(document.body); window.debug('DINGDINGIDNGDINGDINGD'); } 
+}, false);

@@ -28,6 +28,9 @@
     <feature name="Geolocation">
         <param name="ios-package" value="CDVLocation" />
     </feature>
+    <feature name="InAppBrowser">
+        <param name="ios-package" value="CDVInAppBrowser" />
+    </feature>
     <name>EatOrNot</name>
     <description>
         A sample Apache Cordova application that responds to the deviceready event.

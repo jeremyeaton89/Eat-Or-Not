@@ -78,7 +78,6 @@ window.debug = function() {
   if (!ul) {
     ul = document.createElement('ul');
     ul.id = 'debug';
-    console.log("HERE IT IS", ul);
     ul.style.position = 'absolute';
     ul.style.top = 0;
     document.body.appendChild(ul);
@@ -93,5 +92,5 @@ window.debug = function() {
 
 document.addEventListener('DOMContentLoaded', function() {
   initAuthHandler();
-  if (typeof FaskClick == 'function') FastClick.attach(document.body); 
+  if (typeof FastClick == 'function') FastClick.attach(document.body); 
 }, false);

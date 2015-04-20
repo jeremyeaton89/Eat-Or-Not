@@ -5,44 +5,14 @@ html, body, .Main {
   height: 100%;
   width: 100%;
 
-  font-family: 'Myriad Pro', Helvetica, serif;
-  color: black;
   overflow: hidden;
 }
 
-h1 {
-  font-size: 300%;
-  text-transform: uppercase;
-}
-
-code {
-  font-size: 90%;
-  padding: 0 0.2em;
-}
-pre, code {
-  font-family: Menlo, Monaco, monospace;
-}
-pre {
-  margin: 2em 2em;
-}
-
-.Page {
+.page {
   position: absolute;
   height: 100%;
   width: 100%;
   overflow: hidden;
-}
-
-.Page__wrapper {
-  padding: 1em;
-}
-
-.MainPage {
-  background: #0ac2d2;
-}
-
-.AboutPage {
-  background: #60d7a9;
 }
 
 .left-enter {
@@ -53,19 +23,18 @@ pre {
 .left-enter.left-enter-active{
   -webkit-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0);
-  -webkit-transition: .35s ease-out;
-  transition: .35s ease-out;
+  -webkit-transition: .25s ease-out;
+  transition: .25s ease-out;
 }
 
 .left-leave.left-leave-active {
   -webkit-transform: translate3d(-100%, 0, 0);
   transform: translate3d(-100%, 0, 0);
-  -webkit-transition: .35s ease-out;
-  transition: .35s ease-out;
+  -webkit-transition: .25s ease-out;
+  transition: .25s ease-out;
 }
 
 .right-enter {
-    position: absolute;
   -webkit-transform: translate3d(-100%, 0, 0);
   transform: translate3d(-100%, 0, 0);
 }
@@ -73,19 +42,18 @@ pre {
 .right-enter.right-enter-active{
   -webkit-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0);
-  -webkit-transition: .35s ease-out;
-  transition: .35s ease-out;
+  -webkit-transition: .25s ease-out;
+  transition: .25s ease-out;
 }
 
 .right-leave {
-    position: absolute;
-   -webkit-transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0);
 }
 
 .right-leave.right-leave-active {
   -webkit-transform: translate3d(100%, 0, 0);
   transform: translate3d(100%, 0, 0);
-  -webkit-transition: .35s ease-out;
-  transition: .35s ease-out;
+  -webkit-transition: .25s ease-out;
+  transition: .25s ease-out;
 }
