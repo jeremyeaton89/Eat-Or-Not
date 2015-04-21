@@ -46,10 +46,14 @@ var styles = {
     margin: 0,
     position: 'relative',
     left: '-50%',
+    overflow: 'hidden',
+    textOverflow: 'ellipsis',
+    whiteSpace: 'nowrap',
   },
   titleContainer: {
     position: 'absolute',
     left: '50%',
+    width: '80%',
     top: 10,
   }
 }

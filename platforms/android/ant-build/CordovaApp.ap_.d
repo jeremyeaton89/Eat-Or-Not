@@ -70,14 +70,15 @@
 /Users/jeremyeaton/Desktop/Projects/EatOrNot/platforms/android/assets/www/components/Header.js \
 /Users/jeremyeaton/Desktop/Projects/EatOrNot/platforms/android/assets/www/components/Home.js \
 /Users/jeremyeaton/Desktop/Projects/EatOrNot/platforms/android/assets/www/components/Place.js \
-/Users/jeremyeaton/Desktop/Projects/EatOrNot/platforms/android/assets/www/components/splash.js \
+/Users/jeremyeaton/Desktop/Projects/EatOrNot/platforms/android/assets/www/components/Splash.js \
 /Users/jeremyeaton/Desktop/Projects/EatOrNot/platforms/android/assets/www/css/index.css \
 /Users/jeremyeaton/Desktop/Projects/EatOrNot/platforms/android/assets/www/css/reset.css \
 /Users/jeremyeaton/Desktop/Projects/EatOrNot/platforms/android/assets/www/img/back-arrow.png \
+/Users/jeremyeaton/Desktop/Projects/EatOrNot/platforms/android/assets/www/img/blue-circle.png \
+/Users/jeremyeaton/Desktop/Projects/EatOrNot/platforms/android/assets/www/img/blue-pearl.png \
 /Users/jeremyeaton/Desktop/Projects/EatOrNot/platforms/android/assets/www/img/facebook_button.png \
 /Users/jeremyeaton/Desktop/Projects/EatOrNot/platforms/android/assets/www/img/restaurant-icon.png \
 /Users/jeremyeaton/Desktop/Projects/EatOrNot/platforms/android/assets/www/lib/fastclick.js \
-/Users/jeremyeaton/Desktop/Projects/EatOrNot/platforms/android/assets/www/lib/geolocationmarker.js \
 /Users/jeremyeaton/Desktop/Projects/EatOrNot/platforms/android/assets/www/plugins/org.apache.cordova.device \
 /Users/jeremyeaton/Desktop/Projects/EatOrNot/platforms/android/assets/www/plugins/org.apache.cordova.inappbrowser \
 /Users/jeremyeaton/Desktop/Projects/EatOrNot/platforms/android/assets/www/plugins/org.apache.cordova.device/www \

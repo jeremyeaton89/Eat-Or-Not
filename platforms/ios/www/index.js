@@ -47,7 +47,7 @@ var App = React.createClass({
     return (
       <AnimatedLocations hash className="Main" transitionName="left">
         <Location path="/" handler={Home} />
-        <Location path="/place" handler={Place} />
+        <Location path="/place/:id/:name" handler={Place} />
       </AnimatedLocations>
     )
   }

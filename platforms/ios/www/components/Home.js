@@ -9,6 +9,7 @@ var Home = React.createClass({
   getInitialState: function() {
     return {
       places: [],
+      dummyLink: null,
     };
   },
   componentDidMount: function() {
@@ -27,6 +28,7 @@ var Home = React.createClass({
         this.mapOptions.center.lat = position.coords.latitude;
         this.mapOptions.center.lng = position.coords.longitude;
         this.map = new google.maps.Map(this.refs.map.getDOMNode(), this.mapOptions);
+        window.map = this.map;
         var img = { url: 'img/blue-pearl.png', scaledSide: new google.maps.Size(5, 5) };
         new google.maps.Marker({position: this.mapOptions.center, map: this.map, icon: img});
         this.getNearbyPlaces();
@@ -69,7 +71,10 @@ var Home = React.createClass({
               infoWindow.setContent(content);
               infoWindow.open(this.map, marker);
               var el = document.getElementById('infoWindow');
-              el.addEventListener('click', this.showPlace.bind(this, i));
+              el.addEventListener('click', function() {
+                this.props.noHighlight = true;
+                this.refs.places.getDOMNode().children[i].children[0].click();
+              }.bind(this));
             }.bind(this));
           }.bind(this));
 
@@ -84,6 +89,7 @@ var Home = React.createClass({
             return {
               name: obj.name,
               imgUrl: url,
+              id: obj.place_id,
             };
           });
           this.setState({places: places});
@@ -93,21 +99,21 @@ var Home = React.createClass({
       console.warn('Google Map and mapOptions required.');
     }
   },
-  showPlace: function(key) {
-    this.refs.places.getDOMNode().children[key].style.background = '#A4CCF5';
-    console.log("SHOW PLACE WITH KEY " + key);
+  highlightPlace: function(key) {
+    if (!this.props.noHighlight) this.refs.places.getDOMNode().children[key].style.background = '#A4CCF5';
   },
   logout: function() {
     Firebase.unauth();
   },
   render: function() {
+    window.link = <Link href='/place'>Test</Link>;
     var places = this.state.places.map(function(place, i) {
       return (
         <li 
           style={styles.place}
-          onClick={this.showPlace.bind(this, i)}>
+          onClick={this.highlightPlace.bind(this, i)}>
           <Link 
-            href='/place' 
+            href={'/place/' + place.id + '/' + place.name} 
             style={styles.placeLink}>
             <span style={styles.number}>{i + 1}</span>
             <div style={Utils.merge(styles.thumbnail, { backgroundImage: 'url(' + place.imgUrl + ')'})}></div>
@@ -120,12 +126,11 @@ var Home = React.createClass({
     return (
       <div className='page' style={styles.container}>
         <Header title='Eat Or Nah' />
-        <Link style={styles.link} href='/place'>Go To Place</Link>
-        <div ref='map' id='map' style={styles.map}></div>
+        <div ref='map' style={styles.map}></div>
         <button onClick={this.logout}>Logout</button>
-          <ul 
-            style={styles.places}
-            ref='places'>
+        <ul 
+          style={styles.places}
+          ref='places'>
           {places}
         </ul>
       </div>
@@ -148,14 +153,15 @@ var styles = {
   place: {
     height: 30,
     cursor: 'pointer',
-    paddingLeft: 30,
   },
   placeLink: {
     textDecoration: 'none',
     color: 'black',
-    width: 'inherit',
+    display: 'inline-block',
+    width: '100%',
     height: 'inherit',
     outline: 'none',
+    paddingLeft: 30,
   },
   link: {
     cursor: 'pointer',
@@ -181,6 +187,9 @@ var styles = {
     display: 'inline-block',
     marginRight: 10,
   },
+  infoWindow: {
+    textDecoration: 'none',
+  }
 }
 
 module.exports = Home; 

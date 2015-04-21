@@ -23,15 +23,19 @@ html, body, .Main {
 .left-enter.left-enter-active{
   -webkit-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0);
-  -webkit-transition: .35s ease-out;
-  transition: .35s ease-out;
+  -webkit-transition: .35s ease-in;
+  transition: .35s ease-in;
+  -webkit-transition-delay: 0.1s;
+  transition-delay: 0.1s;
 }
 
 .left-leave.left-leave-active {
   -webkit-transform: translate3d(-100%, 0, 0);
   transform: translate3d(-100%, 0, 0);
-  -webkit-transition: .35s ease-out;
-  transition: .35s ease-out;
+  -webkit-transition: .35s ease-in;
+  transition: .35s ease-in;
+  -webkit-transition-delay: 0.1s;
+  transition-delay: 0.1s;
 }
 
 .right-enter {
@@ -42,8 +46,10 @@ html, body, .Main {
 .right-enter.right-enter-active{
   -webkit-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0);
-  -webkit-transition: .35s ease-out;
-  transition: .35s ease-out;
+  -webkit-transition: .35s ease-in;
+  transition: .35s ease-in;
+  -webkit-transition-delay: 0.1s;
+  transition-delay: 0.1s;
 }
 
 .right-leave {
@@ -54,6 +60,8 @@ html, body, .Main {
 .right-leave.right-leave-active {
   -webkit-transform: translate3d(100%, 0, 0);
   transform: translate3d(100%, 0, 0);
-  -webkit-transition: .35s ease-out;
-  transition: .35s ease-out;
+  -webkit-transition: .35s ease-in;
+  transition: .35s ease-in;
+  -webkit-transition-delay: 0.1s;
+  transition-delay: 0.1s;
 }
