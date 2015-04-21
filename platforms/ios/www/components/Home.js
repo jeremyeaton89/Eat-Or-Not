@@ -27,7 +27,8 @@ var Home = React.createClass({
         this.mapOptions.center.lat = position.coords.latitude;
         this.mapOptions.center.lng = position.coords.longitude;
         this.map = new google.maps.Map(this.refs.map.getDOMNode(), this.mapOptions);
-        new GeolocationMarker(this.map);  
+        var img = { url: 'img/blue-pearl.png', scaledSide: new google.maps.Size(5, 5) };
+        new google.maps.Marker({position: this.mapOptions.center, map: this.map, icon: img});
         this.getNearbyPlaces();
 
       }.bind(this));
@@ -93,6 +94,7 @@ var Home = React.createClass({
     }
   },
   showPlace: function(key) {
+    this.refs.places.getDOMNode().children[key].style.background = '#A4CCF5';
     console.log("SHOW PLACE WITH KEY " + key);
   },
   logout: function() {
@@ -104,10 +106,13 @@ var Home = React.createClass({
         <li 
           style={styles.place}
           onClick={this.showPlace.bind(this, i)}>
-
-          <span style={styles.number}>{i + 1}</span>
-          <div style={Utils.merge(styles.thumbnail, { backgroundImage: 'url(' + place.imgUrl + ')'})}></div>
-          <span style={styles.name}>{place.name}</span>
+          <Link 
+            href='/place' 
+            style={styles.placeLink}>
+            <span style={styles.number}>{i + 1}</span>
+            <div style={Utils.merge(styles.thumbnail, { backgroundImage: 'url(' + place.imgUrl + ')'})}></div>
+            <span style={styles.name}>{place.name}</span>
+          </Link>
         </li>
       );
     }.bind(this));
@@ -116,9 +121,11 @@ var Home = React.createClass({
       <div className='page' style={styles.container}>
         <Header title='Eat Or Nah' />
         <Link style={styles.link} href='/place'>Go To Place</Link>
-        <div ref='map' style={styles.map}></div>
+        <div ref='map' id='map' style={styles.map}></div>
         <button onClick={this.logout}>Logout</button>
-          <ul style={styles.places} >
+          <ul 
+            style={styles.places}
+            ref='places'>
           {places}
         </ul>
       </div>
@@ -136,10 +143,19 @@ var styles = {
   },
   places: {
     listStyleType: 'none',
+    padding: 0,
   },
   place: {
     height: 30,
     cursor: 'pointer',
+    paddingLeft: 30,
+  },
+  placeLink: {
+    textDecoration: 'none',
+    color: 'black',
+    width: 'inherit',
+    height: 'inherit',
+    outline: 'none',
   },
   link: {
     cursor: 'pointer',

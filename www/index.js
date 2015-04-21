@@ -8,7 +8,7 @@ var Router             = require('react-router-component');
 var Location           = Router.Location;
 var Link               = Router.Link;
 var Firebase           = require('./firebase');
-// Components
+
 var Splash             = require('./components/Splash');
 var Home               = require('./components/Home');
 var Place              = require('./components/Place');
@@ -45,7 +45,7 @@ var AnimatedLocations = React.createClass({
 var App = React.createClass({
   render: function() {
     return (
-      <AnimatedLocations hash className="Main" transitionName="left" popStateTransitionName="fade">
+      <AnimatedLocations hash className="Main" transitionName="left">
         <Location path="/" handler={Home} />
         <Location path="/place" handler={Place} />
       </AnimatedLocations>
@@ -57,9 +57,9 @@ var initAuthHandler = function() {
   var container = document.getElementById('container');
   Firebase.onAuth(function(data) {
     if (data) {
-      React.renderComponent(<App />, document.body);
+      React.renderComponent(<App />, container);
     } else {
-      React.renderComponent(<Splash login={login} />, document.body);
+      React.renderComponent(<Splash login={login} />, container);
     }
   }); 
 }
