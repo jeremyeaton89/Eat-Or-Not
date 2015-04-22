@@ -1,6 +1,4 @@
-/**
- * @jsx React.DOM
- */
+/** @jsx React.DOM */
 
 var React              = require('react/addons');
 var CSSTransitionGroup = React.addons.CSSTransitionGroup;
@@ -8,6 +6,7 @@ var Router             = require('react-router-component');
 var Location           = Router.Location;
 var Link               = Router.Link;
 var Firebase           = require('./firebase');
+var Auth               = require('./auth');
 
 var Splash             = require('./components/Splash');
 var Home               = require('./components/Home');
@@ -55,8 +54,20 @@ var App = React.createClass({
 
 var initAuthHandler = function() {
   var container = document.getElementById('container');
-  Firebase.onAuth(function(data) {
-    if (data) {
+  Firebase.onAuth(function(session) {
+    if (session) {
+      Firebase.child('users').orderByKey().equalTo(session.uid).on('child_added', function(snapshot) {
+        var data = snapshot.val();
+        if (data) {
+          Auth.setUser(data);;
+        } else {
+          Firebase.child('users/' + data.uid).set({
+            'firstName': data.facebook.cachedUserProfile.first_name,
+            'lastName': data.facebook.cachedUserProfile.last_name,
+          });
+        }
+      });   
+
       React.renderComponent(<App />, container);
     } else {
       React.renderComponent(<Splash login={login} />, container);

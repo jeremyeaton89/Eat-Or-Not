@@ -1,20 +1,17 @@
 var User = require('./user');
 
-var Auth = (function() {
-  var user;
+function Auth() {};
 
-  return {
-    getUser: function() {
-      if (user) {
-        return user;
-      } else {
-        console.log('User not set. Use Auth.setUser().');
-      }
-    },
-    setUser: function(data) {
-      user = new User(data);
-    }
-  };
-})();
+Auth.prototype.getUser = function() { 
+  if (Auth.prototype.user) {
+    return Auth.prototype.user;
+  } else {
+    console.log('User not set. Use Auth.setUser().');
+  }
+};
 
-module.exports = Auth;
+Auth.prototype.setUser = function(user) {
+  Auth.prototype.user = user;
+};
+
+module.exports = new Auth();

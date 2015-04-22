@@ -3,6 +3,7 @@ var React    = require('react');
 var Firebase = require('../firebase');
 var Utils    = require('../utils');
 var Header   = require('./Header');
+var Auth     = require('../auth');
 
 var Place = React.createClass({
   componentWillMount: function() {
@@ -21,7 +22,8 @@ var Place = React.createClass({
     }.bind(this));
   },
   componentDidMount: function() {
-    this.bindStatListeners();
+    this.bindStatListeners();   
+    this.checkPlace();
   },
   componentWillUnmount: function() {
     this.unbindStatListeners();
@@ -30,17 +32,36 @@ var Place = React.createClass({
     return {
       likesCount:    0,
       dislikesCount: 0,
+      disabled:      null,
     }
   },
   incrLikes: function() {
     this.endpoint.child('likesCount').transaction(function(current_val) {
       return (current_val || 0) + 1;
     });
+    this.updatePlace(true);
   },
   incrDislikes: function() {
     this.endpoint.child('dislikesCount').transaction(function(current_val) {
       return (current_val || 0) + 1;
     });
+    this.updatePlace(false);
+  },
+  updatePlace: function(like) {
+    Auth.getUser().endpoint.child('places/' + this.props.id).set(like);
+
+    this.setState({disabled: 'disabled'});
+    like ? this.refs.thumbsDown.getDOMNode().style.opacity = 0.3 :
+           this.refs.thumbsUp.getDOMNode().style.opacity   = 0.3;
+  },
+  checkPlace: function() {
+    Auth.getUser().getPlace(this.props.id, function(value) {
+      if (typeof value == 'boolean') {
+        this.setState({disabled: 'disabled'});
+        value ? this.refs.thumbsDown.getDOMNode().style.opacity = 0.3:
+                this.refs.thumbsUp.getDOMNode().style.opacity   = 0.3; 
+      }
+    }.bind(this));   
   },
   bindStatListeners: function() {
     this.endpoint.child('likesCount').on('value', function(snapshot) {
@@ -68,7 +89,9 @@ var Place = React.createClass({
           <div style={styles.buttonContainer}>
             <div>{likesString}</div>
             <button 
-              style={Utils.merge(styles.button, {background: 'teal'})} 
+              ref='thumbsUp'
+              disabled={this.state.disabled}
+              style={Utils.merge(styles.button, styles.upButton)} 
               onClick={this.incrLikes}>
               <img style={styles.img} src='img/thumbs-up.png' />
             </button>
@@ -77,7 +100,9 @@ var Place = React.createClass({
           <div style={styles.buttonContainer}>
             <div>{dislikesString}</div>
             <button 
-              style={Utils.merge(styles.button, {background: 'pink'})}
+              ref='thumbsDown'
+              disabled={this.state.disabled}
+              style={Utils.merge(styles.button, styles.downButton)}
               onClick={this.incrDislikes}>
               <img style={styles.img} src='img/thumbs-down.png' />
             </button>
@@ -104,6 +129,12 @@ var styles = {
     borderRadius: 75,
     outline: 'none',
     marginTop: 10,
+  },
+  upButton: {
+    background: 'teal',
+  },
+  downButton: {
+    background: 'pink',
   },
   buttonContainer: {
     width: '40%',

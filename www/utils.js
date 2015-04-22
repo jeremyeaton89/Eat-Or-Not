@@ -14,6 +14,9 @@ var Utils = {
     }
     return result;
   },
+  val: function(obj) {
+    for (var k in obj) return obj[k];
+  }
 };
 
 module.exports = Utils;

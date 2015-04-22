@@ -6,6 +6,7 @@ var Router             = require('react-router-component');
 var Location           = Router.Location;
 var Link               = Router.Link;
 var Firebase           = require('./firebase');
+var User               = require('./user');
 var Auth               = require('./auth');
 
 var Splash             = require('./components/Splash');
@@ -56,12 +57,13 @@ var initAuthHandler = function() {
   var container = document.getElementById('container');
   Firebase.onAuth(function(session) {
     if (session) {
-      Firebase.child('users').orderByKey().equalTo(session.uid).on('child_added', function(snapshot) {
+      Firebase.child('users').orderByKey().equalTo(session.uid).once('value', function(snapshot) {
         var data = snapshot.val();
         if (data) {
-          Auth.setUser(data);;
+          Auth.setUser(new User(data));
+          window.user = Auth.getUser();
         } else {
-          Firebase.child('users/' + data.uid).set({
+          Firebase.child('users/' + session.uid).set({
             'firstName': data.facebook.cachedUserProfile.first_name,
             'lastName': data.facebook.cachedUserProfile.last_name,
           });
