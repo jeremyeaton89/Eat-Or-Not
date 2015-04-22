@@ -106,7 +106,6 @@ var Home = React.createClass({
     Firebase.unauth();
   },
   render: function() {
-    window.link = <Link href='/place'>Test</Link>;
     var places = this.state.places.map(function(place, i) {
       return (
         <li 

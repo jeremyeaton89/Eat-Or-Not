@@ -26,6 +26,10 @@ var styles = {
   header: {
     height: 60,
     background: 'white',
+    position: 'absolute',
+    top: 0,
+    width: '100%',
+    height: 60,
   },
   backButton: {
     position: 'absolute',

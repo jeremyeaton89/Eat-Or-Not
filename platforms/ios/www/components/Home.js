@@ -106,7 +106,6 @@ var Home = React.createClass({
     Firebase.unauth();
   },
   render: function() {
-    window.link = <Link href='/place'>Test</Link>;
     var places = this.state.places.map(function(place, i) {
       return (
         <li 
@@ -127,7 +126,7 @@ var Home = React.createClass({
       <div className='page' style={styles.container}>
         <Header title='Eat Or Nah' />
         <div ref='map' style={styles.map}></div>
-        <button onClick={this.logout}>Logout</button>
+        <button style={styles.logout} onClick={this.logout}>Logout</button>
         <ul 
           style={styles.places}
           ref='places'>
@@ -189,7 +188,12 @@ var styles = {
   },
   infoWindow: {
     textDecoration: 'none',
-  }
+  },
+  logout: {
+    position: 'absolute',
+    top: 25,
+    right: 10,
+  },
 }
 
 module.exports = Home; 

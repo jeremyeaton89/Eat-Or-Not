@@ -13,6 +13,7 @@ html, body, .Main {
   height: 100%;
   width: 100%;
   overflow: hidden;
+  padding-top: 60px;
 }
 
 .left-enter {
@@ -25,8 +26,6 @@ html, body, .Main {
   transform: translate3d(0, 0, 0);
   -webkit-transition: .35s ease-in;
   transition: .35s ease-in;
-  -webkit-transition-delay: 0.1s;
-  transition-delay: 0.1s;
 }
 
 .left-leave.left-leave-active {
@@ -34,8 +33,6 @@ html, body, .Main {
   transform: translate3d(-100%, 0, 0);
   -webkit-transition: .35s ease-in;
   transition: .35s ease-in;
-  -webkit-transition-delay: 0.1s;
-  transition-delay: 0.1s;
 }
 
 .right-enter {
@@ -48,8 +45,6 @@ html, body, .Main {
   transform: translate3d(0, 0, 0);
   -webkit-transition: .35s ease-in;
   transition: .35s ease-in;
-  -webkit-transition-delay: 0.1s;
-  transition-delay: 0.1s;
 }
 
 .right-leave {
@@ -62,6 +57,4 @@ html, body, .Main {
   transform: translate3d(100%, 0, 0);
   -webkit-transition: .35s ease-in;
   transition: .35s ease-in;
-  -webkit-transition-delay: 0.1s;
-  transition-delay: 0.1s;
 }
