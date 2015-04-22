@@ -12,6 +12,7 @@ var Auth               = require('./auth');
 var Splash             = require('./components/Splash');
 var Home               = require('./components/Home');
 var Place              = require('./components/Place');
+var Profile            = require('./components/Profile');
 
 
 var AnimatedLocations = React.createClass({
@@ -45,9 +46,10 @@ var AnimatedLocations = React.createClass({
 var App = React.createClass({
   render: function() {
     return (
-      <AnimatedLocations hash className="Main" transitionName="left">
-        <Location path="/" handler={Home} />
-        <Location path="/place/:id/:name" handler={Place} />
+      <AnimatedLocations hash className='main' transitionName="left">
+        <Location path='/'                handler={Home} />
+        <Location path='/place/:id/:name' handler={Place} />
+        <Location path='/profile'         handler={Profile} />
       </AnimatedLocations>
     )
   }
@@ -61,7 +63,6 @@ var initAuthHandler = function() {
         var data = snapshot.val();
         if (data) {
           Auth.setUser(new User(data));
-          window.user = Auth.getUser();
         } else {
           Firebase.child('users/' + session.uid).set({
             'firstName': data.facebook.cachedUserProfile.first_name,
