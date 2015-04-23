@@ -83,7 +83,7 @@ var Place = React.createClass({
       <div 
         style={styles.container}
         className='page'>
-        <Header title={this.props.name} back='true'/>
+        <Header title={this.props.name} left='back'/>
 
         <div style={{textAlign: 'center'}}>
           <div style={styles.buttonContainer}>

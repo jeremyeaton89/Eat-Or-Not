@@ -5,25 +5,49 @@ var Link  = require('react-router-component').Link;
 
 var Header = React.createClass({
   render: function() {
+    var left  = '';
+    var right = '';
+
+    switch(this.props.left) {
+      case 'back':
+        left = 
+          <Link 
+            transitionName='right'
+            href='/' 
+            style={styles.leftIconContainer}>
+            <div style={Utils.merge(styles.icon, { backgroundImage: 'url(img/white-arrow.png)'})}></div>
+          </Link> 
+        break;
+    };
+
+    switch(this.props.right) {
+      case 'profile':
+        right = 
+          <Link
+            noTransition
+            style={styles.rightIconContainer}
+            href='/profile'>
+            <div style={Utils.merge(styles.icon, {backgroundImage: 'url(img/profile-icon.png)'})}></div> 
+          </Link>
+        break;
+      case 'home':
+        right = 
+          <Link
+            noTransition
+            style={styles.rightIconContainer}
+            href='/'>
+            <div style={Utils.merge(styles.icon, {backgroundImage: 'url(img/home-icon.png)'})}></div> 
+          </Link>
+        break;
+    };
+
     return(
       <header style={styles.header}>
-        <Link 
-          className={this.props.back === 'true' ? '' : 'hidden'}
-          transitionName='right'
-          href='/' 
-          style={styles.backButton}>
-          <div style={Utils.merge(styles.backArrow, { backgroundImage: 'url(img/white-arrow.png)'})}></div>
-        </Link>
+        {left}
         <div style={styles.titleContainer}>
           <h1 style={styles.title}>{this.props.title}</h1>
         </div>
-        <Link
-          className={this.props.profile === 'true' ? '' : 'hidden'}
-          noTransition
-          style={styles.profileButton}
-          href='/profile'>
-          <div style={styles.profileIcon}></div> 
-        </Link>
+        {right}
       </header>
     )
   }  
@@ -37,9 +61,9 @@ var styles = {
     top: 0,
     width: '100%',
   },
-  backButton: {
+  leftIconContainer: {
     position: 'absolute',
-    top: 25,
+    top: 22,
     width: 50,
     height: 50,
     cursor: 'pointer',
@@ -53,21 +77,20 @@ var styles = {
     backgroundPosition: 'center',
     margin: '15px auto',
   },
-  profileButton: {
+  rightIconContainer: {
     position: 'absolute',
     right: 5,
     top: 28,
     width: 50,
     height: 50,
   },
-  profileIcon: {
+  icon: {
     height: 25,
     width: 25,
-    backgroundImage: 'url(img/profile-icon.png)',
     backgroundSize: 'contain',
     backgroundRepeat: 'no-repeat',
     backgroundPosition: 'center',
-    margin: '10px auto',
+    margin: '10px auto',  
   },
   title: {
     fontFamily: 'Indie Flower',
@@ -86,7 +109,7 @@ var styles = {
     left: '50%',
     width: '75%',
     top: 28,
-  }
+  },
 }
 
 module.exports = Header;

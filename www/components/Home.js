@@ -128,7 +128,7 @@ var Home = React.createClass({
 
     return (
       <div className='page' style={styles.container}>
-        <Header title='Eat Or Nah' profile='true' />
+        <Header title='Eat Or Nah' right='profile' />
         <div ref='svg' style={styles.svgContainer}>
           <img style={styles.svg} src="img/spinning-circles.svg" />
         </div>

@@ -83,7 +83,7 @@ var Place = React.createClass({
       <div 
         style={styles.container}
         className='page'>
-        <Header title={this.props.name} back='true'/>
+        <Header title={this.props.name} left='back'/>
 
         <div style={{textAlign: 'center'}}>
           <div style={styles.buttonContainer}>
@@ -91,7 +91,7 @@ var Place = React.createClass({
             <button 
               ref='thumbsUp'
               disabled={this.state.disabled}
-              style={Utils.merge(styles.button, styles.upButton)} 
+              style={styles.button} 
               onClick={this.incrLikes}>
               <img style={styles.img} src='img/thumbs-up.png' />
             </button>
@@ -102,7 +102,7 @@ var Place = React.createClass({
             <button 
               ref='thumbsDown'
               disabled={this.state.disabled}
-              style={Utils.merge(styles.button, styles.downButton)}
+              style={styles.button}
               onClick={this.incrDislikes}>
               <img style={styles.img} src='img/thumbs-down.png' />
             </button>
@@ -124,17 +124,10 @@ var styles = {
     width: 100,
   },
   button: {
-    width: 150,
-    height: 150,
-    borderRadius: 75,
     outline: 'none',
+    border: 'none',
+    background: 'none',
     marginTop: 10,
-  },
-  upButton: {
-    background: 'teal',
-  },
-  downButton: {
-    background: 'pink',
   },
   buttonContainer: {
     width: '40%',
