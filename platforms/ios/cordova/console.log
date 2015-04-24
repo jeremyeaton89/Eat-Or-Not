@@ -1118,3 +1118,17 @@ To disable web storage backup to iCloud, set the BackupWebStorage preference to 
 2015-04-23 23:21:40.133 EatOrNot[39946:5365839] Finished load of: file:///Users/jeremyeaton/Library/Developer/CoreSimulator/Devices/1754065C-D770-4CED-88C2-CBACB746E403/data/Containers/Bundle/Application/B09D8269-FA48-4E15-9302-3B440CA18105/EatOrNot.app/www/index.html
 2015-04-23 23:21:43.213 EatOrNot[39946:5365839] Setting the WebView's frame to {{0, 0}, {375, 623}}
 2015-04-23 23:21:43.225 EatOrNot[39946:5365839] THREAD WARNING: ['InAppBrowser'] took '88.403076' ms. Plugin should use a background thread.
+2015-04-23 23:33:45.340 EatOrNot[40323:5375539] Apache Cordova native platform version 3.7.0 is starting.
+2015-04-23 23:33:45.341 EatOrNot[40323:5375539] Multi-tasking -> Device: YES, App: YES
+2015-04-23 23:33:45.342 EatOrNot[40323:5375539] Unlimited access to network resources
+2015-04-23 23:33:45.344 EatOrNot[40323:5375539] 
+
+Started backup to iCloud! Please be careful.
+Your application might be rejected by Apple if you store too much data.
+For more information please read "iOS Data Storage Guidelines" at:
+https://developer.apple.com/icloud/documentation/data-storage/
+To disable web storage backup to iCloud, set the BackupWebStorage preference to "local" in the Cordova config.xml file
+
+2015-04-23 23:33:45.529 EatOrNot[40323:5375539] Resetting plugins due to page load.
+2015-04-23 23:33:45.870 EatOrNot[40323:5375539] locationManager::didFailWithError (null)
+2015-04-23 23:33:45.893 EatOrNot[40323:5375539] Finished load of: file:///Users/jeremyeaton/Library/Developer/CoreSimulator/Devices/1754065C-D770-4CED-88C2-CBACB746E403/data/Containers/Bundle/Application/A14B1C34-6BE8-43CC-8AFF-351AD20FE782/EatOrNot.app/www/index.html

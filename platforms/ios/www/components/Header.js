@@ -2,7 +2,6 @@
 var React = require('react');
 var Utils = require('../utils');
 var Link  = require('react-router-component').Link;
-var CSSTransitionGroup = React.addons.CSSTransitionGroup;
 
 var Header = React.createClass({
   getInitialState: function() {
@@ -92,12 +91,10 @@ var Header = React.createClass({
       <header style={styles.header}>
         {left}
         <input 
-          id='searchBar'
           ref='searchBar'
-          type='text'
+          type='search'
           className='invisible'
           style={styles.searchBar} 
-          autofocus
         />
         <div style={styles.titleContainer}>
           <h1 ref='title' style={styles.title}>{this.props.title}</h1>

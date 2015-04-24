@@ -32,8 +32,8 @@ var Home = React.createClass({
         var img = svg.children[0];
         svg.removeChild(img);
 
-        var img = { url: 'img/blue-pearl.png', scaledSide: new google.maps.Size(5, 5) };
-        new google.maps.Marker({position: this.mapOptions.center, map: this.map, icon: img});
+        var pulse = { url: 'img/puff.svg' };
+        new google.maps.Marker({position: this.mapOptions.center, map: this.map, icon: pulse, optimized: false,});
         this.getNearbyPlaces();
 
       }.bind(this));
@@ -51,6 +51,7 @@ var Home = React.createClass({
       position: coords,
       map: this.map,
       icon: img,
+      animation: google.maps.Animation.DROP,
     });        
   },
   getNearbyPlaces: function() {      
@@ -103,7 +104,7 @@ var Home = React.createClass({
     }
   },
   highlightPlace: function(key) {
-    if (!this.props.noHighlight) this.refs.places.getDOMNode().children[key].style.background = '#A4CCF5';
+    if (!this.props.noHighlight) this.refs.places.getDOMNode().children[key].style.background = 'rgba(50, 88, 237, 0.35)';
   },
   logout: function() {
     Firebase.unauth();

@@ -32,7 +32,7 @@ var Home = React.createClass({
         var img = svg.children[0];
         svg.removeChild(img);
 
-        var img = { url: 'img/blue-pearl.png', scaledSide: new google.maps.Size(5, 5) };
+        var img = { url: 'img/puff.svg', scaledSide: new google.maps.Size(5, 5) };
         new google.maps.Marker({position: this.mapOptions.center, map: this.map, icon: img});
         this.getNearbyPlaces();
 
@@ -103,7 +103,7 @@ var Home = React.createClass({
     }
   },
   highlightPlace: function(key) {
-    if (!this.props.noHighlight) this.refs.places.getDOMNode().children[key].style.background = '#A4CCF5';
+    if (!this.props.noHighlight) this.refs.places.getDOMNode().children[key].style.background = 'rgba(50, 88, 237, 0.35)';
   },
   logout: function() {
     Firebase.unauth();
