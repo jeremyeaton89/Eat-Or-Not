@@ -1,6 +1,4 @@
-/**
- * @jsx React.DOM
- */
+/** @jsx React.DOM */
 
 var React              = require('react/addons');
 var CSSTransitionGroup = React.addons.CSSTransitionGroup;
@@ -8,10 +6,14 @@ var Router             = require('react-router-component');
 var Location           = Router.Location;
 var Link               = Router.Link;
 var Firebase           = require('./firebase');
+var User               = require('./user');
+var Auth               = require('./auth');
 
 var Splash             = require('./components/Splash');
 var Home               = require('./components/Home');
 var Place              = require('./components/Place');
+var Profile            = require('./components/Profile');
+var Search             = require('./components/Search');
 
 
 var AnimatedLocations = React.createClass({
@@ -45,9 +47,11 @@ var AnimatedLocations = React.createClass({
 var App = React.createClass({
   render: function() {
     return (
-      <AnimatedLocations hash className="Main" transitionName="left">
-        <Location path="/" handler={Home} />
-        <Location path="/place/:id/:name" handler={Place} />
+      <AnimatedLocations hash className='main' transitionName='left'>
+        <Location path='/'                handler={Home} />
+        <Location path='/place/:id/:name' handler={Place} />
+        <Location path='/profile'         handler={Profile} />
+        <Location path='/search'          handler={Search} />
       </AnimatedLocations>
     )
   }
@@ -55,8 +59,20 @@ var App = React.createClass({
 
 var initAuthHandler = function() {
   var container = document.getElementById('container');
-  Firebase.onAuth(function(data) {
-    if (data) {
+  Firebase.onAuth(function(session) {
+    if (session) {
+      Firebase.child('users').orderByKey().equalTo(session.uid).once('value', function(snapshot) {
+        var data = snapshot.val();
+        if (data) {
+          Auth.setUser(new User(data));
+        } else {
+          Firebase.child('users/' + session.uid).set({
+            'firstName': data.facebook.cachedUserProfile.first_name,
+            'lastName': data.facebook.cachedUserProfile.last_name,
+          });
+        }
+      });   
+
       React.renderComponent(<App />, container);
     } else {
       React.renderComponent(<Splash login={login} />, container);

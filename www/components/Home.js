@@ -9,7 +9,6 @@ var Home = React.createClass({
   getInitialState: function() {
     return {
       places: [],
-      dummyLink: null,
     };
   },
   componentDidMount: function() {
@@ -128,7 +127,7 @@ var Home = React.createClass({
 
     return (
       <div className='page' style={styles.container}>
-        <Header title='Eat Or Nah' right='profile' />
+        <Header left='search' title='Eat Or Nah' right='profile' />
         <div ref='svg' style={styles.svgContainer}>
           <img style={styles.svg} src="img/spinning-circles.svg" />
         </div>

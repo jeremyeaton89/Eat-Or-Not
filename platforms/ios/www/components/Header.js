@@ -2,8 +2,47 @@
 var React = require('react');
 var Utils = require('../utils');
 var Link  = require('react-router-component').Link;
+var CSSTransitionGroup = React.addons.CSSTransitionGroup;
 
 var Header = React.createClass({
+  getInitialState: function() {
+    return {
+      searchBar: null,
+    };
+  },
+  getDefaultProps: function() {
+    return {
+      searchBarWidth: (window.innerWidth > 0 ? window.innerWidth : screen.width) - 94,
+    }
+  },
+  animateSearchBar: function() {
+    var searchBar = this.refs.searchBar.getDOMNode();
+    var title = this.refs.title.getDOMNode();
+
+    if (searchBar.classList.contains('invisible')) {
+      title.classList.remove('fade-in');
+      title.classList.add('fade-out');
+      searchBar.classList.remove('invisible');
+      searchBar.style.width = this.props.searchBarWidth + 'px';
+      searchBar.classList.add('searchBar-slide-out');
+      searchBar.addEventListener('webkitTransitionEnd', function() {
+        searchBar.removeEventListener('webkitTransitionEnd', arguments.callee);
+        searchBar.classList.remove('searchBar-slide-out');
+        searchBar.focus();
+      });
+    } else {
+      searchBar.style.width = '33px';
+      searchBar.classList.add('searchBar-slide-in');
+      searchBar.addEventListener('webkitTransitionEnd', function() {
+        searchBar.removeEventListener('webkitTransitionEnd', arguments.callee);
+        searchBar.classList.remove('searchBar-slide-in');
+        searchBar.classList.add('invisible');
+        title.classList.remove('fade-out');
+        title.classList.add('fade-in');
+      });
+    }
+
+  },
   render: function() {
     var left  = '';
     var right = '';
@@ -14,9 +53,17 @@ var Header = React.createClass({
           <Link 
             transitionName='right'
             href='/' 
-            style={styles.leftIconContainer}>
+            style={styles.iconContainer}>
             <div style={Utils.merge(styles.icon, { backgroundImage: 'url(img/white-arrow.png)'})}></div>
           </Link> 
+        break;
+      case 'search':
+        left = 
+          <a 
+            onClick={this.animateSearchBar}
+            style={styles.iconContainer}>
+            <div style={Utils.merge(styles.icon, { backgroundImage: 'url(img/search-icon.png)'})}></div>
+          </a> 
         break;
     };
 
@@ -25,7 +72,7 @@ var Header = React.createClass({
         right = 
           <Link
             noTransition
-            style={styles.rightIconContainer}
+            style={Utils.merge(styles.iconContainer, {right: 5})}
             href='/profile'>
             <div style={Utils.merge(styles.icon, {backgroundImage: 'url(img/profile-icon.png)'})}></div> 
           </Link>
@@ -34,7 +81,7 @@ var Header = React.createClass({
         right = 
           <Link
             noTransition
-            style={styles.rightIconContainer}
+            style={Utils.merge(styles.iconContainer, {right: 5})}
             href='/'>
             <div style={Utils.merge(styles.icon, {backgroundImage: 'url(img/home-icon.png)'})}></div> 
           </Link>
@@ -44,8 +91,16 @@ var Header = React.createClass({
     return(
       <header style={styles.header}>
         {left}
+        <input 
+          id='searchBar'
+          ref='searchBar'
+          type='text'
+          className='invisible'
+          style={styles.searchBar} 
+          autofocus
+        />
         <div style={styles.titleContainer}>
-          <h1 style={styles.title}>{this.props.title}</h1>
+          <h1 ref='title' style={styles.title}>{this.props.title}</h1>
         </div>
         {right}
       </header>
@@ -61,29 +116,6 @@ var styles = {
     top: 0,
     width: '100%',
   },
-  leftIconContainer: {
-    position: 'absolute',
-    top: 22,
-    width: 50,
-    height: 50,
-    cursor: 'pointer',
-  },
-  backArrow: {
-    height: 20,
-    width: 20,
-    position: 'relative',
-    backgroundSize: 'contain',
-    backgroundRepeat: 'no-repeat',
-    backgroundPosition: 'center',
-    margin: '15px auto',
-  },
-  rightIconContainer: {
-    position: 'absolute',
-    right: 5,
-    top: 28,
-    width: 50,
-    height: 50,
-  },
   icon: {
     height: 25,
     width: 25,
@@ -91,6 +123,13 @@ var styles = {
     backgroundRepeat: 'no-repeat',
     backgroundPosition: 'center',
     margin: '10px auto',  
+  },
+  iconContainer: {
+    position: 'absolute',
+    top: 28,
+    width: 50,
+    height: 50,
+    cursor: 'pointer',
   },
   title: {
     fontFamily: 'Indie Flower',
@@ -109,6 +148,19 @@ var styles = {
     left: '50%',
     width: '75%',
     top: 28,
+  },
+  searchBar: {
+    position: 'absolute',
+    left: 45,
+    top: 33,
+    width: 33,
+    zIndex: 1,
+    outline: 'none',
+    borderRadius: 20,
+    padding: '5px 0 0 10px',
+    boxSizing: 'border-box',
+    height: 33,
+    border: 'none',
   },
 }
 

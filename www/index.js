@@ -13,6 +13,7 @@ var Splash             = require('./components/Splash');
 var Home               = require('./components/Home');
 var Place              = require('./components/Place');
 var Profile            = require('./components/Profile');
+var Search             = require('./components/Search');
 
 
 var AnimatedLocations = React.createClass({
@@ -46,10 +47,11 @@ var AnimatedLocations = React.createClass({
 var App = React.createClass({
   render: function() {
     return (
-      <AnimatedLocations hash className='main' transitionName="left">
+      <AnimatedLocations hash className='main' transitionName='left'>
         <Location path='/'                handler={Home} />
         <Location path='/place/:id/:name' handler={Place} />
         <Location path='/profile'         handler={Profile} />
+        <Location path='/search'          handler={Search} />
       </AnimatedLocations>
     )
   }

@@ -1102,3 +1102,19 @@ To disable web storage backup to iCloud, set the BackupWebStorage preference to 
 2015-04-22 15:10:57.585 EatOrNot[26728:5087829] Resetting plugins due to page load.
 2015-04-22 15:10:57.997 EatOrNot[26728:5087829] Finished load of: file:///Users/jeremyeaton/Library/Developer/CoreSimulator/Devices/1754065C-D770-4CED-88C2-CBACB746E403/data/Containers/Bundle/Application/AD4346EC-9163-470E-B291-025152793B92/EatOrNot.app/www/index.html
 2015-04-22 15:10:58.187 EatOrNot[26728:5087829] WARN: Each child in an array should have a unique "key" prop. Check the render method of Home. See http://fb.me/react-warning-keys for more information.
+2015-04-23 23:21:38.925 EatOrNot[39946:5365839] Apache Cordova native platform version 3.7.0 is starting.
+2015-04-23 23:21:38.927 EatOrNot[39946:5365839] Multi-tasking -> Device: YES, App: YES
+2015-04-23 23:21:38.937 EatOrNot[39946:5365839] Unlimited access to network resources
+2015-04-23 23:21:38.946 EatOrNot[39946:5365839] 
+
+Started backup to iCloud! Please be careful.
+Your application might be rejected by Apple if you store too much data.
+For more information please read "iOS Data Storage Guidelines" at:
+https://developer.apple.com/icloud/documentation/data-storage/
+To disable web storage backup to iCloud, set the BackupWebStorage preference to "local" in the Cordova config.xml file
+
+2015-04-23 23:21:39.530 EatOrNot[39946:5365839] Resetting plugins due to page load.
+2015-04-23 23:21:40.012 EatOrNot[39946:5365839] locationManager::didFailWithError (null)
+2015-04-23 23:21:40.133 EatOrNot[39946:5365839] Finished load of: file:///Users/jeremyeaton/Library/Developer/CoreSimulator/Devices/1754065C-D770-4CED-88C2-CBACB746E403/data/Containers/Bundle/Application/B09D8269-FA48-4E15-9302-3B440CA18105/EatOrNot.app/www/index.html
+2015-04-23 23:21:43.213 EatOrNot[39946:5365839] Setting the WebView's frame to {{0, 0}, {375, 623}}
+2015-04-23 23:21:43.225 EatOrNot[39946:5365839] THREAD WARNING: ['InAppBrowser'] took '88.403076' ms. Plugin should use a background thread.

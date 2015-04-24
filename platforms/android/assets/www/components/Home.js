@@ -9,7 +9,6 @@ var Home = React.createClass({
   getInitialState: function() {
     return {
       places: [],
-      dummyLink: null,
     };
   },
   componentDidMount: function() {
@@ -28,7 +27,11 @@ var Home = React.createClass({
         this.mapOptions.center.lat = position.coords.latitude;
         this.mapOptions.center.lng = position.coords.longitude;
         this.map = new google.maps.Map(this.refs.map.getDOMNode(), this.mapOptions);
-        window.map = this.map;
+
+        var svg = this.refs.svg.getDOMNode();
+        var img = svg.children[0];
+        svg.removeChild(img);
+
         var img = { url: 'img/blue-pearl.png', scaledSide: new google.maps.Size(5, 5) };
         new google.maps.Marker({position: this.mapOptions.center, map: this.map, icon: img});
         this.getNearbyPlaces();
@@ -106,7 +109,6 @@ var Home = React.createClass({
     Firebase.unauth();
   },
   render: function() {
-    window.link = <Link href='/place'>Test</Link>;
     var places = this.state.places.map(function(place, i) {
       return (
         <li 
@@ -125,9 +127,11 @@ var Home = React.createClass({
 
     return (
       <div className='page' style={styles.container}>
-        <Header title='Eat Or Nah' />
+        <Header left='search' title='Eat Or Nah' right='profile' />
+        <div ref='svg' style={styles.svgContainer}>
+          <img style={styles.svg} src="img/spinning-circles.svg" />
+        </div>
         <div ref='map' style={styles.map}></div>
-        <button onClick={this.logout}>Logout</button>
         <ul 
           style={styles.places}
           ref='places'>
@@ -145,6 +149,17 @@ var styles = {
   map: {
     width: '100%',
     height: 300,
+  },
+  svgContainer: {
+    position: 'absolute',
+    left: '50%',
+    top: 145,
+    zIndex: 1,
+  },
+  svg: {
+    position: 'relative',
+    width: 100,
+    left: '-50%',
   },
   places: {
     listStyleType: 'none',
@@ -189,7 +204,12 @@ var styles = {
   },
   infoWindow: {
     textDecoration: 'none',
-  }
+  },
+  logout: {
+    position: 'absolute',
+    top: 25,
+    right: 10,
+  },
 }
 
 module.exports = Home; 
