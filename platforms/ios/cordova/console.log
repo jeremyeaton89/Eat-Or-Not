@@ -1132,3 +1132,298 @@ To disable web storage backup to iCloud, set the BackupWebStorage preference to 
 2015-04-23 23:33:45.529 EatOrNot[40323:5375539] Resetting plugins due to page load.
 2015-04-23 23:33:45.870 EatOrNot[40323:5375539] locationManager::didFailWithError (null)
 2015-04-23 23:33:45.893 EatOrNot[40323:5375539] Finished load of: file:///Users/jeremyeaton/Library/Developer/CoreSimulator/Devices/1754065C-D770-4CED-88C2-CBACB746E403/data/Containers/Bundle/Application/A14B1C34-6BE8-43CC-8AFF-351AD20FE782/EatOrNot.app/www/index.html
+2015-04-24 13:13:11.964 EatOrNot[44678:5522072] Apache Cordova native platform version 3.7.0 is starting.
+2015-04-24 13:13:11.965 EatOrNot[44678:5522072] Multi-tasking -> Device: YES, App: YES
+2015-04-24 13:13:11.966 EatOrNot[44678:5522072] Unlimited access to network resources
+2015-04-24 13:13:11.968 EatOrNot[44678:5522072] 
+
+Started backup to iCloud! Please be careful.
+Your application might be rejected by Apple if you store too much data.
+For more information please read "iOS Data Storage Guidelines" at:
+https://developer.apple.com/icloud/documentation/data-storage/
+To disable web storage backup to iCloud, set the BackupWebStorage preference to "local" in the Cordova config.xml file
+
+2015-04-24 13:13:12.183 EatOrNot[44678:5522072] Resetting plugins due to page load.
+2015-04-24 13:13:12.601 EatOrNot[44678:5522072] locationManager::didFailWithError (null)
+2015-04-24 13:13:12.646 EatOrNot[44678:5522072] Finished load of: file:///Users/jeremyeaton/Library/Developer/CoreSimulator/Devices/1754065C-D770-4CED-88C2-CBACB746E403/data/Containers/Bundle/Application/737804D6-F943-4956-8163-25B7956E58D7/EatOrNot.app/www/index.html
+2015-04-24 13:14:40.317 EatOrNot[44678:5523181] Terminating since there is no system app.
+2015-04-24 13:14:57.565 EatOrNot[44913:5525602] Apache Cordova native platform version 3.7.0 is starting.
+2015-04-24 13:14:57.565 EatOrNot[44913:5525602] Multi-tasking -> Device: YES, App: YES
+2015-04-24 13:14:57.567 EatOrNot[44913:5525602] Unlimited access to network resources
+2015-04-24 13:14:57.568 EatOrNot[44913:5525602] 
+
+Started backup to iCloud! Please be careful.
+Your application might be rejected by Apple if you store too much data.
+For more information please read "iOS Data Storage Guidelines" at:
+https://developer.apple.com/icloud/documentation/data-storage/
+To disable web storage backup to iCloud, set the BackupWebStorage preference to "local" in the Cordova config.xml file
+
+2015-04-24 13:14:57.711 EatOrNot[44913:5525602] Resetting plugins due to page load.
+2015-04-24 13:14:58.051 EatOrNot[44913:5525602] Finished load of: file:///Users/jeremyeaton/Library/Developer/CoreSimulator/Devices/1754065C-D770-4CED-88C2-CBACB746E403/data/Containers/Bundle/Application/46707408-4D53-45D0-A214-52150341DB4C/EatOrNot.app/www/index.html
+2015-04-24 13:14:59.514 EatOrNot[44913:5525602] WARN: Each child in an array should have a unique "key" prop. Check the render method of Home. See http://fb.me/react-warning-keys for more information.
+2015-04-24 13:16:02.343 EatOrNot[45056:5526733] Apache Cordova native platform version 3.7.0 is starting.
+2015-04-24 13:16:02.344 EatOrNot[45056:5526733] Multi-tasking -> Device: YES, App: YES
+2015-04-24 13:16:02.345 EatOrNot[45056:5526733] Unlimited access to network resources
+2015-04-24 13:16:02.347 EatOrNot[45056:5526733] 
+
+Started backup to iCloud! Please be careful.
+Your application might be rejected by Apple if you store too much data.
+For more information please read "iOS Data Storage Guidelines" at:
+https://developer.apple.com/icloud/documentation/data-storage/
+To disable web storage backup to iCloud, set the BackupWebStorage preference to "local" in the Cordova config.xml file
+
+2015-04-24 13:16:02.471 EatOrNot[45056:5526733] Resetting plugins due to page load.
+2015-04-24 13:16:03.911 EatOrNot[45056:5526733] Finished load of: file:///Users/jeremyeaton/Library/Developer/CoreSimulator/Devices/1754065C-D770-4CED-88C2-CBACB746E403/data/Containers/Bundle/Application/1591B6C6-CB7B-4575-A754-17E691CB0FFC/EatOrNot.app/www/index.html
+2015-04-24 13:16:04.039 EatOrNot[45056:5526733] WARN: Each child in an array should have a unique "key" prop. Check the render method of Home. See http://fb.me/react-warning-keys for more information.
+2015-04-24 13:18:35.772 EatOrNot[45222:5530116] Apache Cordova native platform version 3.7.0 is starting.
+2015-04-24 13:18:35.772 EatOrNot[45222:5530116] Multi-tasking -> Device: YES, App: YES
+2015-04-24 13:18:35.773 EatOrNot[45222:5530116] Unlimited access to network resources
+2015-04-24 13:18:35.775 EatOrNot[45222:5530116] 
+
+Started backup to iCloud! Please be careful.
+Your application might be rejected by Apple if you store too much data.
+For more information please read "iOS Data Storage Guidelines" at:
+https://developer.apple.com/icloud/documentation/data-storage/
+To disable web storage backup to iCloud, set the BackupWebStorage preference to "local" in the Cordova config.xml file
+
+2015-04-24 13:18:35.886 EatOrNot[45222:5530116] Resetting plugins due to page load.
+2015-04-24 13:18:36.208 EatOrNot[45222:5530116] Finished load of: file:///Users/jeremyeaton/Library/Developer/CoreSimulator/Devices/1754065C-D770-4CED-88C2-CBACB746E403/data/Containers/Bundle/Application/B4805F29-0F4C-4304-9121-842EF1F371D4/EatOrNot.app/www/index.html
+2015-04-24 13:18:36.409 EatOrNot[45222:5530116] WARN: Each child in an array should have a unique "key" prop. Check the render method of Home. See http://fb.me/react-warning-keys for more information.
+2015-04-24 13:22:29.316 EatOrNot[45401:5533399] Apache Cordova native platform version 3.7.0 is starting.
+2015-04-24 13:22:29.317 EatOrNot[45401:5533399] Multi-tasking -> Device: YES, App: YES
+2015-04-24 13:22:29.318 EatOrNot[45401:5533399] Unlimited access to network resources
+2015-04-24 13:22:29.320 EatOrNot[45401:5533399] 
+
+Started backup to iCloud! Please be careful.
+Your application might be rejected by Apple if you store too much data.
+For more information please read "iOS Data Storage Guidelines" at:
+https://developer.apple.com/icloud/documentation/data-storage/
+To disable web storage backup to iCloud, set the BackupWebStorage preference to "local" in the Cordova config.xml file
+
+2015-04-24 13:22:29.483 EatOrNot[45401:5533399] Resetting plugins due to page load.
+2015-04-24 13:22:30.007 EatOrNot[45401:5533399] Finished load of: file:///Users/jeremyeaton/Library/Developer/CoreSimulator/Devices/1754065C-D770-4CED-88C2-CBACB746E403/data/Containers/Bundle/Application/CF779988-D043-4A74-9E69-A5ECFE3E8090/EatOrNot.app/www/index.html
+2015-04-24 13:22:30.502 EatOrNot[45401:5533399] WARN: Each child in an array should have a unique "key" prop. Check the render method of Home. See http://fb.me/react-warning-keys for more information.
+2015-04-24 13:23:35.450 EatOrNot[45540:5534407] Apache Cordova native platform version 3.7.0 is starting.
+2015-04-24 13:23:35.451 EatOrNot[45540:5534407] Multi-tasking -> Device: YES, App: YES
+2015-04-24 13:23:35.452 EatOrNot[45540:5534407] Unlimited access to network resources
+2015-04-24 13:23:35.454 EatOrNot[45540:5534407] 
+
+Started backup to iCloud! Please be careful.
+Your application might be rejected by Apple if you store too much data.
+For more information please read "iOS Data Storage Guidelines" at:
+https://developer.apple.com/icloud/documentation/data-storage/
+To disable web storage backup to iCloud, set the BackupWebStorage preference to "local" in the Cordova config.xml file
+
+2015-04-24 13:23:35.623 EatOrNot[45540:5534407] Resetting plugins due to page load.
+2015-04-24 13:23:36.012 EatOrNot[45540:5534407] Finished load of: file:///Users/jeremyeaton/Library/Developer/CoreSimulator/Devices/1754065C-D770-4CED-88C2-CBACB746E403/data/Containers/Bundle/Application/2078DAAF-F01E-4768-99BA-EFC775FA4213/EatOrNot.app/www/index.html
+2015-04-24 13:23:36.133 EatOrNot[45540:5534407] WARN: Each child in an array should have a unique "key" prop. Check the render method of Home. See http://fb.me/react-warning-keys for more information.
+2015-04-24 13:25:50.935 EatOrNot[45689:5535612] Apache Cordova native platform version 3.7.0 is starting.
+2015-04-24 13:25:50.937 EatOrNot[45689:5535612] Multi-tasking -> Device: YES, App: YES
+2015-04-24 13:25:50.938 EatOrNot[45689:5535612] Unlimited access to network resources
+2015-04-24 13:25:50.940 EatOrNot[45689:5535612] 
+
+Started backup to iCloud! Please be careful.
+Your application might be rejected by Apple if you store too much data.
+For more information please read "iOS Data Storage Guidelines" at:
+https://developer.apple.com/icloud/documentation/data-storage/
+To disable web storage backup to iCloud, set the BackupWebStorage preference to "local" in the Cordova config.xml file
+
+2015-04-24 13:25:51.053 EatOrNot[45689:5535612] Resetting plugins due to page load.
+2015-04-24 13:25:51.526 EatOrNot[45689:5535612] Finished load of: file:///Users/jeremyeaton/Library/Developer/CoreSimulator/Devices/1754065C-D770-4CED-88C2-CBACB746E403/data/Containers/Bundle/Application/34FD8C48-F6F1-4491-8D30-C16490349679/EatOrNot.app/www/index.html
+2015-04-24 13:25:51.681 EatOrNot[45689:5535612] WARN: Each child in an array should have a unique "key" prop. Check the render method of Home. See http://fb.me/react-warning-keys for more information.
+2015-04-24 13:26:45.462 EatOrNot[45824:5536825] Apache Cordova native platform version 3.7.0 is starting.
+2015-04-24 13:26:45.463 EatOrNot[45824:5536825] Multi-tasking -> Device: YES, App: YES
+2015-04-24 13:26:45.465 EatOrNot[45824:5536825] Unlimited access to network resources
+2015-04-24 13:26:45.467 EatOrNot[45824:5536825] 
+
+Started backup to iCloud! Please be careful.
+Your application might be rejected by Apple if you store too much data.
+For more information please read "iOS Data Storage Guidelines" at:
+https://developer.apple.com/icloud/documentation/data-storage/
+To disable web storage backup to iCloud, set the BackupWebStorage preference to "local" in the Cordova config.xml file
+
+2015-04-24 13:26:45.584 EatOrNot[45824:5536825] Resetting plugins due to page load.
+2015-04-24 13:26:46.030 EatOrNot[45824:5536825] Finished load of: file:///Users/jeremyeaton/Library/Developer/CoreSimulator/Devices/1754065C-D770-4CED-88C2-CBACB746E403/data/Containers/Bundle/Application/3CE2BD31-D460-4FC6-9663-3E8BCAC6D8E5/EatOrNot.app/www/index.html
+2015-04-24 13:26:46.302 EatOrNot[45824:5536825] WARN: Each child in an array should have a unique "key" prop. Check the render method of Home. See http://fb.me/react-warning-keys for more information.
+2015-04-24 13:29:10.510 EatOrNot[45973:5537665] Apache Cordova native platform version 3.7.0 is starting.
+2015-04-24 13:29:10.510 EatOrNot[45973:5537665] Multi-tasking -> Device: YES, App: YES
+2015-04-24 13:29:10.512 EatOrNot[45973:5537665] Unlimited access to network resources
+2015-04-24 13:29:10.514 EatOrNot[45973:5537665] 
+
+Started backup to iCloud! Please be careful.
+Your application might be rejected by Apple if you store too much data.
+For more information please read "iOS Data Storage Guidelines" at:
+https://developer.apple.com/icloud/documentation/data-storage/
+To disable web storage backup to iCloud, set the BackupWebStorage preference to "local" in the Cordova config.xml file
+
+2015-04-24 13:29:10.617 EatOrNot[45973:5537665] Resetting plugins due to page load.
+2015-04-24 13:29:11.085 EatOrNot[45973:5537665] Finished load of: file:///Users/jeremyeaton/Library/Developer/CoreSimulator/Devices/1754065C-D770-4CED-88C2-CBACB746E403/data/Containers/Bundle/Application/E081D371-7D25-43CE-8E7D-E57978204022/EatOrNot.app/www/index.html
+2015-04-24 13:29:11.636 EatOrNot[45973:5537665] WARN: Each child in an array should have a unique "key" prop. Check the render method of Home. See http://fb.me/react-warning-keys for more information.
+2015-04-24 13:30:02.501 EatOrNot[46111:5538662] Apache Cordova native platform version 3.7.0 is starting.
+2015-04-24 13:30:02.502 EatOrNot[46111:5538662] Multi-tasking -> Device: YES, App: YES
+2015-04-24 13:30:02.503 EatOrNot[46111:5538662] Unlimited access to network resources
+2015-04-24 13:30:02.505 EatOrNot[46111:5538662] 
+
+Started backup to iCloud! Please be careful.
+Your application might be rejected by Apple if you store too much data.
+For more information please read "iOS Data Storage Guidelines" at:
+https://developer.apple.com/icloud/documentation/data-storage/
+To disable web storage backup to iCloud, set the BackupWebStorage preference to "local" in the Cordova config.xml file
+
+2015-04-24 13:30:02.667 EatOrNot[46111:5538662] Resetting plugins due to page load.
+2015-04-24 13:30:02.981 EatOrNot[46111:5538662] Finished load of: file:///Users/jeremyeaton/Library/Developer/CoreSimulator/Devices/1754065C-D770-4CED-88C2-CBACB746E403/data/Containers/Bundle/Application/25A2F41F-70C8-406D-AC51-E3E9DDBD03AD/EatOrNot.app/www/index.html
+2015-04-24 13:30:03.224 EatOrNot[46111:5538662] WARN: Each child in an array should have a unique "key" prop. Check the render method of Home. See http://fb.me/react-warning-keys for more information.
+2015-04-24 13:30:56.510 EatOrNot[46242:5539498] Apache Cordova native platform version 3.7.0 is starting.
+2015-04-24 13:30:56.511 EatOrNot[46242:5539498] Multi-tasking -> Device: YES, App: YES
+2015-04-24 13:30:56.513 EatOrNot[46242:5539498] Unlimited access to network resources
+2015-04-24 13:30:56.514 EatOrNot[46242:5539498] 
+
+Started backup to iCloud! Please be careful.
+Your application might be rejected by Apple if you store too much data.
+For more information please read "iOS Data Storage Guidelines" at:
+https://developer.apple.com/icloud/documentation/data-storage/
+To disable web storage backup to iCloud, set the BackupWebStorage preference to "local" in the Cordova config.xml file
+
+2015-04-24 13:30:56.615 EatOrNot[46242:5539498] Resetting plugins due to page load.
+2015-04-24 13:30:57.071 EatOrNot[46242:5539498] Finished load of: file:///Users/jeremyeaton/Library/Developer/CoreSimulator/Devices/1754065C-D770-4CED-88C2-CBACB746E403/data/Containers/Bundle/Application/00C96E19-EDFB-473E-80B6-0326572B07F9/EatOrNot.app/www/index.html
+2015-04-24 13:30:57.208 EatOrNot[46242:5539498] WARN: Each child in an array should have a unique "key" prop. Check the render method of Home. See http://fb.me/react-warning-keys for more information.
+2015-04-24 13:32:24.182 EatOrNot[46384:5541634] Apache Cordova native platform version 3.7.0 is starting.
+2015-04-24 13:32:24.183 EatOrNot[46384:5541634] Multi-tasking -> Device: YES, App: YES
+2015-04-24 13:32:24.184 EatOrNot[46384:5541634] Unlimited access to network resources
+2015-04-24 13:32:24.185 EatOrNot[46384:5541634] 
+
+Started backup to iCloud! Please be careful.
+Your application might be rejected by Apple if you store too much data.
+For more information please read "iOS Data Storage Guidelines" at:
+https://developer.apple.com/icloud/documentation/data-storage/
+To disable web storage backup to iCloud, set the BackupWebStorage preference to "local" in the Cordova config.xml file
+
+2015-04-24 13:32:24.276 EatOrNot[46384:5541634] Resetting plugins due to page load.
+2015-04-24 13:32:24.775 EatOrNot[46384:5541634] Finished load of: file:///Users/jeremyeaton/Library/Developer/CoreSimulator/Devices/1754065C-D770-4CED-88C2-CBACB746E403/data/Containers/Bundle/Application/0DBC0CB8-6325-4059-AC57-4882B9A2DD29/EatOrNot.app/www/index.html
+2015-04-24 13:32:24.934 EatOrNot[46384:5541634] WARN: Each child in an array should have a unique "key" prop. Check the render method of Home. See http://fb.me/react-warning-keys for more information.
+2015-04-24 13:32:46.555 EatOrNot[46515:5542257] Apache Cordova native platform version 3.7.0 is starting.
+2015-04-24 13:32:46.556 EatOrNot[46515:5542257] Multi-tasking -> Device: YES, App: YES
+2015-04-24 13:32:46.558 EatOrNot[46515:5542257] Unlimited access to network resources
+2015-04-24 13:32:46.560 EatOrNot[46515:5542257] 
+
+Started backup to iCloud! Please be careful.
+Your application might be rejected by Apple if you store too much data.
+For more information please read "iOS Data Storage Guidelines" at:
+https://developer.apple.com/icloud/documentation/data-storage/
+To disable web storage backup to iCloud, set the BackupWebStorage preference to "local" in the Cordova config.xml file
+
+2015-04-24 13:32:46.654 EatOrNot[46515:5542257] Resetting plugins due to page load.
+2015-04-24 13:32:47.110 EatOrNot[46515:5542257] Finished load of: file:///Users/jeremyeaton/Library/Developer/CoreSimulator/Devices/1754065C-D770-4CED-88C2-CBACB746E403/data/Containers/Bundle/Application/113B8B11-7605-4726-88D5-22E15B1F3EB5/EatOrNot.app/www/index.html
+2015-04-24 13:32:47.402 EatOrNot[46515:5542257] WARN: Each child in an array should have a unique "key" prop. Check the render method of Home. See http://fb.me/react-warning-keys for more information.
+2015-04-24 13:33:19.086 EatOrNot[46644:5542829] Apache Cordova native platform version 3.7.0 is starting.
+2015-04-24 13:33:19.087 EatOrNot[46644:5542829] Multi-tasking -> Device: YES, App: YES
+2015-04-24 13:33:19.088 EatOrNot[46644:5542829] Unlimited access to network resources
+2015-04-24 13:33:19.090 EatOrNot[46644:5542829] 
+
+Started backup to iCloud! Please be careful.
+Your application might be rejected by Apple if you store too much data.
+For more information please read "iOS Data Storage Guidelines" at:
+https://developer.apple.com/icloud/documentation/data-storage/
+To disable web storage backup to iCloud, set the BackupWebStorage preference to "local" in the Cordova config.xml file
+
+2015-04-24 13:33:19.192 EatOrNot[46644:5542829] Resetting plugins due to page load.
+2015-04-24 13:33:19.822 EatOrNot[46644:5542829] Finished load of: file:///Users/jeremyeaton/Library/Developer/CoreSimulator/Devices/1754065C-D770-4CED-88C2-CBACB746E403/data/Containers/Bundle/Application/635213B3-502E-44A2-B7A0-450C14EB6838/EatOrNot.app/www/index.html
+2015-04-24 13:33:19.887 EatOrNot[46644:5542829] WARN: Each child in an array should have a unique "key" prop. Check the render method of Home. See http://fb.me/react-warning-keys for more information.
+2015-04-24 13:33:40.806 EatOrNot[46767:5543396] Apache Cordova native platform version 3.7.0 is starting.
+2015-04-24 13:33:40.807 EatOrNot[46767:5543396] Multi-tasking -> Device: YES, App: YES
+2015-04-24 13:33:40.809 EatOrNot[46767:5543396] Unlimited access to network resources
+2015-04-24 13:33:40.811 EatOrNot[46767:5543396] 
+
+Started backup to iCloud! Please be careful.
+Your application might be rejected by Apple if you store too much data.
+For more information please read "iOS Data Storage Guidelines" at:
+https://developer.apple.com/icloud/documentation/data-storage/
+To disable web storage backup to iCloud, set the BackupWebStorage preference to "local" in the Cordova config.xml file
+
+2015-04-24 13:33:40.944 EatOrNot[46767:5543396] Resetting plugins due to page load.
+2015-04-24 13:33:41.464 EatOrNot[46767:5543396] Finished load of: file:///Users/jeremyeaton/Library/Developer/CoreSimulator/Devices/1754065C-D770-4CED-88C2-CBACB746E403/data/Containers/Bundle/Application/F50EF247-5441-4C29-A92D-3D43B6C00AE6/EatOrNot.app/www/index.html
+2015-04-24 13:33:41.626 EatOrNot[46767:5543396] WARN: Each child in an array should have a unique "key" prop. Check the render method of Home. See http://fb.me/react-warning-keys for more information.
+2015-04-24 13:34:01.325 EatOrNot[46894:5543871] Apache Cordova native platform version 3.7.0 is starting.
+2015-04-24 13:34:01.325 EatOrNot[46894:5543871] Multi-tasking -> Device: YES, App: YES
+2015-04-24 13:34:01.329 EatOrNot[46894:5543871] Unlimited access to network resources
+2015-04-24 13:34:01.331 EatOrNot[46894:5543871] 
+
+Started backup to iCloud! Please be careful.
+Your application might be rejected by Apple if you store too much data.
+For more information please read "iOS Data Storage Guidelines" at:
+https://developer.apple.com/icloud/documentation/data-storage/
+To disable web storage backup to iCloud, set the BackupWebStorage preference to "local" in the Cordova config.xml file
+
+2015-04-24 13:34:01.451 EatOrNot[46894:5543871] Resetting plugins due to page load.
+2015-04-24 13:34:01.949 EatOrNot[46894:5543871] Finished load of: file:///Users/jeremyeaton/Library/Developer/CoreSimulator/Devices/1754065C-D770-4CED-88C2-CBACB746E403/data/Containers/Bundle/Application/87AE797C-A506-4E08-8402-00F94E4B651F/EatOrNot.app/www/index.html
+2015-04-24 13:34:02.105 EatOrNot[46894:5543871] WARN: Each child in an array should have a unique "key" prop. Check the render method of Home. See http://fb.me/react-warning-keys for more information.
+2015-04-24 13:34:49.149 EatOrNot[47031:5544611] Apache Cordova native platform version 3.7.0 is starting.
+2015-04-24 13:34:49.150 EatOrNot[47031:5544611] Multi-tasking -> Device: YES, App: YES
+2015-04-24 13:34:49.151 EatOrNot[47031:5544611] Unlimited access to network resources
+2015-04-24 13:34:49.153 EatOrNot[47031:5544611] 
+
+Started backup to iCloud! Please be careful.
+Your application might be rejected by Apple if you store too much data.
+For more information please read "iOS Data Storage Guidelines" at:
+https://developer.apple.com/icloud/documentation/data-storage/
+To disable web storage backup to iCloud, set the BackupWebStorage preference to "local" in the Cordova config.xml file
+
+2015-04-24 13:34:49.250 EatOrNot[47031:5544611] Resetting plugins due to page load.
+2015-04-24 13:34:49.669 EatOrNot[47031:5544611] Finished load of: file:///Users/jeremyeaton/Library/Developer/CoreSimulator/Devices/1754065C-D770-4CED-88C2-CBACB746E403/data/Containers/Bundle/Application/50B338F7-80BF-4F03-8745-400A8A55B92E/EatOrNot.app/www/index.html
+2015-04-24 13:34:50.240 EatOrNot[47031:5544611] WARN: Each child in an array should have a unique "key" prop. Check the render method of Home. See http://fb.me/react-warning-keys for more information.
+2015-04-24 13:35:28.396 EatOrNot[47161:5545213] Apache Cordova native platform version 3.7.0 is starting.
+2015-04-24 13:35:28.396 EatOrNot[47161:5545213] Multi-tasking -> Device: YES, App: YES
+2015-04-24 13:35:28.398 EatOrNot[47161:5545213] Unlimited access to network resources
+2015-04-24 13:35:28.399 EatOrNot[47161:5545213] 
+
+Started backup to iCloud! Please be careful.
+Your application might be rejected by Apple if you store too much data.
+For more information please read "iOS Data Storage Guidelines" at:
+https://developer.apple.com/icloud/documentation/data-storage/
+To disable web storage backup to iCloud, set the BackupWebStorage preference to "local" in the Cordova config.xml file
+
+2015-04-24 13:35:28.510 EatOrNot[47161:5545213] Resetting plugins due to page load.
+2015-04-24 13:35:28.971 EatOrNot[47161:5545213] Finished load of: file:///Users/jeremyeaton/Library/Developer/CoreSimulator/Devices/1754065C-D770-4CED-88C2-CBACB746E403/data/Containers/Bundle/Application/F388B122-9171-47A1-B841-6EED77AB4331/EatOrNot.app/www/index.html
+2015-04-24 13:35:29.189 EatOrNot[47161:5545213] WARN: Each child in an array should have a unique "key" prop. Check the render method of Home. See http://fb.me/react-warning-keys for more information.
+2015-04-24 13:36:06.788 EatOrNot[47288:5545851] Apache Cordova native platform version 3.7.0 is starting.
+2015-04-24 13:36:06.789 EatOrNot[47288:5545851] Multi-tasking -> Device: YES, App: YES
+2015-04-24 13:36:06.791 EatOrNot[47288:5545851] Unlimited access to network resources
+2015-04-24 13:36:06.793 EatOrNot[47288:5545851] 
+
+Started backup to iCloud! Please be careful.
+Your application might be rejected by Apple if you store too much data.
+For more information please read "iOS Data Storage Guidelines" at:
+https://developer.apple.com/icloud/documentation/data-storage/
+To disable web storage backup to iCloud, set the BackupWebStorage preference to "local" in the Cordova config.xml file
+
+2015-04-24 13:36:06.895 EatOrNot[47288:5545851] Resetting plugins due to page load.
+2015-04-24 13:36:07.351 EatOrNot[47288:5545851] Finished load of: file:///Users/jeremyeaton/Library/Developer/CoreSimulator/Devices/1754065C-D770-4CED-88C2-CBACB746E403/data/Containers/Bundle/Application/7790F6A1-72BC-4024-96D1-5912E1BC7BFC/EatOrNot.app/www/index.html
+2015-04-24 13:36:07.561 EatOrNot[47288:5545851] WARN: Each child in an array should have a unique "key" prop. Check the render method of Home. See http://fb.me/react-warning-keys for more information.
+2015-04-24 13:36:51.504 EatOrNot[47424:5546487] Apache Cordova native platform version 3.7.0 is starting.
+2015-04-24 13:36:51.505 EatOrNot[47424:5546487] Multi-tasking -> Device: YES, App: YES
+2015-04-24 13:36:51.506 EatOrNot[47424:5546487] Unlimited access to network resources
+2015-04-24 13:36:51.508 EatOrNot[47424:5546487] 
+
+Started backup to iCloud! Please be careful.
+Your application might be rejected by Apple if you store too much data.
+For more information please read "iOS Data Storage Guidelines" at:
+https://developer.apple.com/icloud/documentation/data-storage/
+To disable web storage backup to iCloud, set the BackupWebStorage preference to "local" in the Cordova config.xml file
+
+2015-04-24 13:36:51.603 EatOrNot[47424:5546487] Resetting plugins due to page load.
+2015-04-24 13:36:51.887 EatOrNot[47424:5546487] Finished load of: file:///Users/jeremyeaton/Library/Developer/CoreSimulator/Devices/1754065C-D770-4CED-88C2-CBACB746E403/data/Containers/Bundle/Application/9DA3E340-94C0-40BD-B949-F10D7FCAD117/EatOrNot.app/www/index.html
+2015-04-24 13:36:52.157 EatOrNot[47424:5546487] WARN: Each child in an array should have a unique "key" prop. Check the render method of Home. See http://fb.me/react-warning-keys for more information.
+2015-04-24 16:11:50.141 EatOrNot[50442:5615261] Apache Cordova native platform version 3.7.0 is starting.
+2015-04-24 16:11:50.141 EatOrNot[50442:5615261] Multi-tasking -> Device: YES, App: YES
+2015-04-24 16:11:50.143 EatOrNot[50442:5615261] Unlimited access to network resources
+2015-04-24 16:11:50.145 EatOrNot[50442:5615261] 
+
+Started backup to iCloud! Please be careful.
+Your application might be rejected by Apple if you store too much data.
+For more information please read "iOS Data Storage Guidelines" at:
+https://developer.apple.com/icloud/documentation/data-storage/
+To disable web storage backup to iCloud, set the BackupWebStorage preference to "local" in the Cordova config.xml file
+
+2015-04-24 16:11:50.338 EatOrNot[50442:5615261] Resetting plugins due to page load.
+2015-04-24 16:11:50.818 EatOrNot[50442:5615261] Finished load of: file:///Users/jeremyeaton/Library/Developer/CoreSimulator/Devices/1754065C-D770-4CED-88C2-CBACB746E403/data/Containers/Bundle/Application/1ABE080D-AA35-4E59-8A62-5F3EDAA056CA/EatOrNot.app/www/index.html
+2015-04-24 16:11:51.321 EatOrNot[50442:5615261] WARN: Each child in an array should have a unique "key" prop. Check the render method of Home. See http://fb.me/react-warning-keys for more information.

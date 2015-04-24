@@ -24,10 +24,11 @@ var Header = React.createClass({
       searchBar.classList.remove('invisible');
       searchBar.style.width = this.props.searchBarWidth + 'px';
       searchBar.classList.add('searchBar-slide-out');
+      searchBar.focus();
+      searchBar.focus();
       searchBar.addEventListener('webkitTransitionEnd', function() {
         searchBar.removeEventListener('webkitTransitionEnd', arguments.callee);
         searchBar.classList.remove('searchBar-slide-out');
-        searchBar.focus();
       });
     } else {
       searchBar.style.width = '33px';
@@ -91,6 +92,7 @@ var Header = React.createClass({
       <header style={styles.header}>
         {left}
         <input 
+        id='searchBar'
           ref='searchBar'
           type='search'
           className='invisible'
