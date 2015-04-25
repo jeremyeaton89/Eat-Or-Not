@@ -11,6 +11,13 @@ var Home = React.createClass({
       places: [],
     };
   },
+  getDefaultProps: function() {
+    return {      
+      placeMarkers: [],
+      curPosMarker: null,
+      curPosition: null,
+    };
+  },
   componentDidMount: function() {
     this.loadMap();
   },
@@ -24,6 +31,7 @@ var Home = React.createClass({
 
     if (navigator && navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(function(position) {
+        this.props.curPosition = position.coords;
         this.mapOptions.center.lat = position.coords.latitude;
         this.mapOptions.center.lng = position.coords.longitude;
         this.map = new google.maps.Map(this.refs.map.getDOMNode(), this.mapOptions);
@@ -33,32 +41,36 @@ var Home = React.createClass({
         svg.removeChild(img);
 
         var pulse = { url: 'img/puff.svg' };
-        new google.maps.Marker({position: this.mapOptions.center, map: this.map, icon: pulse, optimized: false,});
-        this.getNearbyPlaces();
+        this.props.curPosMarker = new google.maps.Marker({position: this.mapOptions.center, map: this.map, icon: pulse, optimized: false,});
+
+        this.getNearbyPlaces(null, true);
+        this.addMapListeners();
 
       }.bind(this));
     } else {
       alert('Geolocation is not supported :(');
     }
   },
-  dropPin: function(coords, key) {   
+  dropPin: function(coords, key, animated) {   
     var img = {
       url: 'http://maps.google.com/mapfiles/kml/paddle/' + key + '.png',
       scaledSize: new google.maps.Size(30, 30),
     };
 
-    return new google.maps.Marker({
+    var marker =  new google.maps.Marker({
       position: coords,
       map: this.map,
       icon: img,
-      animation: google.maps.Animation.DROP,
-    });        
+      animation: animated ? google.maps.Animation.DROP : null,
+    });      
+    this.props.placeMarkers.push(marker);
+    return marker; 
   },
-  getNearbyPlaces: function() {      
+  getNearbyPlaces: function(center, animated) {      
     if (this.map && this.mapOptions && this.mapOptions.center && Utils.objLength(this.mapOptions.center)) {
       var infoWindow = new google.maps.InfoWindow();
       var request = {
-        location: this.mapOptions.center,
+        location: center ? center : this.mapOptions.center,
         types: ['restaurant', 'food'],
         rankBy: google.maps.places.RankBy.DISTANCE,
       }
@@ -69,7 +81,7 @@ var Home = React.createClass({
           if (res.length > 10) res = res.slice(0,10);
 
           res.forEach(function(place, i) {
-            var marker = this.dropPin(place.geometry.location, i + 1);
+            var marker = this.dropPin(place.geometry.location, i + 1, animated);
             google.maps.event.addListener(marker, 'click', function() {
               var content = '<a id="infoWindow">' + place.name + '</a>';
               infoWindow.setContent(content);
@@ -106,11 +118,25 @@ var Home = React.createClass({
       console.warn('Google Map and mapOptions required.');
     }
   },
+  addMapListeners: function() {
+    // drag
+    google.maps.event.addListener(this.map, 'dragend', function(e) {
+      for (var i = 0; i < this.props.placeMarkers.length; i++) this.props.placeMarkers[i].setMap(null);
+      this.props.placeMarkers = [];
+      this.getNearbyPlaces(this.map.getCenter(), false);
+    }.bind(this));
+    // location
+    setInterval(function() {
+      navigator.geolocation.getCurrentPosition(function(position) {
+        if (this.props.curPosition != position.coords) {
+          this.props.curPosition  = position.coords;
+          this.props.curPosMarker.setPosition(position.coords);
+        }
+      }.bind(this));
+    }.bind(this), 10000);
+  },
   highlightPlace: function(key) {
     if (!this.props.noHighlight) this.refs.places.getDOMNode().children[key].style.background = 'rgba(190, 190, 190, 0.34)';
-  },
-  logout: function() {
-    Firebase.unauth();
   },
   render: function() {
     var places = this.state.places.map(function(place, i) {
@@ -239,11 +265,6 @@ var styles = {
   },
   infoWindow: {
     textDecoration: 'none',
-  },
-  logout: {
-    position: 'absolute',
-    top: 25,
-    right: 10,
   },
 }
 

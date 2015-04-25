@@ -92,7 +92,6 @@ var Header = React.createClass({
       <header style={styles.header}>
         {left}
         <input 
-        id='searchBar'
           ref='searchBar'
           type='search'
           className='invisible'
