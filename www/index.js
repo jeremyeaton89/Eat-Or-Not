@@ -47,7 +47,7 @@ var AnimatedLocations = React.createClass({
 });
 
 var App = React.createClass({
-  componentDidMount: function() {
+  componentWillMount: function() {
     window.addEventListener('hashchange', function(e) {
       History.setReferrerHash(e.oldURL.split('#')[1]);
     })

@@ -1,9 +1,10 @@
 /** @jsx React.DOM */
-var React = require('react');
-var Firebase = require('../firebase');
-var Utils = require('../utils');
-var Header = require('./Header');
-var Link  = require('react-router-component').Link;
+var React         = require('react');
+var Firebase      = require('../firebase');
+var Link          = require('react-router-component').Link;
+var Utils         = require('../utils');
+var Header        = require('./Header');
+var placeListItem = require('./PlaceListItem');
 
 var Home = React.createClass({
   getInitialState: function() {
@@ -98,7 +99,7 @@ var Home = React.createClass({
           google.maps.event.addListener(infoWindows, 'click', this.showPlace);
 
           var places = res.map(function(obj) {
-            var url = obj.photos && obj.photos ? 
+            var url = obj.photos && obj.photos[0] ? 
               obj.photos[0].getUrl({'maxWidth': 30, 'maxHeight': 30}) : 
               'img/restaurant-icon.png';
 
@@ -143,18 +144,13 @@ var Home = React.createClass({
   render: function() {
     var places = this.state.places.map(function(place, i) {
       return (
-        <li 
-          style={styles.place}
-          onClick={this.highlightPlace.bind(this, i)}>
-          <Link 
-            href={'/place/' + place.id + '/' + place.name} 
-            style={styles.placeLink}>
-            <span style={styles.number}>{i + 1}</span>
-            <div style={Utils.merge(styles.thumbnail, { backgroundImage: 'url(' + place.imgUrl + ')'})}></div>
-            <span style={styles.name}>{place.name}</span>
-          </Link>
-          <hr style={styles.hrItem} />
-        </li>
+        <placeListItem 
+          id={place.id} 
+          name={place.name} 
+          imgUrl={place.imgUrl} 
+          index={i}
+          highlightPlace={this.highlightPlace}
+        />
       );
     }.bind(this));
 
@@ -216,54 +212,10 @@ var styles = {
     margin: 'auto',
     opacity: 0,
   },
-  hrItem: {
-    width: '90%',
-    margin: 'auto',
-    opacity: .5,
-    position: 'relative',
-    bottom: 7,
-  },
   places: {
     listStyleType: 'none',
     padding: 0,
     margin: 0,
-  },
-  place: {
-    height: 32,
-    cursor: 'pointer',
-  },
-  placeLink: {
-    textDecoration: 'none',
-    color: 'black',
-    display: 'inline-block',
-    width: '100%',
-    height: 'inherit',
-    outline: 'none',
-    paddingLeft: 30,
-  },
-  link: {
-    cursor: 'pointer',
-  },
-  name: {
-    position: 'relative',
-    top: -9,
-  },
-  number: {
-    marginRight: 10,
-    position: 'relative',
-    top: -9,
-  },
-  thumbnail: {
-    height: 30,
-    width: 30,
-    backgroundSize: 'contain',
-    backgroundRepeat: 'no-repeat',
-    backgroundPosition: 'center',
-    borderRadius: 20,
-    WebkitBorderRadius: 20,
-    MozBorderRadius: 20,
-    display: 'inline-block',
-    marginRight: 10,
   },
   infoWindow: {
     textDecoration: 'none',

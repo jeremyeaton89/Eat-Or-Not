@@ -126,18 +126,20 @@ var Place = React.createClass({
     var dislikesString = this.state.dislikesCount == 1 ? '1 dislike' : this.state.dislikesCount + ' dislikes';
 
     return (
-      <div 
-        style={styles.container}
-        className='page'>
+      <div className='page'>
         <Header title={this.props.name} left='back'/>
 
-        <img 
-          ref='img'
-          style={styles.img} 
-          src={this.props.imgUrl}
-        />
+        <div style={styles.imgContainer}>
+          <img 
+            ref='img'
+            style={styles.img} 
+            src={this.props.imgUrl}
+          />
+        </div>
 
-        <div style={{textAlign: 'center'}}>
+        <p style={styles.flash}>Those who liked {this.props.name} also liked THIS</p>
+
+        <div style={styles.body}>
           <div style={styles.buttonContainer}>
             <div>{likesString}</div>
             <button 
@@ -145,7 +147,7 @@ var Place = React.createClass({
               disabled={this.state.disabled}
               style={styles.button} 
               onClick={this.incrLikes}>
-              <img style={styles.img} src='img/thumbs-up.png' />
+              <img src='img/thumbs-up.png' />
             </button>
           </div>
 
@@ -156,25 +158,33 @@ var Place = React.createClass({
               disabled={this.state.disabled}
               style={styles.button}
               onClick={this.incrDislikes}>
-              <img style={styles.img} src='img/thumbs-down.png' />
+              <img src='img/thumbs-down.png' />
             </button>
           </div>  
         </div>
-
-        <p style={{textAlign: 'center'}}>Those who liked {this.props.name} also liked THIS</p>
-
       </div>
     );
   }
 });
 
 var styles = {
-  container: {
-    background: 'white',
+  flash: {
+    margin: '5px 0',
+    textAlign: 'center',
   },
   img: {
     width: '100%',
-    maxHeight: '50%',
+    margin: 'auto',
+    bottom: '-100%',
+    top: '-100%',
+    minHeight: 200,
+    position: 'absolute',
+  },
+  imgContainer: {
+    width: '100%',
+    height: 200,
+    overflow: 'hidden',
+    position: 'relative',
   },
   button: {
     outline: 'none',
@@ -185,7 +195,12 @@ var styles = {
   buttonContainer: {
     width: '40%',
     display: 'inline-block',
-    margin: '50px 5%',
+    margin: '5px 5%',
+    background: 'white',
+  },
+  body: {
+    width: '100%',
+    textAlign: 'center',
   }
 }
 

@@ -52,12 +52,14 @@ var Profile = React.createClass({
     return (
       <div className='page'>
         <Header title={Auth.getUser().firstName} right='home' />
-        <img
-          ref='avatar'
-          style={styles.avatar}
-          src={Auth.getUser().avatarUrl}
-          onClick={this.uploadAvatar}
-        /> 
+        <div style={styles.avatarContainer}>
+          <img
+            ref='avatar'
+            style={styles.avatar}
+            src={Auth.getUser().avatarUrl}
+            onClick={this.uploadAvatar}
+          /> 
+        </div>
         <div
           ref='carousel'
           style={styles.carousel}>
@@ -89,21 +91,26 @@ styles = {
     width: '90%',
     margin: '0 5%',
     height: 35,
-    bottom: 100,
+    bottom: 90,
     outline: 'none',
     border: 'none',
-    opacity: 0.3,
+    background: 'rgba(128, 128, 128, 0.5)',
   },
   avatar: {
     width: '100%',
+    margin: 'auto',
+    bottom: '-100%',
+    top: '-100%',
     position: 'absolute',
-    top: 0,
+  },
+  avatarContainer: {
+    width: '100%',
+    height: 200,
+    overflow: 'hidden',
+    position: 'relative',
   },
   carousel: {
     width: '100%',
-    position: 'absolute',
-    top: 300,
-    // background: 'teal',
     height: '100%',
   },
   carouselTitle: {
@@ -116,7 +123,7 @@ styles = {
   likes: {
     listStyleType: 'none',
     margin: 0,
-    padding: 0,
+    padding: '5px 0 0 0 ',
   },
   dislikes: {
 

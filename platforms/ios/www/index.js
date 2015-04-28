@@ -9,6 +9,7 @@ var Firebase           = require('./firebase');
 var Utils              = require('./utils');
 var User               = require('./user');
 var Auth               = require('./auth');
+var History            = require('./history');
 
 var Splash             = require('./components/Splash');
 var Home               = require('./components/Home');
@@ -46,6 +47,11 @@ var AnimatedLocations = React.createClass({
 });
 
 var App = React.createClass({
+  componentWillMount: function() {
+    window.addEventListener('hashchange', function(e) {
+      History.setReferrerHash(e.oldURL.split('#')[1]);
+    })
+  },
   render: function() {
     return (
       <AnimatedLocations hash className='main' transitionName='left'>
@@ -62,7 +68,8 @@ var initAuthHandler = function() {
   var container = document.getElementById('container');
   Firebase.onAuth(function(session) {
     if (session) {
-      User.fetch(session.uid, function(user) {
+      var id = session.uid.split(':')[1];
+      User.fetch(id, function(user) {
         if (user) {
           Auth.setUser(user);
         } else {
