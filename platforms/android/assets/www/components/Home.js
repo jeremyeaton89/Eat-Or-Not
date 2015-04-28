@@ -32,8 +32,8 @@ var Home = React.createClass({
         var img = svg.children[0];
         svg.removeChild(img);
 
-        var img = { url: 'img/blue-pearl.png', scaledSide: new google.maps.Size(5, 5) };
-        new google.maps.Marker({position: this.mapOptions.center, map: this.map, icon: img});
+        var pulse = { url: 'img/puff.svg' };
+        new google.maps.Marker({position: this.mapOptions.center, map: this.map, icon: pulse, optimized: false,});
         this.getNearbyPlaces();
 
       }.bind(this));
@@ -51,6 +51,7 @@ var Home = React.createClass({
       position: coords,
       map: this.map,
       icon: img,
+      animation: google.maps.Animation.DROP,
     });        
   },
   getNearbyPlaces: function() {      
@@ -95,6 +96,9 @@ var Home = React.createClass({
               id: obj.place_id,
             };
           });
+
+          this.refs.subHeader.getDOMNode().style.opacity = 1;
+          this.refs.hr.getDOMNode().style.opacity = 1;
           this.setState({places: places});
         }
       }.bind(this))
@@ -103,7 +107,7 @@ var Home = React.createClass({
     }
   },
   highlightPlace: function(key) {
-    if (!this.props.noHighlight) this.refs.places.getDOMNode().children[key].style.background = '#A4CCF5';
+    if (!this.props.noHighlight) this.refs.places.getDOMNode().children[key].style.background = 'rgba(190, 190, 190, 0.34)';
   },
   logout: function() {
     Firebase.unauth();
@@ -121,6 +125,7 @@ var Home = React.createClass({
             <div style={Utils.merge(styles.thumbnail, { backgroundImage: 'url(' + place.imgUrl + ')'})}></div>
             <span style={styles.name}>{place.name}</span>
           </Link>
+          <hr style={styles.hrItem} />
         </li>
       );
     }.bind(this));
@@ -132,6 +137,13 @@ var Home = React.createClass({
           <img style={styles.svg} src="img/spinning-circles.svg" />
         </div>
         <div ref='map' style={styles.map}></div>
+        <h2 
+          ref='subHeader'
+          className='fade-in'
+          style={styles.subHeader}>
+          Nearby Places
+        </h2>
+        <hr ref='hr' className='fade-in' style={styles.hr} />
         <ul 
           style={styles.places}
           ref='places'>
@@ -161,12 +173,35 @@ var styles = {
     width: 100,
     left: '-50%',
   },
+  subHeader: {
+    textAlign: 'center',
+    margin: '15px 0 10px 0',
+    letterSpacing: 10,
+    fontFamily: 'verdana',
+    fontSize: 15,
+    fontWeight: 100,
+    textTransform: 'uppercase',
+    opacity: 0,
+  },
+  hr: {
+    width: '95%',
+    margin: 'auto',
+    opacity: 0,
+  },
+  hrItem: {
+    width: '90%',
+    margin: 'auto',
+    opacity: .5,
+    position: 'relative',
+    bottom: 7,
+  },
   places: {
     listStyleType: 'none',
     padding: 0,
+    margin: 0,
   },
   place: {
-    height: 30,
+    height: 32,
     cursor: 'pointer',
   },
   placeLink: {

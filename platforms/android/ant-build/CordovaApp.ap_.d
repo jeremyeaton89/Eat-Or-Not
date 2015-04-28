@@ -77,10 +77,12 @@
 /Users/jeremyeaton/Desktop/Projects/EatOrNot/platforms/android/assets/www/components/Splash.js \
 /Users/jeremyeaton/Desktop/Projects/EatOrNot/platforms/android/assets/www/css/index.css \
 /Users/jeremyeaton/Desktop/Projects/EatOrNot/platforms/android/assets/www/css/reset.css \
+/Users/jeremyeaton/Desktop/Projects/EatOrNot/platforms/android/assets/www/img/blue-circle.png \
 /Users/jeremyeaton/Desktop/Projects/EatOrNot/platforms/android/assets/www/img/blue-pearl.png \
 /Users/jeremyeaton/Desktop/Projects/EatOrNot/platforms/android/assets/www/img/facebook_button.png \
 /Users/jeremyeaton/Desktop/Projects/EatOrNot/platforms/android/assets/www/img/home-icon.png \
 /Users/jeremyeaton/Desktop/Projects/EatOrNot/platforms/android/assets/www/img/profile-icon.png \
+/Users/jeremyeaton/Desktop/Projects/EatOrNot/platforms/android/assets/www/img/puff.svg \
 /Users/jeremyeaton/Desktop/Projects/EatOrNot/platforms/android/assets/www/img/restaurant-icon.png \
 /Users/jeremyeaton/Desktop/Projects/EatOrNot/platforms/android/assets/www/img/search-icon.png \
 /Users/jeremyeaton/Desktop/Projects/EatOrNot/platforms/android/assets/www/img/spinning-circles.svg \

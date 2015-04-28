@@ -12,12 +12,17 @@ var Place = React.createClass({
     this.endpoint.once('value', function(snapshot) {
       var data = snapshot.val();
       if (data === null) {
-        this.endpoint.set({'likesCount': 0, 'dislikesCount': 0, 'name': this.props.name})
+        this.getPlaceDetails(function(data) {
+          this.endpoint.set(data);
+          this.updateUIAndProps(data);
+        }.bind(this));
       } else {
         this.setState({
           likesCount: data.likesCount,
           dislikesCount: data.dislikesCount,
-        })
+        });
+
+        this.updateUIAndProps(data);
       }
     }.bind(this));
   },
@@ -35,31 +40,72 @@ var Place = React.createClass({
       disabled:      null,
     }
   },
+  getDefaultProps: function() {
+    return {
+      imgUrl: 'img/restaurant-icon.png',
+      website: null,
+      address: null,
+    };
+  },
+  updateUIAndProps: function(data) {
+    if (data.imgUrl) {
+      this.props.imgUrl = data.imgUrl;
+      this.refs.img.getDOMNode().src = data.imgUrl;
+    }
+    // if (data.website)
+    // if (data.address)
+  },
+  getPlaceDetails: function(callback) {
+    var map = new google.maps.Map(document.createElement('div')); // dummy map
+    new google.maps.places.PlacesService(map).getDetails({placeId: this.props.id}, function(place, status) {
+      if (status == google.maps.places.PlacesServiceStatus.OK) {
+        var imgUrl = place.photos && place.photos[0] ? 
+                   place.photos[0].getUrl({'maxWidth': 400, 'maxHeight': 400}) : 
+                   'img/restaurant-icon.png';
+
+        var details = {
+          likesCount:    0,
+          dislikesCount: 0,
+          name:          this.props.name,
+          address:       place.vicinity,
+          website:       place.website || '',
+          imgUrl:        imgUrl,
+          id:            this.props.id,
+        };
+        callback(details);
+      } else { console.log('PlaceService Error: ' + status); }
+    }.bind(this))
+  },
   incrLikes: function() {
     this.endpoint.child('likesCount').transaction(function(current_val) {
       return (current_val || 0) + 1;
     });
-    this.updatePlace(true);
+    this.addUserPlace(true);
   },
   incrDislikes: function() {
     this.endpoint.child('dislikesCount').transaction(function(current_val) {
       return (current_val || 0) + 1;
     });
-    this.updatePlace(false);
+    this.addUserPlace(false);
   },
-  updatePlace: function(like) {
-    Auth.getUser().endpoint.child('places/' + this.props.id).set(like);
+  addUserPlace: function(like) {
+    Auth.getUser().endpoint.child('places/' + this.props.id).set({
+      name: this.props.name, 
+      like: like,
+      imgUrl: this.props.imgUrl,
+      id: this.props.id,
+    });
 
     this.setState({disabled: 'disabled'});
-    like ? this.refs.thumbsDown.getDOMNode().style.opacity = 0.3 :
+    like ? this.refs.thumbsDown.getDOMNode().style.opacity = 0.3:
            this.refs.thumbsUp.getDOMNode().style.opacity   = 0.3;
   },
   checkPlace: function() {
-    Auth.getUser().getPlace(this.props.id, function(value) {
-      if (typeof value == 'boolean') {
+    Auth.getUser().getPlace(this.props.id, function(place) {
+      if (place) {
         this.setState({disabled: 'disabled'});
-        value ? this.refs.thumbsDown.getDOMNode().style.opacity = 0.3:
-                this.refs.thumbsUp.getDOMNode().style.opacity   = 0.3; 
+        place.like ? this.refs.thumbsDown.getDOMNode().style.opacity = 0.3:
+                     this.refs.thumbsUp.getDOMNode().style.opacity   = 0.3;         
       }
     }.bind(this));   
   },
@@ -84,6 +130,12 @@ var Place = React.createClass({
         style={styles.container}
         className='page'>
         <Header title={this.props.name} left='back'/>
+
+        <img 
+          ref='img'
+          style={styles.img} 
+          src={this.props.imgUrl}
+        />
 
         <div style={{textAlign: 'center'}}>
           <div style={styles.buttonContainer}>
@@ -121,7 +173,8 @@ var styles = {
     background: 'white',
   },
   img: {
-    width: 100,
+    width: '100%',
+    maxHeight: '50%',
   },
   button: {
     outline: 'none',

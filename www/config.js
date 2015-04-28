@@ -7,7 +7,10 @@ module.exports = {
   'FACEBOOK_REDIRECT_PATH' : '/auth/facebook',
 
   //Google Config
-  'GOOGLE_MAPS_API_KEY': 'AIzaSyARP_Yt-HZnPt8s7CNhRdVO4wHz8nIlxOc'
+  'GOOGLE_MAPS_API_KEY': 'AIzaSyARP_Yt-HZnPt8s7CNhRdVO4wHz8nIlxOc',
+
+  // AWS Config
+  'AVATAR_ROLE_ARN' : 'arn:aws:iam::963049535746:role/unlimited',
 
   // Environment Config
   'ENV' : "DEV",

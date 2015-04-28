@@ -129,8 +129,10 @@ var Home = React.createClass({
     setInterval(function() {
       navigator.geolocation.getCurrentPosition(function(position) {
         if (this.props.curPosition != position.coords) {
-          this.props.curPosition  = position.coords;
-          this.props.curPosMarker.setPosition(position.coords);
+          this.props.curPosition = position.coords;
+          var lat = position.coords.latitude,
+              lon = position.coords.longitude;
+          this.props.curPosMarker.setPosition(new google.maps.LatLng(lat, lon));
         }
       }.bind(this));
     }.bind(this), 10000);

@@ -1,14 +1,10 @@
 /** @jsx React.DOM */
-var React = require('react');
-var Utils = require('../utils');
-var Link  = require('react-router-component').Link;
+var React   = require('react');
+var Utils   = require('../utils');
+var Link    = require('react-router-component').Link;
+var History = require('../history');
 
 var Header = React.createClass({
-  getInitialState: function() {
-    return {
-      searchBar: null,
-    };
-  },
   getDefaultProps: function() {
     return {
       searchBarWidth: (window.innerWidth > 0 ? window.innerWidth : screen.width) - 94,
@@ -41,18 +37,17 @@ var Header = React.createClass({
         title.classList.add('fade-in');
       });
     }
-
   },
   render: function() {
     var left  = '';
-    var right = '';
+    var right = ''; 
 
     switch(this.props.left) {
       case 'back':
         left = 
           <Link 
             transitionName='right'
-            href='/' 
+            href={History.getReferrerHash()}
             style={styles.iconContainer}>
             <div style={Utils.merge(styles.icon, { backgroundImage: 'url(img/white-arrow.png)'})}></div>
           </Link> 
@@ -113,6 +108,7 @@ var styles = {
     position: 'absolute',
     top: 0,
     width: '100%',
+    zIndex: 1,
   },
   icon: {
     height: 25,
