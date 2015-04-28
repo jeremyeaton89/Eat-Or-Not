@@ -72,7 +72,7 @@ var Utils = {
       }
       return arr;
     } 
-  }
+  },
 };
 
 module.exports = Utils;

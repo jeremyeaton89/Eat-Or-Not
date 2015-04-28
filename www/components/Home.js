@@ -201,7 +201,6 @@ var styles = {
     textAlign: 'center',
     margin: '15px 0 10px 0',
     letterSpacing: 10,
-    fontFamily: 'verdana',
     fontSize: 15,
     fontWeight: 100,
     textTransform: 'uppercase',
