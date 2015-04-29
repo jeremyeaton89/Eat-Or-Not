@@ -137,7 +137,7 @@ var Profile = React.createClass({
             <ul
               ref='likes'
               style={styles.list}>
-              {<li style={styles.emptyState}>You Have Not Liked Any Places</li>}
+              {likes.length ? likes : <li style={styles.emptyState}>You Have Not Liked Any Places</li>}
             </ul>
 
             <ul

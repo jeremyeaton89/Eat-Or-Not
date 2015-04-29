@@ -25,7 +25,7 @@ var Home = React.createClass({
   loadMap: function() {    
     this.mapOptions = {
       center: {},
-      zoom: 16,
+      zoom: 14,
       mapTypeId: google.maps.MapTypeId.ROADMAP,
       disableDefaultUI: true,
     };
@@ -44,7 +44,8 @@ var Home = React.createClass({
         var pulse = { url: 'img/puff.svg' };
         this.props.curPosMarker = new google.maps.Marker({position: this.mapOptions.center, map: this.map, icon: pulse, optimized: false,});
 
-        this.getNearbyPlaces(null, true);
+
+        this.getNearbyPlaces(null, true, this.fitBounds);
         this.addMapListeners();
 
       }.bind(this));
@@ -67,7 +68,7 @@ var Home = React.createClass({
     this.props.placeMarkers.push(marker);
     return marker; 
   },
-  getNearbyPlaces: function(center, animated) {      
+  getNearbyPlaces: function(center, animated, callback) {      
     if (this.map && this.mapOptions && this.mapOptions.center && Utils.objLength(this.mapOptions.center)) {
       var infoWindow = new google.maps.InfoWindow();
       var request = {
@@ -113,11 +114,28 @@ var Home = React.createClass({
           this.refs.subHeader.getDOMNode().style.opacity = 1;
           this.refs.hr.getDOMNode().style.opacity = 1;
           this.setState({places: places});
+          if (callback) callback();
         }
       }.bind(this))
     } else {
       console.warn('Google Map and mapOptions required.');
     }
+  },
+  fitBounds: function() {
+    var bounds = new google.maps.LatLngBounds();
+    for (var i = 0; i < this.props.placeMarkers.length; i++) {
+      bounds.extend(this.props.placeMarkers[i].getPosition());
+    }
+    this.map.fitBounds(bounds);
+  },
+  resetLocation: function() {
+    this.map.panTo(this.props.curPosMarker.getPosition());
+    for (var i = 0; i < this.props.placeMarkers.length; i++) this.props.placeMarkers[i].setMap(null);
+    this.props.placeMarkers = [];
+    this.getNearbyPlaces(this.curPosition, true, function() {
+      this.fitBounds();
+    }.bind(this));
+    this.refs.resetButton.getDOMNode().classList.add('hidden');
   },
   addMapListeners: function() {
     // drag
@@ -125,6 +143,8 @@ var Home = React.createClass({
       for (var i = 0; i < this.props.placeMarkers.length; i++) this.props.placeMarkers[i].setMap(null);
       this.props.placeMarkers = [];
       this.getNearbyPlaces(this.map.getCenter(), false);
+      var resetButton = this.refs.resetButton.getDOMNode();
+      if (resetButton.classList.contains('hidden')) resetButton.classList.remove('hidden');
     }.bind(this));
     // location
     setInterval(function() {
@@ -161,6 +181,13 @@ var Home = React.createClass({
           <img style={styles.svg} src="img/spinning-circles.svg" />
         </div>
         <div ref='map' style={styles.map}></div>
+        <div 
+          ref='resetButton'
+          className='hidden'
+          style={styles.resetButton}
+          onClick={this.resetLocation}>
+          <div style={styles.resetImg}></div>
+        </div>
         <h2 
           ref='subHeader'
           className='fade-in'
@@ -171,8 +198,6 @@ var Home = React.createClass({
         <ul 
           style={styles.places}
           ref='places'>
-          {places}
-          {places}
           {places}
         </ul>
       </div>
@@ -221,6 +246,30 @@ var styles = {
   },
   infoWindow: {
     textDecoration: 'none',
+  },
+  resetButton: {
+    position: 'absolute',
+    zIndex: 1,
+    width: 24,
+    height: 24,
+    borderRadius: 30,
+    right: 10,
+    top: 230,
+    textAlign: 'center',
+    boxShadow: '3px 4px 5px #888890',
+    border: '1px solid black',
+    cursor: 'pointer',
+  },
+  resetImg: {
+    backgroundImage: 'url(img/reset-icon.png)',
+    backgroundSize: 'contain',
+    backgroundRepeat: 'no-repeat',
+    backgroundPosition: 'center',
+    width: 44,
+    height: 44,
+    position: 'absolute',
+    top: -10,
+    right: -9.5,
   },
 }
 
