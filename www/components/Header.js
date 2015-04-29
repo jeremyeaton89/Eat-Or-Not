@@ -120,7 +120,7 @@ var styles = {
   },
   iconContainer: {
     position: 'absolute',
-    top: 28,
+    top: 25,
     width: 50,
     height: 50,
     cursor: 'pointer',
@@ -146,7 +146,7 @@ var styles = {
   searchBar: {
     position: 'absolute',
     left: 45,
-    top: 33,
+    top: 30,
     width: 33,
     zIndex: 1,
     outline: 'none',

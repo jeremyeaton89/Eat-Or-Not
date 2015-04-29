@@ -25,7 +25,7 @@ var Home = React.createClass({
   loadMap: function() {    
     this.mapOptions = {
       center: {},
-      zoom: 17,
+      zoom: 16,
       mapTypeId: google.maps.MapTypeId.ROADMAP,
       disableDefaultUI: true,
     };
@@ -172,6 +172,8 @@ var Home = React.createClass({
           style={styles.places}
           ref='places'>
           {places}
+          {places}
+          {places}
         </ul>
       </div>
     );
@@ -184,7 +186,7 @@ var styles = {
   },
   map: {
     width: '100%',
-    height: 300,
+    height: 200,
   },
   svgContainer: {
     position: 'absolute',
@@ -212,6 +214,7 @@ var styles = {
     opacity: 0,
   },
   places: {
+    overflow: 'auto',
     listStyleType: 'none',
     padding: 0,
     margin: 0,

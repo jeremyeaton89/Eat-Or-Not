@@ -1,11 +1,12 @@
 /** @jsx React.DOM */
-var React          = require('react');
-var Auth           = require('../auth');
-var Utils          = require('../utils');
-var Firebase       = require('../firebase');
-var AvatarUploader = require('../AvatarUploader');
-var Header         = require('./Header');
-var PlaceListItem  = require('./PlaceListItem');
+var React              = require('react/addons');
+var CSSTransitionGroup = React.addons.CSSTransitionGroup;
+var Auth               = require('../auth');
+var Utils              = require('../utils');
+var Firebase           = require('../firebase');
+var AvatarUploader     = require('../AvatarUploader');
+var Header             = require('./Header');
+var PlaceListItem      = require('./PlaceListItem');
 
 var Profile = React.createClass({
   getInitialState: function() {
@@ -18,19 +19,30 @@ var Profile = React.createClass({
     this.getUserPlaces();
     this.addClassStyles();
   },
+  getDefaultProps: function() {
+    return {
+      tabs:  ['leftTab', 'rightTab'],    
+      lists: ['likes', 'dislikes'],
+    };
+  },
   addClassStyles: function() {
-    var transitionCSS = [
-      '-webkit-transition: left .35s cubic-bezier(0.455, 0.03, 0.515, 0.955);',
-      'transition: left .35s cubic-bezier(0.455, 0.03, 0.515, 0.955);',
+    var transitionFontWeight = [
+      '-webkit-transition: font-weight .1s ease-out;',
+      'transition: font-weight .1s ease-out;',
     ].join('');
 
-    Utils.addCSSRule('.transition-tab', transitionCSS, 1);
+    Utils.addCSSRule('.transition-font-weight', transitionFontWeight, 1);
     Utils.addCSSRule('.active-tab', 'font-weight: 600 !important;border-bottom: 2px solid black;', 1);
   },
   getUserPlaces: function() {
     Auth.getUser().fetchLikes(function(likedPlaces) {
       this.setState({
         likes: likedPlaces,
+      });
+    }.bind(this));
+    Auth.getUser().fetchDislikes(function(dislikedPlaces) {
+      this.setState({
+        dislikes: dislikedPlaces,
       });
     }.bind(this));
   },
@@ -46,25 +58,34 @@ var Profile = React.createClass({
   highlightPlace: function(key) {
     console.log('highlight Li: ' + key);
   },
-  slideTabs: function(destination) {
-    var left   = this.refs.leftTab.getDOMNode();
-    var center = this.refs.centerTab.getDOMNode();
-    var right  = this.refs.rightTab.getDOMNode();
-    
-    switch (destination) {
-      case 'left':
+  changeTab: function(key) {
+    var selectedTab = this.refs[this.props.tabs[key]].getDOMNode();
+    if (selectedTab.classList.contains('active-tab')) return;
 
-        break;
-      case 'center':
+    var currentTab = document.getElementsByClassName('active-tab')[0];
+    var currentKey = currentTab.getAttribute('data-key');
 
-        break;
-      case 'right':
+    currentTab.classList.remove('active-tab');
+    this.refs[this.props.lists[currentKey]].getDOMNode().classList.add('hidden');
 
-        break;
-    } 
+    selectedTab.classList.add('active-tab');
+    this.refs[this.props.lists[key]].getDOMNode().classList.remove('hidden');
+
   },
   render: function() {
     var likes = this.state.likes.map(function(place, i) {
+      return (
+        <PlaceListItem 
+          id={place.id} 
+          name={place.name} 
+          imgUrl={place.imgUrl} 
+          index={i}
+          highlightPlace={this.highlightPlace}
+        />
+      )
+    }.bind(this));
+
+    var dislikes = this.state.dislikes.map(function(place, i) {
       return (
         <PlaceListItem 
           id={place.id} 
@@ -87,64 +108,44 @@ var Profile = React.createClass({
             onClick={this.uploadAvatar}
           /> 
         </div>
-        <div
-          ref='carousel'
-          style={styles.carousel}>
+        <div style={styles.carousel}>
 
           <ul style={styles.tabs}>
-            <li 
-              ref='leftTab'
-              className='transition-tab' 
-              style={styles.tabContainer}>
+            <li style={Utils.merge(styles.tabContainer, {left: '30%'})}>
               <div 
-                className='left-tab'
-                style={Utils.merge(styles.tab, styles.leftTab)}>
-                Friends
-              </div>
-            </li>
-            <li 
-              ref='centerTab'
-              className='transition-tab' 
-              style={styles.tabContainer}>
-              <div 
-                className='center-tab active-tab'
-                style={Utils.merge(styles.tab, styles.centerTab)}>
+                ref='leftTab'
+                className='active-tab transition-font-weight'
+                data-key={0}
+                style={styles.tab}
+                onClick={this.changeTab.bind(this, 0)}>
                 Likes
               </div>
             </li>
-            <li 
-              ref='rightTab'
-              className='transition-tab' 
-              style={styles.tabContainer}>
+            <li style={Utils.merge(styles.tabContainer, {left: '70%'})}>
               <div 
-                className='right-tab'
-                style={Utils.merge(styles.tab, styles.rightTab)}>
+                ref='rightTab'
+                className='transition-font-weight'
+                data-key={1}
+                style={styles.tab}
+                onClick={this.changeTab.bind(this, 1)}>
                 Dislikes
               </div>
             </li>
           </ul>
           <hr style={styles.tabsHr} />
 
-          <ul
-            className='hidden'
-            style={styles.friends}
-            ref='friends'>
-            <li>Josh</li>
-            <li>Alec</li>
-          </ul>
+            <ul
+              ref='likes'
+              style={styles.list}>
+              {<li style={styles.emptyState}>You Have Not Liked Any Places</li>}
+            </ul>
 
-          <ul
-            ref='likes'
-            style={styles.likes}>
-            {likes}
-          </ul>
-
-          <ul
-            className='hidden'
-            ref='dislikes'
-            style={styles.dislikes}>
-            {this.state.dislikes}
-          </ul>
+            <ul
+              className='hidden'
+              ref='dislikes'
+              style={styles.list}>
+              {dislikes.length ? dislikes : <li style={styles.emptyState}>You Have Not Disliked Any Places</li>}
+            </ul>
 
         </div>
         <button style={styles.logout} onClick={this.logout}>Log Out</button>
@@ -158,11 +159,15 @@ styles = {
     position: 'absolute',
     width: '90%',
     margin: '0 5%',
-    height: 35,
-    bottom: 90,
+    height: 30,
+    bottom: 85,
     outline: 'none',
     border: 'none',
     background: 'rgba(128, 128, 128, 0.5)',
+    fontSize: 14,
+    fontWeight: 100,
+    letterSpacing: 2,
+    textTransform: 'uppercase',
   },
   avatar: {
     width: '100%',
@@ -184,7 +189,7 @@ styles = {
   tabs: {
     listStyleType: 'none',
     margin: 0,
-    paddingTop: 15,
+    paddingTop: 10,
     height: 45,
     textAlign: 'center',
     boxSizing: 'border-box',
@@ -198,24 +203,15 @@ styles = {
     margin: '0 2.5% 0 2.5%',
   },
   tabContainer: {
-    background: 'white',
     position: 'absolute',
-    left: '50%'
   },
   tab: {
     display: 'inline-block',
     position: 'relative',
-    width: 75,
+    padding: '5px 5px 0 5px',
     height: 22,
-  },
-  leftTab: {
-    left: '-95%',
-  },
-  centerTab: {
     left: '-50%',
-  },
-  rightTab: {
-    left: '-5%',
+    cursor: 'pointer',
   },
   carouselTitle: {
     margin: 0,
@@ -224,13 +220,19 @@ styles = {
     background: 'gray',
     lineHeight: '60px',
   },
-  likes: {
+  list: {
+    overflow: 'auto',
     listStyleType: 'none',
     margin: 0,
-    padding: '5px 0 0 0 ',
+    padding: '5px 0 0 0',
   },
-  dislikes: {
-
+  emptyState: {
+    textAlign: 'center',
+    fontFamily: 'Indie Flower',
+    fontSize: 24,
+    marginTop: 20,
+    color: '#D58406',
+    height: 35,
   },
 }
 
