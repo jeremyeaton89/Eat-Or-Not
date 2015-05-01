@@ -21,7 +21,6 @@ var Header = React.createClass({
       searchBar.style.width = this.props.searchBarWidth + 'px';
       searchBar.classList.add('searchBar-slide-out');
       searchBar.focus();
-      searchBar.focus();
       searchBar.addEventListener('webkitTransitionEnd', function() {
         searchBar.removeEventListener('webkitTransitionEnd', arguments.callee);
         searchBar.classList.remove('searchBar-slide-out');
@@ -38,9 +37,18 @@ var Header = React.createClass({
       });
     }
   },
+  initAutocomplete: function() {
+    var searchBar = this.refs.searchBar.gedDOMNode();
+    var autocomplete = new google.maps.places.Autocomplete(searchBar);
+    autocomplete.setTypes(['establishment']);
+    google.maps.event.addListener(autocomplete, 'place_changed', function() {
+      console.log('place change!!!');
+    });
+  },
   render: function() {
-    var left  = '';
-    var right = ''; 
+    var left      = '';
+    var right     = ''; 
+    var searchBar = '';
 
     switch(this.props.left) {
       case 'back':
@@ -58,7 +66,19 @@ var Header = React.createClass({
             onClick={this.animateSearchBar}
             style={styles.iconContainer}>
             <div style={Utils.merge(styles.icon, { backgroundImage: 'url(img/search-icon.png)'})}></div>
-          </a> 
+          </a>;
+
+          searchBar = 
+            <input
+              ref         = 'searchBar'
+              type        = 'search'
+              className   = 'invisible'
+              placeholder = 'Search Nearby Places...'
+              style       = {styles.searchBar} 
+              onKeyUp     = {this.props.searchHandlers.keyup}
+              onFocus     = {this.props.searchHandlers.focus}
+              onBlur      = {this.props.searchHandlers.blur}
+            />; 
         break;
     };
 
@@ -86,12 +106,7 @@ var Header = React.createClass({
     return(
       <header style={styles.header}>
         {left}
-        <input 
-          ref='searchBar'
-          type='search'
-          className='invisible'
-          style={styles.searchBar} 
-        />
+        {searchBar}
         <div style={styles.titleContainer}>
           <h1 ref='title' style={styles.title}>{this.props.title}</h1>
         </div>
@@ -155,6 +170,7 @@ var styles = {
     boxSizing: 'border-box',
     height: 33,
     border: 'none',
+    fontSize: 14,
   },
 }
 

@@ -1,14 +1,10 @@
 /** @jsx React.DOM */
-var React = require('react');
-var Utils = require('../utils');
-var Link  = require('react-router-component').Link;
+var React   = require('react');
+var Utils   = require('../utils');
+var Link    = require('react-router-component').Link;
+var History = require('../history');
 
 var Header = React.createClass({
-  getInitialState: function() {
-    return {
-      searchBar: null,
-    };
-  },
   getDefaultProps: function() {
     return {
       searchBarWidth: (window.innerWidth > 0 ? window.innerWidth : screen.width) - 94,
@@ -24,10 +20,10 @@ var Header = React.createClass({
       searchBar.classList.remove('invisible');
       searchBar.style.width = this.props.searchBarWidth + 'px';
       searchBar.classList.add('searchBar-slide-out');
+      searchBar.focus();
       searchBar.addEventListener('webkitTransitionEnd', function() {
         searchBar.removeEventListener('webkitTransitionEnd', arguments.callee);
         searchBar.classList.remove('searchBar-slide-out');
-        searchBar.focus();
       });
     } else {
       searchBar.style.width = '33px';
@@ -40,18 +36,25 @@ var Header = React.createClass({
         title.classList.add('fade-in');
       });
     }
-
+  },
+  initAutocomplete: function() {
+    var searchBar = this.refs.searchBar.gedDOMNode();
+    var autocomplete = new google.maps.places.Autocomplete(searchBar);
+    autocomplete.setTypes(['establishment']);
+    google.maps.event.addListener(autocomplete, 'place_changed', function() {
+      console.log('place change!!!');
+    });
   },
   render: function() {
     var left  = '';
-    var right = '';
+    var right = ''; 
 
     switch(this.props.left) {
       case 'back':
         left = 
           <Link 
             transitionName='right'
-            href='/' 
+            href={History.getReferrerHash()}
             style={styles.iconContainer}>
             <div style={Utils.merge(styles.icon, { backgroundImage: 'url(img/white-arrow.png)'})}></div>
           </Link> 
@@ -94,6 +97,7 @@ var Header = React.createClass({
           ref='searchBar'
           type='search'
           className='invisible'
+          placeholder='Search Places or Plates Nearby...'
           style={styles.searchBar} 
         />
         <div style={styles.titleContainer}>
@@ -112,6 +116,7 @@ var styles = {
     position: 'absolute',
     top: 0,
     width: '100%',
+    zIndex: 1,
   },
   icon: {
     height: 25,
@@ -123,7 +128,7 @@ var styles = {
   },
   iconContainer: {
     position: 'absolute',
-    top: 28,
+    top: 25,
     width: 50,
     height: 50,
     cursor: 'pointer',
@@ -149,7 +154,7 @@ var styles = {
   searchBar: {
     position: 'absolute',
     left: 45,
-    top: 33,
+    top: 30,
     width: 33,
     zIndex: 1,
     outline: 'none',
@@ -158,6 +163,7 @@ var styles = {
     boxSizing: 'border-box',
     height: 33,
     border: 'none',
+    fontSize: 14,
   },
 }
 

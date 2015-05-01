@@ -44,6 +44,35 @@ var Utils = {
     var ss = document.styleSheets;
     for (var i = 0; i < ss.length; i++) if (ss[i].href && ss[i].href.match(/index.css$/)) return ss[i];
   },
+  typeof: function(obj) {
+    switch (Object.prototype.toString.call(obj)) {
+      case '[object Array]':
+        return 'Array';
+        break;
+      case '[object Object]': 
+        return 'Object';
+        break;
+      case '[object String]':
+        return 'String';
+        break;
+      default:
+        return typeof obj;
+    }
+  },
+  unwrapObj: function(obj) {
+    return obj[Object.keys(obj)[0]];
+  },
+  unwrapObjs: function(objs) {
+    if (this.typeof(objs) != 'Object') {
+      console.error('Must pass an object.');
+    } else {
+      var arr = [];
+      for (var obj in objs) {
+        arr.push(objs[obj]);
+      }
+      return arr;
+    } 
+  },
 };
 
 module.exports = Utils;

@@ -5,6 +5,7 @@ var Link          = require('react-router-component').Link;
 var Utils         = require('../utils');
 var Header        = require('./Header');
 var placeListItem = require('./PlaceListItem');
+var HomeMap       = require('../map');
 
 var Home = React.createClass({
   getInitialState: function() {
@@ -25,7 +26,7 @@ var Home = React.createClass({
   loadMap: function() {    
     this.mapOptions = {
       center: {},
-      zoom: 16,
+      zoom: 14,
       mapTypeId: google.maps.MapTypeId.ROADMAP,
       disableDefaultUI: true,
     };
@@ -44,7 +45,7 @@ var Home = React.createClass({
         var pulse = { url: 'img/puff.svg' };
         this.props.curPosMarker = new google.maps.Marker({position: this.mapOptions.center, map: this.map, icon: pulse, optimized: false,});
 
-        this.getNearbyPlaces(null, true);
+        this.getNearbyPlaces(null, true, this.fitBounds);
         this.addMapListeners();
 
       }.bind(this));
@@ -67,7 +68,7 @@ var Home = React.createClass({
     this.props.placeMarkers.push(marker);
     return marker; 
   },
-  getNearbyPlaces: function(center, animated) {      
+  getNearbyPlaces: function(center, animated, callback) {      
     if (this.map && this.mapOptions && this.mapOptions.center && Utils.objLength(this.mapOptions.center)) {
       var infoWindow = new google.maps.InfoWindow();
       var request = {
@@ -76,55 +77,114 @@ var Home = React.createClass({
         rankBy: google.maps.places.RankBy.DISTANCE,
       }
 
-      var service = new google.maps.places.PlacesService(this.map);
-      service.nearbySearch(request, function(res, status) {
-        if (status == 'OK') {
-          if (res.length > 10) res = res.slice(0,10);
-
-          res.forEach(function(place, i) {
-            var marker = this.dropPin(place.geometry.location, i + 1, animated);
-            google.maps.event.addListener(marker, 'click', function() {
-              var content = '<a id="infoWindow">' + place.name + '</a>';
-              infoWindow.setContent(content);
-              infoWindow.open(this.map, marker);
-              var el = document.getElementById('infoWindow');
-              el.addEventListener('click', function() {
-                this.props.noHighlight = true;
-                this.refs.places.getDOMNode().children[i].children[0].click();
-              }.bind(this));
-            }.bind(this));
-          }.bind(this));
-
-          var infoWindows = document.getElementsByClassName('infoWindow');
-          google.maps.event.addListener(infoWindows, 'click', this.showPlace);
-
-          var places = res.map(function(obj) {
-            var url = obj.photos && obj.photos[0] ? 
-              obj.photos[0].getUrl({'maxWidth': 30, 'maxHeight': 30}) : 
-              'img/restaurant-icon.png';
-
-            return {
-              name: obj.name,
-              imgUrl: url,
-              id: obj.place_id,
-            };
-          });
-
-          this.refs.subHeader.getDOMNode().style.opacity = 1;
-          this.refs.hr.getDOMNode().style.opacity = 1;
-          this.setState({places: places});
+      this.service = this.service || new google.maps.places.PlacesService(this.map);
+      this.service.nearbySearch(request, function(res, status) {
+        if (status == google.maps.places.PlacesServiceStatus.OK) {
+          this.parseNearbyPlaces(res, animated, callback);
         }
       }.bind(this))
     } else {
       console.warn('Google Map and mapOptions required.');
     }
   },
+  fitBounds: function() {
+    var bounds = new google.maps.LatLngBounds();
+    for (var i = 0; i < this.props.placeMarkers.length; i++) {
+      bounds.extend(this.props.placeMarkers[i].getPosition());
+    }
+    this.map.fitBounds(bounds);
+  },
+  resetLocation: function() {
+    this.map.panTo(this.props.curPosMarker.getPosition());
+    this.clearPlaceMarkers();
+    this.getNearbyPlaces(this.curPosition, true, function() {
+      this.fitBounds();
+    }.bind(this));
+    this.refs.resetButton.getDOMNode().classList.add('hidden');
+  },
+  clearPlaceMarkers: function() {
+    for (var i = 0; i < this.props.placeMarkers.length; i++) this.props.placeMarkers[i].setMap(null);
+    this.props.placeMarkers = [];
+  },
+  searchByText: function(e) {
+    var searchBar = e.target;
+    if (searchBar.value.length) {
+      if (this.map) {
+        var request = {
+          location: this.mapOptions.center,
+          // radius: '500',
+          types: ['restaurant', 'food'],
+          name: searchBar.value,
+          // query: searchBar.value + '*',
+          rankBy: google.maps.places.RankBy.DISTANCE,
+        };
+        this.service = this.service || new google.maps.places.PlacesService(this.map);
+        this.service.nearbySearch(request, function(data, status) {
+          if (status == google.maps.places.PlacesServiceStatus.OK) {
+            // var places = data.map(function(place) { return place.name; })
+            // console.log('places', places);
+            this.parseNearbyPlaces(data, false);
+          } else {
+            console.log('TextSearch Error: ' + status);
+          }
+        }.bind(this));
+
+        console.log('handle text: ' + searchBar.value);  
+      } else {
+        console.log('Map is not instantiated');
+      }
+    } else {
+      this.getNearbyPlaces();
+    }
+    
+  },
+  parseNearbyPlaces: function(data, animated, callback) {
+    var places = data.map(function(place) { return place.name; })
+          console.log('places', places);
+    if (data.length > 10) data = data.slice(0,10);
+    
+    this.clearPlaceMarkers();
+
+    data.forEach(function(place, i) {
+      var marker = this.dropPin(place.geometry.location, i + 1, animated);
+      google.maps.event.addListener(marker, 'click', function() {
+        var content = '<a id="infoWindow">' + place.name + '</a>';
+        infoWindow.setContent(content);
+        infoWindow.open(this.map, marker);
+        var el = document.getElementById('infoWindow');
+        el.addEventListener('click', function() {
+          this.props.noHighlight = true;
+          this.refs.places.getDOMNode().children[i].children[0].click();
+        }.bind(this));
+      }.bind(this));
+    }.bind(this));
+
+    var infoWindows = document.getElementsByClassName('infoWindow');
+    google.maps.event.addListener(infoWindows, 'click', this.showPlace);
+
+    var places = data.map(function(obj) {
+      var url = obj.photos && obj.photos[0] ? 
+        obj.photos[0].getUrl({'maxWidth': 30, 'maxHeight': 30}) : 
+        'img/restaurant-icon.png';
+
+      return {
+        name: obj.name,
+        imgUrl: url,
+        id: obj.place_id,
+      };
+    });
+
+    this.refs.subHeader.getDOMNode().style.opacity = 1;
+    this.refs.hr.getDOMNode().style.opacity = 1;
+    this.setState({places: places});
+    if (callback) callback();
+  },
   addMapListeners: function() {
     // drag
     google.maps.event.addListener(this.map, 'dragend', function(e) {
-      for (var i = 0; i < this.props.placeMarkers.length; i++) this.props.placeMarkers[i].setMap(null);
-      this.props.placeMarkers = [];
       this.getNearbyPlaces(this.map.getCenter(), false);
+      var resetButton = this.refs.resetButton.getDOMNode();
+      if (resetButton.classList.contains('hidden')) resetButton.classList.remove('hidden');
     }.bind(this));
     // location
     setInterval(function() {
@@ -156,11 +216,18 @@ var Home = React.createClass({
 
     return (
       <div className='page' style={styles.container}>
-        <Header left='search' title='Eat Or Nah' right='profile' />
+        <Header left='search' title='Eat Or Nah' right='profile' searchByText={this.searchByText} />
         <div ref='svg' style={styles.svgContainer}>
           <img style={styles.svg} src="img/spinning-circles.svg" />
         </div>
         <div ref='map' style={styles.map}></div>
+        <div 
+          ref='resetButton'
+          className='hidden'
+          style={styles.resetButton}
+          onClick={this.resetLocation}>
+          <div style={styles.resetImg}></div>
+        </div>
         <h2 
           ref='subHeader'
           className='fade-in'
@@ -171,8 +238,6 @@ var Home = React.createClass({
         <ul 
           style={styles.places}
           ref='places'>
-          {places}
-          {places}
           {places}
         </ul>
       </div>
@@ -221,6 +286,30 @@ var styles = {
   },
   infoWindow: {
     textDecoration: 'none',
+  },
+  resetButton: {
+    position: 'absolute',
+    zIndex: 1,
+    width: 24,
+    height: 24,
+    borderRadius: 30,
+    right: 10,
+    top: 230,
+    textAlign: 'center',
+    boxShadow: '3px 4px 5px #888890',
+    border: '1px solid black',
+    cursor: 'pointer',
+  },
+  resetImg: {
+    backgroundImage: 'url(img/reset-icon.png)',
+    backgroundSize: 'contain',
+    backgroundRepeat: 'no-repeat',
+    backgroundPosition: 'center',
+    width: 44,
+    height: 44,
+    position: 'absolute',
+    top: -10,
+    right: -9.5,
   },
 }
 

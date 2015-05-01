@@ -6,8 +6,10 @@ var Router             = require('react-router-component');
 var Location           = Router.Location;
 var Link               = Router.Link;
 var Firebase           = require('./firebase');
+var Utils              = require('./utils');
 var User               = require('./user');
 var Auth               = require('./auth');
+var History            = require('./history');
 
 var Splash             = require('./components/Splash');
 var Home               = require('./components/Home');
@@ -45,6 +47,20 @@ var AnimatedLocations = React.createClass({
 });
 
 var App = React.createClass({
+  componentWillMount: function() {
+    this.updateReferrerHash();
+    // this.disableWebViewScroll();
+  },
+  updateReferrerHash: function() {
+    window.addEventListener('hashchange', function(e) {
+      History.setReferrerHash(e.oldURL.split('#')[1]);
+    });
+  },
+  disableWebViewScroll: function() {
+    document.ontouchstart = function(e){ 
+      e.preventDefault(); 
+    }
+  },
   render: function() {
     return (
       <AnimatedLocations hash className='main' transitionName='left'>
@@ -61,14 +77,13 @@ var initAuthHandler = function() {
   var container = document.getElementById('container');
   Firebase.onAuth(function(session) {
     if (session) {
-      Firebase.child('users').orderByKey().equalTo(session.uid).once('value', function(snapshot) {
-        var data = snapshot.val();
-        if (data) {
-          Auth.setUser(new User(data));
+      var id = session.uid.split(':')[1];
+      User.fetch(id, function(user) {
+        if (user) {
+          Auth.setUser(user);
         } else {
-          Firebase.child('users/' + session.uid).set({
-            'firstName': data.facebook.cachedUserProfile.first_name,
-            'lastName': data.facebook.cachedUserProfile.last_name,
+          User.create(session, function(newUser) {
+            Auth.setUser(newUser);
           });
         }
       });   

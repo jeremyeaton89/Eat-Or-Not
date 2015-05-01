@@ -12,12 +12,17 @@ var Place = React.createClass({
     this.endpoint.once('value', function(snapshot) {
       var data = snapshot.val();
       if (data === null) {
-        this.endpoint.set({'likesCount': 0, 'dislikesCount': 0, 'name': this.props.name})
+        this.getPlaceDetails(function(data) {
+          this.endpoint.set(data);
+          this.updateUIAndProps(data);
+        }.bind(this));
       } else {
         this.setState({
           likesCount: data.likesCount,
           dislikesCount: data.dislikesCount,
-        })
+        });
+
+        this.updateUIAndProps(data);
       }
     }.bind(this));
   },
@@ -35,31 +40,72 @@ var Place = React.createClass({
       disabled:      null,
     }
   },
+  getDefaultProps: function() {
+    return {
+      imgUrl: 'img/restaurant-icon.png',
+      website: null,
+      address: null,
+    };
+  },
+  updateUIAndProps: function(data) {
+    if (data.imgUrl) {
+      this.props.imgUrl = data.imgUrl;
+      this.refs.img.getDOMNode().src = data.imgUrl;
+    }
+    // if (data.website)
+    // if (data.address)
+  },
+  getPlaceDetails: function(callback) {
+    var map = new google.maps.Map(document.createElement('div')); // dummy map
+    new google.maps.places.PlacesService(map).getDetails({placeId: this.props.id}, function(place, status) {
+      if (status == google.maps.places.PlacesServiceStatus.OK) {
+        var imgUrl = place.photos && place.photos[0] ? 
+                   place.photos[0].getUrl({'maxWidth': 400, 'maxHeight': 400}) : 
+                   'img/restaurant-icon.png';
+
+        var details = {
+          likesCount:    0,
+          dislikesCount: 0,
+          name:          this.props.name,
+          address:       place.vicinity,
+          website:       place.website || '',
+          imgUrl:        imgUrl,
+          id:            this.props.id,
+        };
+        callback(details);
+      } else { console.log('PlaceService Error: ' + status); }
+    }.bind(this))
+  },
   incrLikes: function() {
     this.endpoint.child('likesCount').transaction(function(current_val) {
       return (current_val || 0) + 1;
     });
-    this.updatePlace(true);
+    this.addUserPlace(true);
   },
   incrDislikes: function() {
     this.endpoint.child('dislikesCount').transaction(function(current_val) {
       return (current_val || 0) + 1;
     });
-    this.updatePlace(false);
+    this.addUserPlace(false);
   },
-  updatePlace: function(like) {
-    Auth.getUser().endpoint.child('places/' + this.props.id).set(like);
+  addUserPlace: function(like) {
+    Auth.getUser().endpoint.child('places/' + this.props.id).set({
+      name: this.props.name, 
+      like: like,
+      imgUrl: this.props.imgUrl,
+      id: this.props.id,
+    });
 
     this.setState({disabled: 'disabled'});
-    like ? this.refs.thumbsDown.getDOMNode().style.opacity = 0.3 :
+    like ? this.refs.thumbsDown.getDOMNode().style.opacity = 0.3:
            this.refs.thumbsUp.getDOMNode().style.opacity   = 0.3;
   },
   checkPlace: function() {
-    Auth.getUser().getPlace(this.props.id, function(value) {
-      if (typeof value == 'boolean') {
+    Auth.getUser().getPlace(this.props.id, function(place) {
+      if (place) {
         this.setState({disabled: 'disabled'});
-        value ? this.refs.thumbsDown.getDOMNode().style.opacity = 0.3:
-                this.refs.thumbsUp.getDOMNode().style.opacity   = 0.3; 
+        place.like ? this.refs.thumbsDown.getDOMNode().style.opacity = 0.3:
+                     this.refs.thumbsUp.getDOMNode().style.opacity   = 0.3;         
       }
     }.bind(this));   
   },
@@ -80,12 +126,20 @@ var Place = React.createClass({
     var dislikesString = this.state.dislikesCount == 1 ? '1 dislike' : this.state.dislikesCount + ' dislikes';
 
     return (
-      <div 
-        style={styles.container}
-        className='page'>
+      <div className='page'>
         <Header title={this.props.name} left='back'/>
 
-        <div style={{textAlign: 'center'}}>
+        <div style={styles.imgContainer}>
+          <img 
+            ref='img'
+            style={styles.img} 
+            src={this.props.imgUrl}
+          />
+        </div>
+
+        <p style={styles.flash}>Those who liked {this.props.name} also liked THIS</p>
+
+        <div style={styles.body}>
           <div style={styles.buttonContainer}>
             <div>{likesString}</div>
             <button 
@@ -93,7 +147,7 @@ var Place = React.createClass({
               disabled={this.state.disabled}
               style={styles.button} 
               onClick={this.incrLikes}>
-              <img style={styles.img} src='img/thumbs-up.png' />
+              <img src='img/thumbs-up.png' />
             </button>
           </div>
 
@@ -104,24 +158,33 @@ var Place = React.createClass({
               disabled={this.state.disabled}
               style={styles.button}
               onClick={this.incrDislikes}>
-              <img style={styles.img} src='img/thumbs-down.png' />
+              <img src='img/thumbs-down.png' />
             </button>
           </div>  
         </div>
-
-        <p style={{textAlign: 'center'}}>Those who liked {this.props.name} also liked THIS</p>
-
       </div>
     );
   }
 });
 
 var styles = {
-  container: {
-    background: 'white',
+  flash: {
+    margin: '5px 0',
+    textAlign: 'center',
   },
   img: {
-    width: 100,
+    width: '100%',
+    margin: 'auto',
+    bottom: '-100%',
+    top: '-100%',
+    minHeight: 200,
+    position: 'absolute',
+  },
+  imgContainer: {
+    width: '100%',
+    height: 200,
+    overflow: 'hidden',
+    position: 'relative',
   },
   button: {
     outline: 'none',
@@ -132,7 +195,12 @@ var styles = {
   buttonContainer: {
     width: '40%',
     display: 'inline-block',
-    margin: '50px 5%',
+    margin: '5px 5%',
+    background: 'white',
+  },
+  body: {
+    width: '100%',
+    textAlign: 'center',
   }
 }
 

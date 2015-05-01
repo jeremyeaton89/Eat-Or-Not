@@ -14,7 +14,14 @@ function User(json) {
 
   this.fetchLikes = function(callback) {
     this.endpoint.child('places').orderByChild('like').equalTo(true).once('value', function(snapshot) {
-      var places = snapshot.val();
+      var places = snapshot.val() || {};
+      callback(Utils.unwrapObjs(places));
+    }.bind(this))
+  }.bind(this);
+
+  this.fetchDislikes = function(callback) {
+    this.endpoint.child('places').orderByChild('like').equalTo(false).once('value', function(snapshot) {
+      var places = snapshot.val() || {};
       callback(Utils.unwrapObjs(places));
     }.bind(this))
   }.bind(this);

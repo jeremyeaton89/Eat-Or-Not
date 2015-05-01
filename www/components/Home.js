@@ -5,6 +5,7 @@ var Link          = require('react-router-component').Link;
 var Utils         = require('../utils');
 var Header        = require('./Header');
 var placeListItem = require('./PlaceListItem');
+var HomeMap       = require('../map');
 
 var Home = React.createClass({
   getInitialState: function() {
@@ -19,8 +20,21 @@ var Home = React.createClass({
       curPosition: null,
     };
   },
+  componentWillMount: function() {
+    this.addClassStyles();
+  },
   componentDidMount: function() {
     this.loadMap();
+  },
+  addClassStyles: function() {
+    var transitionPlacesList = [
+      '-webkit-transition: top .25s cubic-bezier(0.455, 0.03, 0.515, 0.955);',
+      'transition: top .25s cubic-bezier(0.455, 0.03, 0.515, 0.955);',
+      '-webkit-transition-delay: .35s;',
+      'transition-delay: .35s;',
+    ].join('');
+
+    Utils.addCSSRule('.transition-places-list', transitionPlacesList, 1);
   },
   loadMap: function() {    
     this.mapOptions = {
@@ -43,7 +57,6 @@ var Home = React.createClass({
 
         var pulse = { url: 'img/puff.svg' };
         this.props.curPosMarker = new google.maps.Marker({position: this.mapOptions.center, map: this.map, icon: pulse, optimized: false,});
-
 
         this.getNearbyPlaces(null, true, this.fitBounds);
         this.addMapListeners();
@@ -77,44 +90,10 @@ var Home = React.createClass({
         rankBy: google.maps.places.RankBy.DISTANCE,
       }
 
-      var service = new google.maps.places.PlacesService(this.map);
-      service.nearbySearch(request, function(res, status) {
-        if (status == 'OK') {
-          if (res.length > 10) res = res.slice(0,10);
-
-          res.forEach(function(place, i) {
-            var marker = this.dropPin(place.geometry.location, i + 1, animated);
-            google.maps.event.addListener(marker, 'click', function() {
-              var content = '<a id="infoWindow">' + place.name + '</a>';
-              infoWindow.setContent(content);
-              infoWindow.open(this.map, marker);
-              var el = document.getElementById('infoWindow');
-              el.addEventListener('click', function() {
-                this.props.noHighlight = true;
-                this.refs.places.getDOMNode().children[i].children[0].click();
-              }.bind(this));
-            }.bind(this));
-          }.bind(this));
-
-          var infoWindows = document.getElementsByClassName('infoWindow');
-          google.maps.event.addListener(infoWindows, 'click', this.showPlace);
-
-          var places = res.map(function(obj) {
-            var url = obj.photos && obj.photos[0] ? 
-              obj.photos[0].getUrl({'maxWidth': 30, 'maxHeight': 30}) : 
-              'img/restaurant-icon.png';
-
-            return {
-              name: obj.name,
-              imgUrl: url,
-              id: obj.place_id,
-            };
-          });
-
-          this.refs.subHeader.getDOMNode().style.opacity = 1;
-          this.refs.hr.getDOMNode().style.opacity = 1;
-          this.setState({places: places});
-          if (callback) callback();
+      this.service = this.service || new google.maps.places.PlacesService(this.map);
+      this.service.nearbySearch(request, function(res, status) {
+        if (status == google.maps.places.PlacesServiceStatus.OK) {
+          this.parseNearbyPlaces(res, animated, callback);
         }
       }.bind(this))
     } else {
@@ -130,18 +109,93 @@ var Home = React.createClass({
   },
   resetLocation: function() {
     this.map.panTo(this.props.curPosMarker.getPosition());
-    for (var i = 0; i < this.props.placeMarkers.length; i++) this.props.placeMarkers[i].setMap(null);
-    this.props.placeMarkers = [];
+    this.clearPlaceMarkers();
     this.getNearbyPlaces(this.curPosition, true, function() {
       this.fitBounds();
     }.bind(this));
     this.refs.resetButton.getDOMNode().classList.add('hidden');
   },
+  clearPlaceMarkers: function() {
+    for (var i = 0; i < this.props.placeMarkers.length; i++) this.props.placeMarkers[i].setMap(null);
+    this.props.placeMarkers = [];
+  },
+  searchByText: function(e) {
+    var searchBar = e.target;
+    this.refs.places.getDOMNode().style.top = '75px';
+    if (searchBar.value.length) {
+      if (this.map) {
+        var request = {
+          location: this.mapOptions.center,
+          // radius: '500',
+          types: ['restaurant', 'food'],
+          name: searchBar.value,
+          // query: searchBar.value + '*',
+          rankBy: google.maps.places.RankBy.DISTANCE,
+        };
+        this.service = this.service || new google.maps.places.PlacesService(this.map);
+        this.service.nearbySearch(request, function(data, status) {
+          if (status == google.maps.places.PlacesServiceStatus.OK) {
+            // var places = data.map(function(place) { return place.name; })
+            // console.log('places', places);
+            this.parseNearbyPlaces(data, false);
+          } else {
+            console.log('TextSearch Error: ' + status);
+          }
+        }.bind(this));
+
+        console.log('handle text: ' + searchBar.value);  
+      } else {
+        console.log('Map is not instantiated');
+      }
+    } else {
+      this.getNearbyPlaces();
+    }
+    
+  },
+  parseNearbyPlaces: function(data, animated, callback) {
+    var places = data.map(function(place) { return place.name; })
+          console.log('places', places);
+    if (data.length > 10) data = data.slice(0,10);
+    
+    this.clearPlaceMarkers();
+
+    data.forEach(function(place, i) {
+      var marker = this.dropPin(place.geometry.location, i + 1, animated);
+      google.maps.event.addListener(marker, 'click', function() {
+        var content = '<a id="infoWindow">' + place.name + '</a>';
+        infoWindow.setContent(content);
+        infoWindow.open(this.map, marker);
+        var el = document.getElementById('infoWindow');
+        el.addEventListener('click', function() {
+          this.props.noHighlight = true;
+          this.refs.places.getDOMNode().children[i].children[0].click();
+        }.bind(this));
+      }.bind(this));
+    }.bind(this));
+
+    var infoWindows = document.getElementsByClassName('infoWindow');
+    google.maps.event.addListener(infoWindows, 'click', this.showPlace);
+
+    var places = data.map(function(obj) {
+      var url = obj.photos && obj.photos[0] ? 
+        obj.photos[0].getUrl({'maxWidth': 30, 'maxHeight': 30}) : 
+        'img/restaurant-icon.png';
+
+      return {
+        name: obj.name,
+        imgUrl: url,
+        id: obj.place_id,
+      };
+    });
+
+    this.refs.subHeader.getDOMNode().style.opacity = 1;
+    this.refs.hr.getDOMNode().style.opacity = 1;
+    this.setState({places: places});
+    if (callback) callback();
+  },
   addMapListeners: function() {
     // drag
     google.maps.event.addListener(this.map, 'dragend', function(e) {
-      for (var i = 0; i < this.props.placeMarkers.length; i++) this.props.placeMarkers[i].setMap(null);
-      this.props.placeMarkers = [];
       this.getNearbyPlaces(this.map.getCenter(), false);
       var resetButton = this.refs.resetButton.getDOMNode();
       if (resetButton.classList.contains('hidden')) resetButton.classList.remove('hidden');
@@ -158,6 +212,16 @@ var Home = React.createClass({
       }.bind(this));
     }.bind(this), 10000);
   },
+  transitionPlacesUp: function(e) {
+    this.refs.places.getDOMNode().style.top = '75px';
+    this.refs.subHeader.getDOMNode().style.opacity = 0;
+    this.refs.map.getDOMNode().style.opacity = 0;
+  },
+  transitionPlacesDown: function(e) {
+    this.refs.places.getDOMNode().style.top = '343px';
+    this.refs.subHeader.getDOMNode().style.opacity = 1;
+    this.refs.map.getDOMNode().style.opacity = 1;
+  },
   highlightPlace: function(key) {
     if (!this.props.noHighlight) this.refs.places.getDOMNode().children[key].style.background = 'rgba(190, 190, 190, 0.34)';
   },
@@ -173,14 +237,23 @@ var Home = React.createClass({
         />
       );
     }.bind(this));
+    var searchHandlers = {
+      keyup: this.searchByText,
+      focus: this.transitionPlacesUp,
+      blur:  this.transitionPlacesDown,
+    };
 
     return (
       <div className='page' style={styles.container}>
-        <Header left='search' title='Eat Or Nah' right='profile' />
+        <Header left='search' title='Eat Or Nah' right='profile' searchHandlers={searchHandlers} />
         <div ref='svg' style={styles.svgContainer}>
           <img style={styles.svg} src="img/spinning-circles.svg" />
         </div>
-        <div ref='map' style={styles.map}></div>
+        <div 
+          ref='map' 
+          className='fade'
+          style={styles.map}>
+        </div>
         <div 
           ref='resetButton'
           className='hidden'
@@ -190,14 +263,15 @@ var Home = React.createClass({
         </div>
         <h2 
           ref='subHeader'
-          className='fade-in'
+          className='fade'
           style={styles.subHeader}>
           Nearby Places
         </h2>
         <hr ref='hr' className='fade-in' style={styles.hr} />
         <ul 
-          style={styles.places}
-          ref='places'>
+          ref='places'
+          className='transition-places-list'
+          style={styles.places}>
           {places}
         </ul>
       </div>
@@ -243,6 +317,10 @@ var styles = {
     listStyleType: 'none',
     padding: 0,
     margin: 0,
+    width: '100%',
+    background: 'white',
+    position: 'absolute',
+    top: 343, // test ^ 
   },
   infoWindow: {
     textDecoration: 'none',
