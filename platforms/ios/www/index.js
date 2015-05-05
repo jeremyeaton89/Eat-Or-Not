@@ -5,6 +5,7 @@ var CSSTransitionGroup = React.addons.CSSTransitionGroup;
 var Router             = require('react-router-component');
 var Location           = Router.Location;
 var Link               = Router.Link;
+var FastClick          = require('./lib/fastclick');
 var Firebase           = require('./firebase');
 var Utils              = require('./utils');
 var User               = require('./user');
@@ -111,6 +112,7 @@ window.debug = function() {
     ul.id = 'debug';
     ul.style.position = 'absolute';
     ul.style.top = 0;
+    ul.style.zIndex = 999;
     document.body.appendChild(ul);
   }
 
@@ -123,5 +125,5 @@ window.debug = function() {
 
 document.addEventListener('DOMContentLoaded', function() {
   initAuthHandler();
-  if (typeof FastClick == 'function') FastClick.attach(document.body); 
+  if (typeof FastClick == 'function') FastClick(document.body);
 }, false);

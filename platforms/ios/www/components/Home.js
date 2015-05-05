@@ -20,8 +20,21 @@ var Home = React.createClass({
       curPosition: null,
     };
   },
+  componentWillMount: function() {
+    this.addClassStyles();
+  },
   componentDidMount: function() {
     this.loadMap();
+  },
+  addClassStyles: function() {
+    var transitionPlacesList = [
+      '-webkit-transition: top .25s cubic-bezier(0.455, 0.03, 0.515, 0.955);',
+      'transition: top .25s cubic-bezier(0.455, 0.03, 0.515, 0.955);',
+      // '-webkit-transition-delay: .35s;',
+      // 'transition-delay: .35s;',
+    ].join('');
+
+    Utils.addCSSRule('.transition-places-list', transitionPlacesList, 1);
   },
   loadMap: function() {    
     this.mapOptions = {
@@ -107,7 +120,16 @@ var Home = React.createClass({
     this.props.placeMarkers = [];
   },
   searchByText: function(e) {
+    console.log('event', e, 'code', e.KeyCode, 'which', e.which, 'end');
+
+    if (e.which == 13 || e.KeyCode == 13 && this.refs.places.getDOMNode().children.length == 1) {
+      console.log('submitting!!!!');
+      this.refs.places.getDOMNode().children[0].click();
+      return;
+    }
+
     var searchBar = e.target;
+    this.refs.places.getDOMNode().style.top = '75px';
     if (searchBar.value.length) {
       if (this.map) {
         var request = {
@@ -216,11 +238,15 @@ var Home = React.createClass({
 
     return (
       <div className='page' style={styles.container}>
-        <Header left='search' title='Eat Or Nah' right='profile' searchByText={this.searchByText} />
+        <Header left='search' title='Eat Or Nah' right='profile'/>
         <div ref='svg' style={styles.svgContainer}>
           <img style={styles.svg} src="img/spinning-circles.svg" />
         </div>
-        <div ref='map' style={styles.map}></div>
+        <div 
+          ref='map' 
+          className='fade'
+          style={styles.map}>
+        </div>
         <div 
           ref='resetButton'
           className='hidden'
@@ -230,14 +256,15 @@ var Home = React.createClass({
         </div>
         <h2 
           ref='subHeader'
-          className='fade-in'
+          className='fade'
           style={styles.subHeader}>
           Nearby Places
         </h2>
         <hr ref='hr' className='fade-in' style={styles.hr} />
         <ul 
-          style={styles.places}
-          ref='places'>
+          ref='places'
+          className='transition-places-list'
+          style={styles.places}>
           {places}
         </ul>
       </div>
@@ -283,6 +310,10 @@ var styles = {
     listStyleType: 'none',
     padding: 0,
     margin: 0,
+    width: '100%',
+    background: 'white',
+    position: 'absolute',
+    top: 330, // test ^ 
   },
   infoWindow: {
     textDecoration: 'none',

@@ -1457,3 +1457,75 @@ To disable web storage backup to iCloud, set the BackupWebStorage preference to 
 2015-04-24 21:47:02.134 EatOrNot[56443:5688843] Finished load of: file:///Users/jeremyeaton/Library/Developer/CoreSimulator/Devices/1754065C-D770-4CED-88C2-CBACB746E403/data/Containers/Bundle/Application/25339A44-FE4D-4792-8C26-6082C3B71DD3/EatOrNot.app/www/index.html
 2015-04-24 21:47:03.002 EatOrNot[56443:5688843] WARN: Each child in an array should have a unique "key" prop. Check the render method of Home. See http://fb.me/react-warning-keys for more information.
 2015-04-24 21:47:38.997 EatOrNot[56443:5688885] Terminating since there is no system app.
+2015-04-30 19:08:49.961 EatOrNot[72574:1417070] Apache Cordova native platform version 3.7.0 is starting.
+2015-04-30 19:08:49.962 EatOrNot[72574:1417070] Multi-tasking -> Device: YES, App: YES
+2015-04-30 19:08:49.970 EatOrNot[72574:1417070] Unlimited access to network resources
+2015-04-30 19:08:49.977 EatOrNot[72574:1417070] 
+
+Started backup to iCloud! Please be careful.
+Your application might be rejected by Apple if you store too much data.
+For more information please read "iOS Data Storage Guidelines" at:
+https://developer.apple.com/icloud/documentation/data-storage/
+To disable web storage backup to iCloud, set the BackupWebStorage preference to "local" in the Cordova config.xml file
+
+2015-04-30 19:08:50.448 EatOrNot[72574:1417070] Resetting plugins due to page load.
+2015-04-30 19:08:52.524 EatOrNot[72574:1417070] locationManager::didFailWithError (null)
+2015-04-30 19:08:52.624 EatOrNot[72574:1417070] Finished load of: file:///Users/jeremyeaton/Library/Developer/CoreSimulator/Devices/1754065C-D770-4CED-88C2-CBACB746E403/data/Containers/Bundle/Application/788CB78B-757D-4696-9B63-E5D2EB06A6E2/EatOrNot.app/www/index.html
+2015-05-02 00:12:04.376 EatOrNot[89066:1764378] Apache Cordova native platform version 3.7.0 is starting.
+2015-05-02 00:12:04.377 EatOrNot[89066:1764378] Multi-tasking -> Device: YES, App: YES
+2015-05-02 00:12:04.387 EatOrNot[89066:1764378] Unlimited access to network resources
+2015-05-02 00:12:04.393 EatOrNot[89066:1764378] 
+
+Started backup to iCloud! Please be careful.
+Your application might be rejected by Apple if you store too much data.
+For more information please read "iOS Data Storage Guidelines" at:
+https://developer.apple.com/icloud/documentation/data-storage/
+To disable web storage backup to iCloud, set the BackupWebStorage preference to "local" in the Cordova config.xml file
+
+2015-05-02 00:12:04.863 EatOrNot[89066:1764378] Resetting plugins due to page load.
+2015-05-02 00:12:05.886 EatOrNot[89066:1764378] Finished load of: file:///Users/jeremyeaton/Library/Developer/CoreSimulator/Devices/1754065C-D770-4CED-88C2-CBACB746E403/data/Containers/Bundle/Application/02CAC9DF-91B2-47AD-B23F-1A9491CB968B/EatOrNot.app/www/index.html
+2015-05-02 00:12:05.887 EatOrNot[89066:1764378] blach!
+2015-05-02 00:12:13.134 EatOrNot[89066:1764423] Terminating since there is no system app.
+2015-05-04 14:27:48.262 EatOrNot[96322:1866932] Apache Cordova native platform version 3.7.0 is starting.
+2015-05-04 14:27:48.264 EatOrNot[96322:1866932] Multi-tasking -> Device: YES, App: YES
+2015-05-04 14:27:48.273 EatOrNot[96322:1866932] Unlimited access to network resources
+2015-05-04 14:27:48.281 EatOrNot[96322:1866932] 
+
+Started backup to iCloud! Please be careful.
+Your application might be rejected by Apple if you store too much data.
+For more information please read "iOS Data Storage Guidelines" at:
+https://developer.apple.com/icloud/documentation/data-storage/
+To disable web storage backup to iCloud, set the BackupWebStorage preference to "local" in the Cordova config.xml file
+
+2015-05-04 14:27:48.874 EatOrNot[96322:1866932] Resetting plugins due to page load.
+2015-05-04 14:27:49.543 EatOrNot[96322:1866932] Finished load of: file:///Users/jeremyeaton/Library/Developer/CoreSimulator/Devices/1754065C-D770-4CED-88C2-CBACB746E403/data/Containers/Bundle/Application/6E22C5C4-66F2-4BCD-A4AF-8A3AB371F227/EatOrNot.app/www/index.html
+2015-05-04 20:00:27.685 EatOrNot[9264:2074030] Apache Cordova native platform version 3.7.0 is starting.
+2015-05-04 20:00:27.686 EatOrNot[9264:2074030] Multi-tasking -> Device: YES, App: YES
+2015-05-04 20:00:27.696 EatOrNot[9264:2074030] Unlimited access to network resources
+2015-05-04 20:00:27.702 EatOrNot[9264:2074030] 
+
+Started backup to iCloud! Please be careful.
+Your application might be rejected by Apple if you store too much data.
+For more information please read "iOS Data Storage Guidelines" at:
+https://developer.apple.com/icloud/documentation/data-storage/
+To disable web storage backup to iCloud, set the BackupWebStorage preference to "local" in the Cordova config.xml file
+
+2015-05-04 20:00:28.191 EatOrNot[9264:2074030] Resetting plugins due to page load.
+2015-05-04 20:00:28.647 EatOrNot[9264:2074030] Finished load of: file:///Users/jeremyeaton/Library/Developer/CoreSimulator/Devices/1754065C-D770-4CED-88C2-CBACB746E403/data/Containers/Bundle/Application/32890C19-24F9-431C-A3ED-42DDE597C6C9/EatOrNot.app/www/index.html
+2015-05-04 20:00:30.687 EatOrNot[9264:2074030] Setting the WebView's frame to {{0, 0}, {375, 623}}
+2015-05-04 20:00:30.698 EatOrNot[9264:2074030] THREAD WARNING: ['InAppBrowser'] took '83.200928' ms. Plugin should use a background thread.
+2015-05-04 20:00:32.259 EatOrNot[9264:2074030] DHID MOUNT active element =  [object HTMLBodyElement] END
+2015-05-04 20:00:32.273 EatOrNot[9264:2074030] locationManager::didFailWithError (null)
+2015-05-04 20:01:21.969 EatOrNot[9264:2074030] DHID MOUNT active element =  [object HTMLBodyElement] END
+2015-05-04 20:01:32.665 EatOrNot[9264:2074030] DHID MOUNT active element =  [object HTMLBodyElement] END
+2015-05-04 20:01:34.412 EatOrNot[9264:2074030] DHID MOUNT active element =  [object HTMLBodyElement] END
+2015-05-04 20:01:42.926 EatOrNot[9264:2074030] DHID MOUNT active element =  [object HTMLBodyElement] END
+2015-05-04 20:02:32.000 EatOrNot[9264:2074030] DHID MOUNT active element =  [object HTMLBodyElement] END
+2015-05-04 20:02:32.056 EatOrNot[9264:2074030] WARN: Each child in an array should have a unique "key" prop. Check the render method of Profile. See http://fb.me/react-warning-keys for more information.
+2015-05-04 20:02:32.057 EatOrNot[9264:2074030] WARN: FIREBASE WARNING: Using an unspecified index. Consider adding ".indexOn": "like" at /users/10153158543358604/places to your security rules for better performance 
+2015-05-04 20:02:32.096 EatOrNot[9264:2074030] WARN: FIREBASE WARNING: Using an unspecified index. Consider adding ".indexOn": "like" at /users/10153158543358604/places to your security rules for better performance 
+2015-05-04 20:02:35.945 EatOrNot[9264:2074030] DHID MOUNT active element =  [object HTMLBodyElement] END
+2015-05-04 20:03:11.346 EatOrNot[9264:2076777] Terminating since there is no system app.
+2015-05-04 20:03:11.351 EatOrNot[9264:2076802] Communications error: <OS_xpc_error: <error: 0x2e285f4> { count = 1, contents =
+	"XPCErrorDescription" => <string: 0x2e2883c> { length = 22, contents = "Connection interrupted" }
+}>

@@ -67,6 +67,7 @@
 /Users/jeremyeaton/Desktop/Projects/EatOrNot/platforms/android/assets/www/index.html \
 /Users/jeremyeaton/Desktop/Projects/EatOrNot/platforms/android/assets/www/index.js \
 /Users/jeremyeaton/Desktop/Projects/EatOrNot/platforms/android/assets/www/lib \
+/Users/jeremyeaton/Desktop/Projects/EatOrNot/platforms/android/assets/www/map.js \
 /Users/jeremyeaton/Desktop/Projects/EatOrNot/platforms/android/assets/www/plugins \
 /Users/jeremyeaton/Desktop/Projects/EatOrNot/platforms/android/assets/www/server.js \
 /Users/jeremyeaton/Desktop/Projects/EatOrNot/platforms/android/assets/www/user.js \

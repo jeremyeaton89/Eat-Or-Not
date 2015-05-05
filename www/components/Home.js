@@ -30,8 +30,8 @@ var Home = React.createClass({
     var transitionPlacesList = [
       '-webkit-transition: top .25s cubic-bezier(0.455, 0.03, 0.515, 0.955);',
       'transition: top .25s cubic-bezier(0.455, 0.03, 0.515, 0.955);',
-      '-webkit-transition-delay: .35s;',
-      'transition-delay: .35s;',
+      // '-webkit-transition-delay: .35s;',
+      // 'transition-delay: .35s;',
     ].join('');
 
     Utils.addCSSRule('.transition-places-list', transitionPlacesList, 1);
@@ -120,6 +120,14 @@ var Home = React.createClass({
     this.props.placeMarkers = [];
   },
   searchByText: function(e) {
+    console.log('event', e, 'code', e.KeyCode, 'which', e.which, 'end');
+
+    if (e.which == 13 || e.KeyCode == 13 && this.refs.places.getDOMNode().children.length == 1) {
+      console.log('submitting!!!!');
+      this.refs.places.getDOMNode().children[0].click();
+      return;
+    }
+
     var searchBar = e.target;
     this.refs.places.getDOMNode().style.top = '75px';
     if (searchBar.value.length) {
@@ -212,16 +220,6 @@ var Home = React.createClass({
       }.bind(this));
     }.bind(this), 10000);
   },
-  transitionPlacesUp: function(e) {
-    this.refs.places.getDOMNode().style.top = '75px';
-    this.refs.subHeader.getDOMNode().style.opacity = 0;
-    this.refs.map.getDOMNode().style.opacity = 0;
-  },
-  transitionPlacesDown: function(e) {
-    this.refs.places.getDOMNode().style.top = '343px';
-    this.refs.subHeader.getDOMNode().style.opacity = 1;
-    this.refs.map.getDOMNode().style.opacity = 1;
-  },
   highlightPlace: function(key) {
     if (!this.props.noHighlight) this.refs.places.getDOMNode().children[key].style.background = 'rgba(190, 190, 190, 0.34)';
   },
@@ -237,15 +235,10 @@ var Home = React.createClass({
         />
       );
     }.bind(this));
-    var searchHandlers = {
-      keyup: this.searchByText,
-      focus: this.transitionPlacesUp,
-      blur:  this.transitionPlacesDown,
-    };
 
     return (
       <div className='page' style={styles.container}>
-        <Header left='search' title='Eat Or Nah' right='profile' searchHandlers={searchHandlers} />
+        <Header left='search' title='Eat Or Nah' right='profile'/>
         <div ref='svg' style={styles.svgContainer}>
           <img style={styles.svg} src="img/spinning-circles.svg" />
         </div>
@@ -320,7 +313,7 @@ var styles = {
     width: '100%',
     background: 'white',
     position: 'absolute',
-    top: 343, // test ^ 
+    top: 330, // test ^ 
   },
   infoWindow: {
     textDecoration: 'none',

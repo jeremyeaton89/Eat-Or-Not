@@ -1,39 +1,50 @@
 /** @jsx React.DOM */
-var React   = require('react');
-var Utils   = require('../utils');
-var Link    = require('react-router-component').Link;
-var History = require('../history');
+var React              = require('react/addons');
+var CSSTransitionGroup = React.addons.CSSTransitionGroup;
+var Utils              = require('../utils');
+var Link               = require('react-router-component').Link;
+var History            = require('../history');
 
 var Header = React.createClass({
   getDefaultProps: function() {
     return {
-      searchBarWidth: (window.innerWidth > 0 ? window.innerWidth : screen.width) - 94,
+      searchBarWidth: (window.innerWidth > 0 ? window.innerWidth : screen.width) - 104,
+    };
+  },
+  componentWillMount: function() {
+    this.addClassStyles();
+  },
+  componentDidMount: function() {
+    if (this.props.left == 'search') {
+      setTimeout(function() {
+        var searchBar = this.refs.searchBar.getDOMNode();
+        searchBar.focus();  
+      }.bind(this), 200)
     }
   },
-  animateSearchBar: function() {
-    var searchBar = this.refs.searchBar.getDOMNode();
-    var title = this.refs.title.getDOMNode();
+  addClassStyles: function() {
+    var slide = [
+      '-webkit-transition: width .1s cubic-bezier(0.455, 0.03, 0.515, 0.955);',
+      'transition: width .1s cubic-bezier(0.455, 0.03, 0.515, 0.955);',
+    ].join('');
 
-    if (searchBar.classList.contains('invisible')) {
-      title.classList.remove('fade-in');
-      title.classList.add('fade-out');
-      searchBar.classList.remove('invisible');
-      searchBar.style.width = this.props.searchBarWidth + 'px';
-      searchBar.classList.add('searchBar-slide-out');
-      searchBar.focus();
+    Utils.addCSSRule('.searchBar-slide', slide, 1)
+  },
+  animateSearchBar: function(isActive) {
+    var searchBar = this.refs.searchBar.getDOMNode();
+
+    if (isActive) {
+      searchBar.style.width = '33px';
       searchBar.addEventListener('webkitTransitionEnd', function() {
         searchBar.removeEventListener('webkitTransitionEnd', arguments.callee);
-        searchBar.classList.remove('searchBar-slide-out');
+        location.href = '#';
       });
     } else {
-      searchBar.style.width = '33px';
-      searchBar.classList.add('searchBar-slide-in');
+      searchBar.style.width = this.props.searchBarWidth + 'px';
+      searchBar.classList.remove('invisible');
       searchBar.addEventListener('webkitTransitionEnd', function() {
         searchBar.removeEventListener('webkitTransitionEnd', arguments.callee);
-        searchBar.classList.remove('searchBar-slide-in');
-        searchBar.classList.add('invisible');
-        title.classList.remove('fade-out');
-        title.classList.add('fade-in');
+        location.href = '#/search';
       });
     }
   },
@@ -46,8 +57,9 @@ var Header = React.createClass({
     });
   },
   render: function() {
-    var left  = '';
-    var right = ''; 
+    var left      = '';
+    var right     = ''; 
+    var searchBar = '';
 
     switch(this.props.left) {
       case 'back':
@@ -60,12 +72,33 @@ var Header = React.createClass({
           </Link> 
         break;
       case 'search':
+        var isActive  = this.props.searchHandlers ? true : false;
+        var className = 'searchBar-slide '; 
+        if (isActive) {
+          styles.searchBar.width = this.props.searchBarWidth + 'px';
+        } else { 
+          className += 'invisible';
+          styles.searchBar.width = '33px';
+        }
         left = 
           <a 
-            onClick={this.animateSearchBar}
+            onClick={this.animateSearchBar.bind(this, isActive)}
             style={styles.iconContainer}>
             <div style={Utils.merge(styles.icon, { backgroundImage: 'url(img/search-icon.png)'})}></div>
-          </a> 
+          </a>;
+
+        searchBar =
+          <input
+            ref         = 'searchBar'
+            type        = 'search'
+            placeholder = 'Search Nearby Places...'
+            className   = {className}
+            style       = {styles.searchBar} 
+            onKeyUp     = {isActive && this.props.searchHandlers.keyup}
+            onFocus     = {isActive && this.props.searchHandlers.focus}
+            onBlur      = {isActive && this.props.searchHandlers.blur}
+            autofocus
+          />;
         break;
     };
 
@@ -88,20 +121,25 @@ var Header = React.createClass({
             <div style={Utils.merge(styles.icon, {backgroundImage: 'url(img/home-icon.png)'})}></div> 
           </Link>
         break;
+      case 'cancel':
+        right = 
+          <a
+            style={Utils.merge(styles.iconContainer, {right: 5})}
+            onClick={this.animateSearchBar.bind(this, true)}>
+            <div style={styles.cancel}>cancel</div>
+          </a>
     };
 
     return(
       <header style={styles.header}>
         {left}
-        <input 
-          ref='searchBar'
-          type='search'
-          className='invisible'
-          placeholder='Search Places or Plates Nearby...'
-          style={styles.searchBar} 
-        />
+        {searchBar}
         <div style={styles.titleContainer}>
-          <h1 ref='title' style={styles.title}>{this.props.title}</h1>
+          <h1 
+            ref='title' 
+            style={styles.title}>
+            {this.props.title}
+          </h1>
         </div>
         {right}
       </header>
@@ -126,12 +164,17 @@ var styles = {
     backgroundPosition: 'center',
     margin: '10px auto',  
   },
+  cancel: {
+    margin: '12px 0 0 3px',
+    color: 'white',
+  },
   iconContainer: {
     position: 'absolute',
     top: 25,
     width: 50,
     height: 50,
     cursor: 'pointer',
+    textDecoration: 'none',
   },
   title: {
     fontFamily: 'Indie Flower',
@@ -153,7 +196,7 @@ var styles = {
   },
   searchBar: {
     position: 'absolute',
-    left: 45,
+    left: 48,
     top: 30,
     width: 33,
     zIndex: 1,

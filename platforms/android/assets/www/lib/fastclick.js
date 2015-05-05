@@ -1,4 +1,3 @@
-console.log("FASTFASTFAST");
 /**
  * @preserve FastClick: polyfill to remove click delays on browsers with touch UIs.
  *
