@@ -38,7 +38,7 @@ var Home = React.createClass({
   },
   loadMap: function() {    
     this.mapOptions = {
-      center: {},
+      center: {lat: 37.7833, lng: 122.4167},
       zoom: 14,
       mapTypeId: google.maps.MapTypeId.ROADMAP,
       disableDefaultUI: true,
@@ -223,6 +223,12 @@ var Home = React.createClass({
   highlightPlace: function(key) {
     if (!this.props.noHighlight) this.refs.places.getDOMNode().children[key].style.background = 'rgba(190, 190, 190, 0.34)';
   },
+  animate: function() {
+    var places = this.refs.places.getDOMNode();
+    places.style.top = '75px';
+    places.style.bottom = '50%';
+
+  },
   render: function() {
     var places = this.state.places.map(function(place, i) {
       return (
@@ -239,6 +245,7 @@ var Home = React.createClass({
     return (
       <div className='page' style={styles.container}>
         <Header left='search' title='Eat Or Nah' right='profile'/>
+        <button onClick={this.animate}>animate</button>
         <div ref='svg' style={styles.svgContainer}>
           <img style={styles.svg} src="img/spinning-circles.svg" />
         </div>
@@ -265,6 +272,8 @@ var Home = React.createClass({
           ref='places'
           className='transition-places-list'
           style={styles.places}>
+          {places}
+          {places}
           {places}
         </ul>
       </div>
@@ -306,14 +315,17 @@ var styles = {
     opacity: 0,
   },
   places: {
-    overflow: 'auto',
     listStyleType: 'none',
     padding: 0,
     margin: 0,
     width: '100%',
     background: 'white',
+    overflowY: 'scroll',
+    overflowX: 'hidden',
+    WebkitOverflowScrolling: 'touch',
     position: 'absolute',
-    top: 330, // test ^ 
+    top: 322,
+    bottom: 0, 
   },
   infoWindow: {
     textDecoration: 'none',

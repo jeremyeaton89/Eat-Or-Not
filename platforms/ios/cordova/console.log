@@ -1529,3 +1529,68 @@ To disable web storage backup to iCloud, set the BackupWebStorage preference to 
 2015-05-04 20:03:11.351 EatOrNot[9264:2076802] Communications error: <OS_xpc_error: <error: 0x2e285f4> { count = 1, contents =
 	"XPCErrorDescription" => <string: 0x2e2883c> { length = 22, contents = "Connection interrupted" }
 }>
+2015-05-06 21:10:03.537 EatOrNot[31542:2434502] DiskCookieStorage changing policy from 2 to 0, cookie file: file:///Users/jeremyeaton/Library/Developer/CoreSimulator/Devices/1754065C-D770-4CED-88C2-CBACB746E403/data/Containers/Data/Application/1992092B-8377-4BFD-B13D-991EE38B1C98/Library/Cookies/Cookies.binarycookies
+2015-05-06 21:10:03.804 EatOrNot[31542:2434502] Apache Cordova native platform version 3.7.0 is starting.
+2015-05-06 21:10:03.804 EatOrNot[31542:2434502] Multi-tasking -> Device: YES, App: YES
+2015-05-06 21:10:03.813 EatOrNot[31542:2434502] Unlimited access to network resources
+2015-05-06 21:10:03.821 EatOrNot[31542:2434502] 
+
+Started backup to iCloud! Please be careful.
+Your application might be rejected by Apple if you store too much data.
+For more information please read "iOS Data Storage Guidelines" at:
+https://developer.apple.com/icloud/documentation/data-storage/
+To disable web storage backup to iCloud, set the BackupWebStorage preference to "local" in the Cordova config.xml file
+
+2015-05-06 21:10:04.161 EatOrNot[31542:2434502] [CDVTimer][keyboard] 0.055015ms
+2015-05-06 21:10:04.161 EatOrNot[31542:2434502] [CDVTimer][TotalPluginStartup] 0.548005ms
+2015-05-06 21:10:04.487 EatOrNot[31542:2434502] Resetting plugins due to page load.
+2015-05-06 21:10:05.270 EatOrNot[31542:2434502] Finished load of: file:///Users/jeremyeaton/Library/Developer/CoreSimulator/Devices/1754065C-D770-4CED-88C2-CBACB746E403/data/Containers/Bundle/Application/A0D4E660-B2C7-4BC9-A7C1-1515EB5CF17C/EatOrNot.app/www/index.html
+2015-05-06 21:10:07.076 EatOrNot[31542:2434502] Setting the WebView's frame to {{0, 0}, {375, 623}}
+2015-05-06 21:10:07.089 EatOrNot[31542:2434502] THREAD WARNING: ['InAppBrowser'] took '80.996094' ms. Plugin should use a background thread.
+2015-05-06 21:10:18.044 EatOrNot[31542:2434502] locationManager::didFailWithError (null)
+2015-05-06 21:10:47.292 EatOrNot[31542:2434502] Showing keyboard not supported in iOS due to platform limitations.
+2015-05-06 21:10:49.859 EatOrNot[31542:2434502] WARN: Each child in an array should have a unique "key" prop. Check the render method of Profile. See http://fb.me/react-warning-keys for more information.
+2015-05-06 21:10:49.859 EatOrNot[31542:2434502] WARN: FIREBASE WARNING: Using an unspecified index. Consider adding ".indexOn": "like" at /users/10153158543358604/places to your security rules for better performance 
+2015-05-06 21:10:49.910 EatOrNot[31542:2434502] WARN: FIREBASE WARNING: Using an unspecified index. Consider adding ".indexOn": "like" at /users/10153158543358604/places to your security rules for better performance 
+2015-05-06 21:10:55.045 EatOrNot[31542:2434502] highlight Li: 0
+2015-05-06 21:10:56.370 EatOrNot[31542:2434502] WARN: FIREBASE WARNING: Using an unspecified index. Consider adding ".indexOn": "like" at /users/10153158543358604/places to your security rules for better performance 
+2015-05-06 21:10:56.409 EatOrNot[31542:2434502] WARN: FIREBASE WARNING: Using an unspecified index. Consider adding ".indexOn": "like" at /users/10153158543358604/places to your security rules for better performance 
+2015-05-06 21:14:31.153 EatOrNot[31808:2439671] Apache Cordova native platform version 3.7.0 is starting.
+2015-05-06 21:14:31.154 EatOrNot[31808:2439671] Multi-tasking -> Device: YES, App: YES
+2015-05-06 21:14:31.156 EatOrNot[31808:2439671] Unlimited access to network resources
+2015-05-06 21:14:31.158 EatOrNot[31808:2439671] 
+
+Started backup to iCloud! Please be careful.
+Your application might be rejected by Apple if you store too much data.
+For more information please read "iOS Data Storage Guidelines" at:
+https://developer.apple.com/icloud/documentation/data-storage/
+To disable web storage backup to iCloud, set the BackupWebStorage preference to "local" in the Cordova config.xml file
+
+2015-05-06 21:14:31.219 EatOrNot[31808:2439671] [CDVTimer][keyboard] 0.046968ms
+2015-05-06 21:14:31.219 EatOrNot[31808:2439671] [CDVTimer][TotalPluginStartup] 0.170946ms
+2015-05-06 21:14:31.256 EatOrNot[31808:2439671] Resetting plugins due to page load.
+2015-05-06 21:14:31.466 EatOrNot[31808:2439671] Finished load of: file:///Users/jeremyeaton/Library/Developer/CoreSimulator/Devices/1754065C-D770-4CED-88C2-CBACB746E403/data/Containers/Bundle/Application/CF480AA8-5AE7-4E31-AF80-99C45D108912/EatOrNot.app/www/index.html
+2015-05-06 21:14:44.845 EatOrNot[31808:2439671] places Ghirardelli Chocolate,Les Joulins Jazz Bistro,Coffee Bean & Tea Leaf,Starbucks,Walgreens,John's Grill,Walgreens,Boudin Bakery,Lark Creek Steak,Cupola Pizzeria,Bangkok Noodles and thai B.B.Q.,Tad's steakhouse,Cafe Madeleine,Cako Bakery,Amoura,CocoaBella Chocolates,Bluestem Brasserie,Pinkberry Union Square Macy's,Buckhorn Grill,Beard Papa's
+2015-05-06 21:14:44.845 EatOrNot[31808:2439671] WARN: Each child in an array should have a unique "key" prop. Check the render method of Home. See http://fb.me/react-warning-keys for more information.
+2015-05-06 21:14:58.943 EatOrNot[31808:2439671] No hash history. Returning "/".
+2015-05-06 21:15:00.277 EatOrNot[31808:2439671] places Ghirardelli Chocolate,Les Joulins Jazz Bistro,Coffee Bean & Tea Leaf,Starbucks,Walgreens,John's Grill,Walgreens,Boudin Bakery,Lark Creek Steak,Cupola Pizzeria,Bangkok Noodles and thai B.B.Q.,Tad's steakhouse,Cafe Madeleine,Cako Bakery,Amoura,CocoaBella Chocolates,Bluestem Brasserie,Pinkberry Union Square Macy's,Buckhorn Grill,Beard Papa's
+2015-05-06 21:15:06.616 EatOrNot[31808:2439671] places Coffee Bean & Tea Leaf,Ghirardelli Chocolate,Les Joulins Jazz Bistro,Starbucks,Walgreens,John's Grill,Lark Creek Steak,Cupola Pizzeria,Walgreens,Cako Bakery,Amoura,CocoaBella Chocolates,Boudin Bakery,Bangkok Noodles and thai B.B.Q.,Cafe Madeleine,Bluestem Brasserie,Tad's steakhouse,Buckhorn Grill,Pasta Moto,Beard Papa's
+2015-05-06 21:15:11.966 EatOrNot[31808:2439671] places Ghirardelli Chocolate,Les Joulins Jazz Bistro,Starbucks,Coffee Bean & Tea Leaf,Boudin Bakery,Walgreens,John's Grill,Cafe Madeleine,Walgreens,Tout Sweet Patisserie,Tad's steakhouse,Pinkberry Union Square Macy's,Bangkok Noodles and thai B.B.Q.,Bluestem Brasserie,King of Thai Noodle House,Lark Creek Steak,Cupola Pizzeria,The Rotunda,The Cheesecake Factory,Amber India Restaurant
+2015-05-06 21:15:15.036 EatOrNot[31808:2439671] places Ghirardelli Chocolate,Les Joulins Jazz Bistro,Coffee Bean & Tea Leaf,Starbucks,John's Grill,Walgreens,Walgreens,Boudin Bakery,Bangkok Noodles and thai B.B.Q.,Tad's steakhouse,Lark Creek Steak,Cafe Madeleine,Cupola Pizzeria,Bluestem Brasserie,Cako Bakery,Pinkberry Union Square Macy's,Amoura,CocoaBella Chocolates,Buckhorn Grill,King of Thai Noodle House
+2015-05-06 21:15:17.486 EatOrNot[31808:2439671] places Ghirardelli Chocolate,Les Joulins Jazz Bistro,Coffee Bean & Tea Leaf,Starbucks,Walgreens,John's Grill,Walgreens,Lark Creek Steak,Cupola Pizzeria,Boudin Bakery,Bangkok Noodles and thai B.B.Q.,Tad's steakhouse,Cafe Madeleine,Cako Bakery,Amoura,CocoaBella Chocolates,Bluestem Brasserie,Buckhorn Grill,Pinkberry Union Square Macy's,Beard Papa's
+2015-05-06 21:15:21.312 EatOrNot[31808:2439671] places Ghirardelli Chocolate,Les Joulins Jazz Bistro,Coffee Bean & Tea Leaf,Starbucks,Walgreens,John's Grill,Walgreens,Boudin Bakery,Lark Creek Steak,Cupola Pizzeria,Bangkok Noodles and thai B.B.Q.,Tad's steakhouse,Cafe Madeleine,Cako Bakery,Amoura,CocoaBella Chocolates,Bluestem Brasserie,Pinkberry Union Square Macy's,Buckhorn Grill,Beard Papa's
+2015-05-06 21:17:41.681 EatOrNot[31992:2443220] Apache Cordova native platform version 3.7.0 is starting.
+2015-05-06 21:17:41.681 EatOrNot[31992:2443220] Multi-tasking -> Device: YES, App: YES
+2015-05-06 21:17:41.683 EatOrNot[31992:2443220] Unlimited access to network resources
+2015-05-06 21:17:41.685 EatOrNot[31992:2443220] 
+
+Started backup to iCloud! Please be careful.
+Your application might be rejected by Apple if you store too much data.
+For more information please read "iOS Data Storage Guidelines" at:
+https://developer.apple.com/icloud/documentation/data-storage/
+To disable web storage backup to iCloud, set the BackupWebStorage preference to "local" in the Cordova config.xml file
+
+2015-05-06 21:17:41.770 EatOrNot[31992:2443220] [CDVTimer][keyboard] 0.050008ms
+2015-05-06 21:17:41.770 EatOrNot[31992:2443220] [CDVTimer][TotalPluginStartup] 0.213027ms
+2015-05-06 21:17:41.818 EatOrNot[31992:2443220] Resetting plugins due to page load.
+2015-05-06 21:17:42.118 EatOrNot[31992:2443220] Finished load of: file:///Users/jeremyeaton/Library/Developer/CoreSimulator/Devices/1754065C-D770-4CED-88C2-CBACB746E403/data/Containers/Bundle/Application/D7BE98FC-046F-4B33-9CB5-6472A1E6304F/EatOrNot.app/www/index.html

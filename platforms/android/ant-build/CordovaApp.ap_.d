@@ -95,8 +95,11 @@
 /Users/jeremyeaton/Desktop/Projects/EatOrNot/platforms/android/assets/www/img/thumbs-up.png \
 /Users/jeremyeaton/Desktop/Projects/EatOrNot/platforms/android/assets/www/img/white-arrow.png \
 /Users/jeremyeaton/Desktop/Projects/EatOrNot/platforms/android/assets/www/lib/fastclick.js \
+/Users/jeremyeaton/Desktop/Projects/EatOrNot/platforms/android/assets/www/plugins/com.ionic.keyboard \
 /Users/jeremyeaton/Desktop/Projects/EatOrNot/platforms/android/assets/www/plugins/org.apache.cordova.device \
 /Users/jeremyeaton/Desktop/Projects/EatOrNot/platforms/android/assets/www/plugins/org.apache.cordova.inappbrowser \
+/Users/jeremyeaton/Desktop/Projects/EatOrNot/platforms/android/assets/www/plugins/com.ionic.keyboard/www \
+/Users/jeremyeaton/Desktop/Projects/EatOrNot/platforms/android/assets/www/plugins/com.ionic.keyboard/www/keyboard.js \
 /Users/jeremyeaton/Desktop/Projects/EatOrNot/platforms/android/assets/www/plugins/org.apache.cordova.device/www \
 /Users/jeremyeaton/Desktop/Projects/EatOrNot/platforms/android/assets/www/plugins/org.apache.cordova.device/www/device.js \
 /Users/jeremyeaton/Desktop/Projects/EatOrNot/platforms/android/assets/www/plugins/org.apache.cordova.inappbrowser/www \

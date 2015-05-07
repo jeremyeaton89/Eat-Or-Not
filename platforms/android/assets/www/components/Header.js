@@ -8,17 +8,18 @@ var History            = require('../history');
 var Header = React.createClass({
   getDefaultProps: function() {
     return {
-      searchBarWidth: (window.innerWidth > 0 ? window.innerWidth : screen.width) - 104,
+      searchBarWidth: (window.innerWidth > 0 ? window.innerWidth : screen.width) - 106,
     };
   },
   componentWillMount: function() {
     this.addClassStyles();
   },
   componentDidMount: function() {
-    if (this.props.left == 'search') {
+    if (this.props.left == 'search' && location.hash == '#/search') {
       setTimeout(function() {
         var searchBar = this.refs.searchBar.getDOMNode();
         searchBar.focus();  
+        cordova.plugins.Keyboard.show();
       }.bind(this), 200)
     }
   },
@@ -97,7 +98,6 @@ var Header = React.createClass({
             onKeyUp     = {isActive && this.props.searchHandlers.keyup}
             onFocus     = {isActive && this.props.searchHandlers.focus}
             onBlur      = {isActive && this.props.searchHandlers.blur}
-            autofocus
           />;
         break;
     };
@@ -126,7 +126,7 @@ var Header = React.createClass({
           <a
             style={Utils.merge(styles.iconContainer, {right: 5})}
             onClick={this.animateSearchBar.bind(this, true)}>
-            <div style={styles.cancel}>cancel</div>
+            <div style={styles.cancel}>Cancel</div>
           </a>
     };
 
@@ -151,7 +151,7 @@ var styles = {
   header: {
     height: 75,
     background: '#3258ED',
-    position: 'absolute',
+    // position: 'absolute',
     top: 0,
     width: '100%',
     zIndex: 1,
@@ -165,7 +165,7 @@ var styles = {
     margin: '10px auto',  
   },
   cancel: {
-    margin: '12px 0 0 3px',
+    margin: '12px 0 0 0',
     color: 'white',
   },
   iconContainer: {
@@ -196,7 +196,7 @@ var styles = {
   },
   searchBar: {
     position: 'absolute',
-    left: 48,
+    left: 46,
     top: 30,
     width: 33,
     zIndex: 1,

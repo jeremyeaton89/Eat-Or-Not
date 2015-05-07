@@ -38,7 +38,7 @@ var Home = React.createClass({
   },
   loadMap: function() {    
     this.mapOptions = {
-      center: {},
+      center: {lat: 37.7833, lng: 122.4167},
       zoom: 14,
       mapTypeId: google.maps.MapTypeId.ROADMAP,
       disableDefaultUI: true,
@@ -266,6 +266,8 @@ var Home = React.createClass({
           className='transition-places-list'
           style={styles.places}>
           {places}
+          {places}
+          {places}
         </ul>
       </div>
     );
@@ -306,14 +308,18 @@ var styles = {
     opacity: 0,
   },
   places: {
-    overflow: 'auto',
     listStyleType: 'none',
     padding: 0,
     margin: 0,
     width: '100%',
     background: 'white',
+    overflowY: 'scroll',
+    overflowX: 'hidden',
+    WebkitOverflowScrolling: 'touch',
+    overflowScrolling: 'touch',
     position: 'absolute',
-    top: 330, // test ^ 
+    top: 322,
+    bottom: 0, 
   },
   infoWindow: {
     textDecoration: 'none',

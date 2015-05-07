@@ -1,4 +1,8 @@
 /Users/jeremyeaton/Desktop/Projects/EatOrNot/platforms/android/ant-build/classes.dex : \
+/Users/jeremyeaton/Desktop/Projects/EatOrNot/platforms/android/ant-build/classes/com/ionic/keyboard/IonicKeyboard$1.class \
+/Users/jeremyeaton/Desktop/Projects/EatOrNot/platforms/android/ant-build/classes/com/ionic/keyboard/IonicKeyboard$2.class \
+/Users/jeremyeaton/Desktop/Projects/EatOrNot/platforms/android/ant-build/classes/com/ionic/keyboard/IonicKeyboard$3.class \
+/Users/jeremyeaton/Desktop/Projects/EatOrNot/platforms/android/ant-build/classes/com/ionic/keyboard/IonicKeyboard.class \
 /Users/jeremyeaton/Desktop/Projects/EatOrNot/platforms/android/ant-build/classes/com/jeremyeaton/eatornot/BuildConfig.class \
 /Users/jeremyeaton/Desktop/Projects/EatOrNot/platforms/android/ant-build/classes/com/jeremyeaton/eatornot/CordovaApp.class \
 /Users/jeremyeaton/Desktop/Projects/EatOrNot/platforms/android/ant-build/classes/com/jeremyeaton/eatornot/R$attr.class \
