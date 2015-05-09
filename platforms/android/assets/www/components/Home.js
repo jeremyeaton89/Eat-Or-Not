@@ -30,8 +30,8 @@ var Home = React.createClass({
     var transitionPlacesList = [
       '-webkit-transition: top .25s cubic-bezier(0.455, 0.03, 0.515, 0.955);',
       'transition: top .25s cubic-bezier(0.455, 0.03, 0.515, 0.955);',
-      // '-webkit-transition-delay: .35s;',
-      // 'transition-delay: .35s;',
+       '-webkit-transform: translate3d(0,0,0);',
+      'transform: translate3d(0,0,0);',
     ].join('');
 
     Utils.addCSSRule('.transition-places-list', transitionPlacesList, 1);
@@ -121,37 +121,33 @@ var Home = React.createClass({
   },
   searchByText: function(e) {
     console.log('event', e, 'code', e.KeyCode, 'which', e.which, 'end');
+    var places = this.refs.places.getDOMNode();
 
-    if (e.which == 13 || e.KeyCode == 13 && this.refs.places.getDOMNode().children.length == 1) {
+    if (e.which == 13 || e.KeyCode == 13 && places.children.length == 1) {
       console.log('submitting!!!!');
-      this.refs.places.getDOMNode().children[0].click();
+      places.children[0].click();
       return;
     }
 
     var searchBar = e.target;
-    this.refs.places.getDOMNode().style.top = '75px';
     if (searchBar.value.length) {
       if (this.map) {
         var request = {
           location: this.mapOptions.center,
-          // radius: '500',
           types: ['restaurant', 'food'],
           name: searchBar.value,
-          // query: searchBar.value + '*',
           rankBy: google.maps.places.RankBy.DISTANCE,
         };
         this.service = this.service || new google.maps.places.PlacesService(this.map);
         this.service.nearbySearch(request, function(data, status) {
           if (status == google.maps.places.PlacesServiceStatus.OK) {
-            // var places = data.map(function(place) { return place.name; })
-            // console.log('places', places);
             this.parseNearbyPlaces(data, false);
+          } else if (status == google.maps.places.PlacesServiceStatus.ZERO_RESULTS) {
+            this.setState({places: []});
           } else {
             console.log('TextSearch Error: ' + status);
           }
         }.bind(this));
-
-        console.log('handle text: ' + searchBar.value);  
       } else {
         console.log('Map is not instantiated');
       }
@@ -160,14 +156,13 @@ var Home = React.createClass({
     }
     
   },
-  parseNearbyPlaces: function(data, animated, callback) {
-    var places = data.map(function(place) { return place.name; })
-          console.log('places', places);
-    if (data.length > 10) data = data.slice(0,10);
-    
+  parseNearbyPlaces: function(data, animated, callback) { 
     this.clearPlaceMarkers();
 
+    // Add place markers
     data.forEach(function(place, i) {
+      if (i > 9) return;
+
       var marker = this.dropPin(place.geometry.location, i + 1, animated);
       google.maps.event.addListener(marker, 'click', function() {
         var content = '<a id="infoWindow">' + place.name + '</a>';
@@ -223,6 +218,18 @@ var Home = React.createClass({
   highlightPlace: function(key) {
     if (!this.props.noHighlight) this.refs.places.getDOMNode().children[key].style.background = 'rgba(190, 190, 190, 0.34)';
   },
+  transitionPlacesUp: function() {
+    var places = this.refs.places.getDOMNode();
+    places.style.top = '75px';
+    places.style.maxHeight = (window.innerHeight - 75) + 'px';
+  },
+  transitionPlacesDown: function() {
+    setTimeout(function() {
+      var places = this.refs.places.getDOMNode();
+      places.style.top = styles.places.top + 'px';
+      places.style.maxHeight = '';
+    }.bind(this), 350)
+  },
   render: function() {
     var places = this.state.places.map(function(place, i) {
       return (
@@ -236,9 +243,15 @@ var Home = React.createClass({
       );
     }.bind(this));
 
+    var searchHandlers = {
+      keyup: this.searchByText,
+      focus: this.transitionPlacesUp,
+      blur:  this.transitionPlacesDown,
+    };
+
     return (
       <div className='page' style={styles.container}>
-        <Header left='search' title='Eat Or Nah' right='profile'/>
+        <Header left='search' title='Eat Or Nah' right='profile' searchHandlers={searchHandlers}/>
         <div ref='svg' style={styles.svgContainer}>
           <img style={styles.svg} src="img/spinning-circles.svg" />
         </div>
@@ -265,8 +278,6 @@ var Home = React.createClass({
           ref='places'
           className='transition-places-list'
           style={styles.places}>
-          {places}
-          {places}
           {places}
         </ul>
       </div>
@@ -314,12 +325,12 @@ var styles = {
     width: '100%',
     background: 'white',
     overflowY: 'scroll',
-    overflowX: 'hidden',
     WebkitOverflowScrolling: 'touch',
-    overflowScrolling: 'touch',
     position: 'absolute',
     top: 322,
     bottom: 0, 
+    boxSizing: 'border-box',
+    zIndex: 2,
   },
   infoWindow: {
     textDecoration: 'none',

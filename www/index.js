@@ -50,17 +50,11 @@ var AnimatedLocations = React.createClass({
 var App = React.createClass({
   componentWillMount: function() {
     this.updateReferrerHash();
-    // this.disableWebViewScroll();
   },
   updateReferrerHash: function() {
     window.addEventListener('hashchange', function(e) {
       History.setReferrerHash(e.oldURL.split('#')[1]);
     });
-  },
-  disableWebViewScroll: function() {
-    document.ontouchstart = function(e){ 
-      e.preventDefault(); 
-    }
   },
   render: function() {
     return (

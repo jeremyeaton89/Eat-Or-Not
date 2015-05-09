@@ -26,6 +26,7 @@ var styles = {
   place: {
     height: 32,
     cursor: 'pointer',
+    width: '100%',
   },
   placeLink: {
     textDecoration: 'none',
@@ -35,6 +36,7 @@ var styles = {
     height: 'inherit',
     outline: 'none',
     paddingLeft: 30,
+    boxSizing: 'border-box',
   },
   link: {
     cursor: 'pointer',

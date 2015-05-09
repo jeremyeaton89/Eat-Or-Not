@@ -323,6 +323,9 @@
     } else {
         bounceAllowed = ![disallowOverscroll boolValue];
     }
+    
+    // prevent webview scroll
+    self.webView.scrollView.scrollEnabled = NO;
 
     // prevent webView from bouncing
     // based on the DisallowOverscroll/UIWebViewBounce key in config.xml

@@ -8,7 +8,7 @@ var History            = require('../history');
 var Header = React.createClass({
   getDefaultProps: function() {
     return {
-      searchBarWidth: (window.innerWidth > 0 ? window.innerWidth : screen.width) - 106,
+      searchBarWidth: (window.innerWidth > 0 ? window.innerWidth : screen.width) - 98,
     };
   },
   componentWillMount: function() {
@@ -27,32 +27,28 @@ var Header = React.createClass({
     var slide = [
       '-webkit-transition: width .1s cubic-bezier(0.455, 0.03, 0.515, 0.955);',
       'transition: width .1s cubic-bezier(0.455, 0.03, 0.515, 0.955);',
+      '-webkit-transform: translate3d(0,0,0);',
+      'transform: translate3d(0,0,0);',
     ].join('');
 
     Utils.addCSSRule('.searchBar-slide', slide, 1)
   },
   animateSearchBar: function() {
-    console.log('ANIMATE');
     var searchBar = this.refs.searchBar.getDOMNode();
 
     if (searchBar.classList.contains('invisible')) {
       searchBar.style.width = this.props.searchBarWidth + 'px';
       searchBar.classList.remove('invisible');
-      searchBar.addEventListener('webkitTransitionEnd', function(e) {
-        console.log('EXTEND callback');
-        e.target.removeEventListener(e.type, arguments.callee, false);
-        searchBar.removeEventListener('webkitTransitionEnd', arguments.callee, false);
+      searchBar.addEventListener('webkitTransitionEnd', function() {
+        searchBar.removeEventListener('webkitTransitionEnd', arguments.callee);
         searchBar.focus();
-      }.bind(this), false);
+      });
     } else {
       searchBar.style.width = '33px';
-      searchBar.addEventListener('webkitTransitionEnd', function(e) {
-        console.log('RETRACT callback');
-
-        e.target.removeEventListener(e.type, arguments.callee, false);
-        searchBar.removeEventListener('webkitTransitionEnd', arguments.callee, false);
+      searchBar.addEventListener('webkitTransitionEnd', function() {
+        searchBar.removeEventListener('webkitTransitionEnd', arguments.callee);
         searchBar.classList.add('invisible');
-      }.bind(this), false);
+      });
     }
   },
   initAutocomplete: function() {
@@ -93,7 +89,7 @@ var Header = React.createClass({
             placeholder = 'Search Nearby Places...'
             className   = 'searchBar-slide invisible'
             style       = {styles.searchBar} 
-            // onKeyUp     = {this.props.searchHandlers.keyup}
+            onKeyUp     = {this.props.searchHandlers.keyup}
             onFocus     = {this.props.searchHandlers.focus}
             onBlur      = {this.props.searchHandlers.blur}
           />;
@@ -149,7 +145,6 @@ var styles = {
   header: {
     height: 75,
     background: '#3258ED',
-    // position: 'absolute',
     top: 0,
     width: '100%',
     zIndex: 1,
