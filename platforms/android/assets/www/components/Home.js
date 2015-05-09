@@ -5,7 +5,7 @@ var Link          = require('react-router-component').Link;
 var Utils         = require('../utils');
 var Header        = require('./Header');
 var placeListItem = require('./PlaceListItem');
-var HomeMap       = require('../map');
+var Auth          = require('../auth');
 
 var Home = React.createClass({
   getInitialState: function() {
@@ -22,9 +22,16 @@ var Home = React.createClass({
   },
   componentWillMount: function() {
     this.addClassStyles();
+    this.props.curPosition = Auth.getLastUserPosition();
+    window.prop = function() { return this.props.curPosition; }.bind(this);
   },
   componentDidMount: function() {
     this.loadMap();
+  },
+  componentWillUnmount: function() {
+    var center = this.map.getCenter();
+    Auth.setLastMapPosition({lat: center.A, lng: center.F});
+    Auth.setLastUserPosition(this.props.curPosition);
   },
   addClassStyles: function() {
     var transitionPlacesList = [
@@ -38,33 +45,48 @@ var Home = React.createClass({
   },
   loadMap: function() {    
     this.mapOptions = {
-      center: {lat: 37.7833, lng: 122.4167},
+      center: Auth.getLastMapPosition() || {lat: 37.7833, lng: 122.4167},
       zoom: 14,
       mapTypeId: google.maps.MapTypeId.ROADMAP,
       disableDefaultUI: true,
     };
 
-    if (navigator && navigator.geolocation) {
+    if (navigator && navigator.geolocation && !Auth.getLastMapPosition()) { 
       navigator.geolocation.getCurrentPosition(function(position) {
         this.props.curPosition = position.coords;
         this.mapOptions.center.lat = position.coords.latitude;
         this.mapOptions.center.lng = position.coords.longitude;
-        this.map = new google.maps.Map(this.refs.map.getDOMNode(), this.mapOptions);
-
-        var svg = this.refs.svg.getDOMNode();
-        var img = svg.children[0];
-        svg.removeChild(img);
-
-        var pulse = { url: 'img/puff.svg' };
-        this.props.curPosMarker = new google.maps.Marker({position: this.mapOptions.center, map: this.map, icon: pulse, optimized: false,});
-
-        this.getNearbyPlaces(null, true, this.fitBounds);
-        this.addMapListeners();
-
+        this.initMap();
       }.bind(this));
+    } else if (Auth.getLastMapPosition()) {
+      this.initMap();
     } else {
       alert('Geolocation is not supported :(');
     }
+  },
+  initMap: function() {
+    this.map = new google.maps.Map(this.refs.map.getDOMNode(), this.mapOptions);
+    window.map = this.map;
+
+    var svg = this.refs.svg.getDOMNode();
+    var img = svg.children[0];
+    svg.removeChild(img);
+
+    var pulse = { url: 'img/puff.svg' };
+    var center = this.props.curPosition ? 
+      {lat: this.props.curPosition.latitude, lng: this.props.curPosition.longitude} :
+      this.mapOptions.center
+    this.props.curPosMarker = new google.maps.Marker({
+      position: center, 
+      map: this.map, 
+      icon: pulse, 
+      optimized: false,
+    });
+
+    window.marker = this.props.curPosMarker;
+
+    this.getNearbyPlaces(null, true, this.fitBounds);
+    this.addMapListeners();
   },
   dropPin: function(coords, key, animated) {   
     var img = {
@@ -83,7 +105,6 @@ var Home = React.createClass({
   },
   getNearbyPlaces: function(center, animated, callback) {      
     if (this.map && this.mapOptions && this.mapOptions.center && Utils.objLength(this.mapOptions.center)) {
-      var infoWindow = new google.maps.InfoWindow();
       var request = {
         location: center ? center : this.mapOptions.center,
         types: ['restaurant', 'food'],
@@ -110,7 +131,7 @@ var Home = React.createClass({
   resetLocation: function() {
     this.map.panTo(this.props.curPosMarker.getPosition());
     this.clearPlaceMarkers();
-    this.getNearbyPlaces(this.curPosition, true, function() {
+    this.getNearbyPlaces(this.props.curPosMarker.getPosition(), true, function() {
       this.fitBounds();
     }.bind(this));
     this.refs.resetButton.getDOMNode().classList.add('hidden');
@@ -120,12 +141,10 @@ var Home = React.createClass({
     this.props.placeMarkers = [];
   },
   searchByText: function(e) {
-    console.log('event', e, 'code', e.KeyCode, 'which', e.which, 'end');
     var places = this.refs.places.getDOMNode();
 
     if (e.which == 13 || e.KeyCode == 13 && places.children.length == 1) {
-      console.log('submitting!!!!');
-      places.children[0].click();
+      places.children[0].children[0].click();
       return;
     }
 
@@ -154,7 +173,6 @@ var Home = React.createClass({
     } else {
       this.getNearbyPlaces();
     }
-    
   },
   parseNearbyPlaces: function(data, animated, callback) { 
     this.clearPlaceMarkers();
@@ -166,6 +184,7 @@ var Home = React.createClass({
       var marker = this.dropPin(place.geometry.location, i + 1, animated);
       google.maps.event.addListener(marker, 'click', function() {
         var content = '<a id="infoWindow">' + place.name + '</a>';
+        var infoWindow = new google.maps.InfoWindow();
         infoWindow.setContent(content);
         infoWindow.open(this.map, marker);
         var el = document.getElementById('infoWindow');
@@ -209,8 +228,8 @@ var Home = React.createClass({
         if (this.props.curPosition != position.coords) {
           this.props.curPosition = position.coords;
           var lat = position.coords.latitude,
-              lon = position.coords.longitude;
-          this.props.curPosMarker.setPosition(new google.maps.LatLng(lat, lon));
+              lng = position.coords.longitude;
+          this.props.curPosMarker.setPosition(new google.maps.LatLng(lat, lng));
         }
       }.bind(this));
     }.bind(this), 10000);
@@ -276,7 +295,7 @@ var Home = React.createClass({
         <hr ref='hr' className='fade-in' style={styles.hr} />
         <ul 
           ref='places'
-          className='transition-places-list'
+          // className='transition-places-list'
           style={styles.places}>
           {places}
         </ul>

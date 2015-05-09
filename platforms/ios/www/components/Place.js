@@ -48,12 +48,9 @@ var Place = React.createClass({
     };
   },
   updateUIAndProps: function(data) {
-    if (data.imgUrl) {
-      this.props.imgUrl = data.imgUrl;
-      this.refs.img.getDOMNode().src = data.imgUrl;
-    }
-    // if (data.website)
-    // if (data.address)
+    if (data.imgUrl)  this.props.imgUrl  = data.imgUrl;
+    if (data.website) this.props.website = data.website;
+    if (data.address) this.props.address = data.address;
   },
   getPlaceDetails: function(callback) {
     var map = new google.maps.Map(document.createElement('div')); // dummy map
@@ -124,7 +121,7 @@ var Place = React.createClass({
   render: function() {
     var likesString = this.state.likesCount == 1 ? '1 like' : this.state.likesCount + ' likes';
     var dislikesString = this.state.dislikesCount == 1 ? '1 dislike' : this.state.dislikesCount + ' dislikes';
-
+console.log("ADDRESS", this.props.address);
     return (
       <div className='page'>
         <Header title={this.props.name} left='back'/>
@@ -137,6 +134,7 @@ var Place = React.createClass({
           />
         </div>
 
+        <p style={styles.address}>{this.props.address}</p>
         <p style={styles.flash}>Those who liked {this.props.name} also liked THIS</p>
 
         <div style={styles.body}>
@@ -168,6 +166,10 @@ var Place = React.createClass({
 });
 
 var styles = {
+  address: {
+    margin: '5px 0',
+    textAlign: 'center',
+  },
   flash: {
     margin: '5px 0',
     textAlign: 'center',

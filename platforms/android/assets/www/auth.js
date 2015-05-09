@@ -26,4 +26,20 @@ Auth.prototype.setUser = function(user) {
 
 };
 
+Auth.prototype.getLastMapPosition = function() {
+  return Auth.prototype.mapCoords;
+};
+
+Auth.prototype.setLastMapPosition = function(coords) {
+  Auth.prototype.mapCoords = coords;
+}
+
+Auth.prototype.getLastUserPosition = function() {
+  return Auth.prototype.userCoords;
+};
+
+Auth.prototype.setLastUserPosition = function(coords) {
+  Auth.prototype.userCoords = coords;
+}
+
 module.exports = new Auth();

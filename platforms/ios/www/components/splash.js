@@ -6,6 +6,15 @@ var Splash = React.createClass({
     return (
       <div className='page' style={styles.container} >
         <h1 style={styles.title}>Eat Or Nah</h1>
+
+        <div style={styles.thumbs}>
+          <img style={{width: '25%', marginBottom: 10}} src='img/thumbs-up.png' />
+          <img style={{width: '30%', marginBottom: 10}} src='img/thumbs-down.png' />
+          <img style={{width: '35%', marginBottom: 10}} src='img/thumbs-up.png' />
+          <img style={{width: '45%', marginBottom: 10}} src='img/thumbs-down.png' />
+          <img style={{width: '55%', marginBottom: 10}} src='img/thumbs-up.png' />
+        </div>
+
         <div style={styles.buttonContainer}>
           <img
             id='facebook_button'
@@ -22,16 +31,26 @@ var Splash = React.createClass({
 var styles = {
   container: {
     height: '100%',
-    paddingTop: 100,
+    background: '#3258ED',
   },
   title: {
     textAlign: 'center',
-    top: 100,
+    fontSize: 56,
+    fontFamily: 'Indie Flower',
+    color: 'white',
+    position: 'absolute',
+    top: 75,
+    zIndex: 2,
+    width: '100%',
+  },
+  thumbs: {
+    position: 'absolute',
+    top: 150,
   },
   buttonContainer: {
     position: 'absolute',
     left: '50%',
-    top: '75%',
+    bottom: 100,
   },
   login: {
     position: 'relative',
