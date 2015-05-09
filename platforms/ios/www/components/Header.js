@@ -51,13 +51,9 @@ var Header = React.createClass({
       });
     }
   },
-  initAutocomplete: function() {
-    var searchBar = this.refs.searchBar.gedDOMNode();
-    var autocomplete = new google.maps.places.Autocomplete(searchBar);
-    autocomplete.setTypes(['establishment']);
-    google.maps.event.addListener(autocomplete, 'place_changed', function() {
-      console.log('place change!!!');
-    });
+  handleBlur: function() {
+    if (!this.refs.searchBar.getDOMNode().classList.contains('invisible')) this.animateSearchBar(); // if user taps 'done'
+    this.props.searchHandlers.blur();
   },
   render: function() {
     var left      = '';
@@ -91,7 +87,7 @@ var Header = React.createClass({
             style       = {styles.searchBar} 
             onKeyUp     = {this.props.searchHandlers.keyup}
             onFocus     = {this.props.searchHandlers.focus}
-            onBlur      = {this.props.searchHandlers.blur}
+            onBlur      = {this.handleBlur}
           />;
         break;
     };

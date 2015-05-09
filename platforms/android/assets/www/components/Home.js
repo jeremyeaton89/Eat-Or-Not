@@ -142,7 +142,7 @@ var Home = React.createClass({
   },
   searchByText: function(e) {
     var places = this.refs.places.getDOMNode();
-
+    console.log('KEY = ' + e.which);
     if (e.which == 13 || e.KeyCode == 13 && places.children.length == 1) {
       places.children[0].children[0].click();
       return;
@@ -243,6 +243,7 @@ var Home = React.createClass({
     places.style.maxHeight = (window.innerHeight - 75) + 'px';
   },
   transitionPlacesDown: function() {
+    // if ()
     setTimeout(function() {
       var places = this.refs.places.getDOMNode();
       places.style.top = styles.places.top + 'px';
