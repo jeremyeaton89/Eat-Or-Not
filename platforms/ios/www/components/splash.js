@@ -8,11 +8,8 @@ var Splash = React.createClass({
         <h1 style={styles.title}>Eat Or Nah</h1>
 
         <div style={styles.thumbs}>
-          <img style={{width: '25%', marginBottom: 10}} src='img/thumbs-up.png' />
-          <img style={{width: '30%', marginBottom: 10}} src='img/thumbs-down.png' />
-          <img style={{width: '35%', marginBottom: 10}} src='img/thumbs-up.png' />
-          <img style={{width: '45%', marginBottom: 10}} src='img/thumbs-down.png' />
-          <img style={{width: '55%', marginBottom: 10}} src='img/thumbs-up.png' />
+          <img style={styles.thumb} src='img/thumbs-up.png' />
+          <img style={styles.thumb} src='img/thumbs-down.png' />
         </div>
 
         <div style={styles.buttonContainer}>
@@ -45,7 +42,12 @@ var styles = {
   },
   thumbs: {
     position: 'absolute',
-    top: 150,
+    top: 220,
+    width: '100%',
+  },
+  thumb: {
+    width: '40%',
+    margin: '5%',
   },
   buttonContainer: {
     position: 'absolute',

@@ -119,9 +119,9 @@ var Place = React.createClass({
     this.endpoint.child('dislikesCount').off('value');
   },
   render: function() {
-    var likesString = this.state.likesCount == 1 ? '1 like' : this.state.likesCount + ' likes';
+    var likesString    = this.state.likesCount == 1 ? '1 like' : this.state.likesCount + ' likes';
     var dislikesString = this.state.dislikesCount == 1 ? '1 dislike' : this.state.dislikesCount + ' dislikes';
-console.log("ADDRESS", this.props.address);
+
     return (
       <div className='page'>
         <Header title={this.props.name} left='back'/>
@@ -132,10 +132,8 @@ console.log("ADDRESS", this.props.address);
             style={styles.img} 
             src={this.props.imgUrl}
           />
+          <p style={styles.address}>{this.props.address}</p>
         </div>
-
-        <p style={styles.address}>{this.props.address}</p>
-        <p style={styles.flash}>Those who liked {this.props.name} also liked THIS</p>
 
         <div style={styles.body}>
           <div style={styles.buttonContainer}>
@@ -160,6 +158,9 @@ console.log("ADDRESS", this.props.address);
             </button>
           </div>  
         </div>
+
+        <p style={styles.flash}>Those who liked {this.props.name} also liked THIS</p>
+
       </div>
     );
   }
@@ -167,11 +168,16 @@ console.log("ADDRESS", this.props.address);
 
 var styles = {
   address: {
-    margin: '5px 0',
+    width: '100%',
     textAlign: 'center',
+    background: 'rgba(0, 0, 0, 0.5)',
+    color: 'white',
+    position: 'relative',
+    margin: 0,
+    top: 178,
   },
   flash: {
-    margin: '5px 0',
+    marginTop: 10,
     textAlign: 'center',
   },
   img: {

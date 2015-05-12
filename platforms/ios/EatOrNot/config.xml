@@ -34,13 +34,24 @@
     <feature name="Keyboard">
         <param name="ios-package" onload="true" value="IonicKeyboard" />
     </feature>
+    <splash height="480" src="www/img/thumbs-up.png" width="320" />
+    <splash height="960" src="www/img/thumbs-up.png" width="640" />
+    <splash height="1024" src="www/img/thumbs-up.png" width="768" />
+    <splash height="2048" src="www/img/thumbs-up.png" width="1536" />
+    <splash height="768" src="www/img/thumbs-up.png" width="1024" />
+    <splash height="1536" src="www/img/thumbs-up.png" width="2048" />
+    <splash height="1136" src="www/img/thumbs-up.png" width="640" />
+    <splash height="1334" src="www/img/thumbs-up.png" width="750" />
+    <splash height="2208" src="www/img/thumbs-up.png" width="1242" />
+    <splash height="1242" src="www/img/thumbs-up.png" width="2208" />
     <name>EatOrNot</name>
     <description>
-        A sample Apache Cordova application that responds to the deviceready event.
+        A Simple App that cuts the subjectivity of reviews and star ratings from Yelp (a distillation)
     </description>
-    <author email="dev@cordova.apache.org" href="http://cordova.io">
+    <author email="jeremyeaton89@gmail.com" href="http://jeremyeaton89.github.io">
         Apache Cordova Team
     </author>
     <content src="index.html" />
     <access origin="*" />
+    <icon src="www/img/thumbs-up.png" />
 </widget>

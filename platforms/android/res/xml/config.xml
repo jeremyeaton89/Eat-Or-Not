@@ -11,13 +11,22 @@
         <param name="android-package" value="com.ionic.keyboard.IonicKeyboard" />
         <param name="onload" value="true" />
     </feature>
+    <splash density="land-hdpi" src="www/img/thumbs-up.png" />
+    <splash density="land-ldpi" src="www/img/thumbs-up.png" />
+    <splash density="land-mdpi" src="www/img/thumbs-up.png" />
+    <splash density="land-xhdpi" src="www/img/thumbs-up.png" />
+    <splash density="port-hdpi" src="www/img/thumbs-up.png" />
+    <splash density="port-ldpi" src="www/img/thumbs-up.png" />
+    <splash density="port-mdpi" src="www/img/thumbs-up.png" />
+    <splash density="port-xhdpi" src="www/img/thumbs-up.png" />
     <name>EatOrNot</name>
     <description>
-        A sample Apache Cordova application that responds to the deviceready event.
+        A Simple App that cuts the subjectivity of reviews and star ratings from Yelp (a distillation)
     </description>
-    <author email="dev@cordova.apache.org" href="http://cordova.io">
+    <author email="jeremyeaton89@gmail.com" href="http://jeremyeaton89.github.io">
         Apache Cordova Team
     </author>
     <content src="index.html" />
     <access origin="*" />
+    <icon src="www/img/thumbs-up.png" />
 </widget>
