@@ -15,6 +15,7 @@ var PlaceListItem = React.createClass({
           <span style={styles.number}>{this.props.index + 1}</span>
           <div style={Utils.merge(styles.thumbnail, { backgroundImage: 'url(' + this.props.imgUrl + ')'})}></div>
           <span style={styles.name}>{this.props.name}</span>
+          <span style={styles.address}>{this.props.address}</span>
         </Link>
         <hr style={styles.hrItem} />
       </li>
@@ -24,7 +25,7 @@ var PlaceListItem = React.createClass({
 
 var styles = {
   place: {
-    height: 32,
+    height: 50,
     cursor: 'pointer',
     width: '100%',
   },
@@ -50,15 +51,19 @@ var styles = {
     position: 'relative',
     top: -9,
   },
+  address: {
+    position: 'relative',
+    fontSize: 10,
+  },
   thumbnail: {
-    height: 30,
-    width: 30,
+    height: 50,
+    width: 50,
     backgroundSize: 'contain',
     backgroundRepeat: 'no-repeat',
     backgroundPosition: 'center',
-    borderRadius: 20,
-    WebkitBorderRadius: 20,
-    MozBorderRadius: 20,
+    // borderRadius: 20,
+    // WebkitBorderRadius: 20,
+    // MozBorderRadius: 20,
     display: 'inline-block',
     marginRight: 10,
   },

@@ -114,6 +114,7 @@ var Home = React.createClass({
       this.service = this.service || new google.maps.places.PlacesService(this.map);
       this.service.nearbySearch(request, function(res, status) {
         if (status == google.maps.places.PlacesServiceStatus.OK) {
+          console.log('PLACES', res);
           this.parseNearbyPlaces(res, animated, callback);
         }
       }.bind(this))
@@ -187,11 +188,13 @@ var Home = React.createClass({
         var infoWindow = new google.maps.InfoWindow();
         infoWindow.setContent(content);
         infoWindow.open(this.map, marker);
-        var el = document.getElementById('infoWindow');
-        el.addEventListener('click', function() {
-          this.props.noHighlight = true;
-          this.refs.places.getDOMNode().children[i].children[0].click();
-        }.bind(this));
+        setTimeout(function() {
+          var el = document.getElementById('infoWindow');
+          el.addEventListener('click', function() {
+            this.props.noHighlight = true;
+            this.refs.places.getDOMNode().children[i].children[0].click();
+          }.bind(this));
+        }.bind(this), 200);
       }.bind(this));
     }.bind(this));
 
@@ -200,13 +203,14 @@ var Home = React.createClass({
 
     var places = data.map(function(obj) {
       var url = obj.photos && obj.photos[0] ? 
-        obj.photos[0].getUrl({'maxWidth': 30, 'maxHeight': 30}) : 
+        obj.photos[0].getUrl({'maxWidth': 50, 'maxHeight': 50}) : 
         'img/restaurant-icon.png';
 
       return {
         name: obj.name,
         imgUrl: url,
         id: obj.place_id,
+        address: obj.vicinity,
       };
     });
 
@@ -243,7 +247,6 @@ var Home = React.createClass({
     places.style.maxHeight = (window.innerHeight - 75) + 'px';
   },
   transitionPlacesDown: function() {
-    // if ()
     setTimeout(function() {
       var places = this.refs.places.getDOMNode();
       places.style.top = styles.places.top + 'px';

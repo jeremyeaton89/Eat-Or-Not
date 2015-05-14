@@ -10,8 +10,6 @@
 /Users/jeremyeaton/Desktop/Projects/EatOrNot/platforms/android/ant-build/classes/com/jeremyeaton/eatornot/R$string.class \
 /Users/jeremyeaton/Desktop/Projects/EatOrNot/platforms/android/ant-build/classes/com/jeremyeaton/eatornot/R$xml.class \
 /Users/jeremyeaton/Desktop/Projects/EatOrNot/platforms/android/ant-build/classes/com/jeremyeaton/eatornot/R.class \
-/Users/jeremyeaton/Desktop/Projects/EatOrNot/platforms/android/ant-build/classes/com/plugin/phonegap/OrientationLock.class \
-/Users/jeremyeaton/Desktop/Projects/EatOrNot/platforms/android/ant-build/classes/net/yoik/cordova/plugins/screenorientation/YoikScreenOrientation.class \
 /Users/jeremyeaton/Desktop/Projects/EatOrNot/platforms/android/ant-build/classes/org/apache/cordova/device/Device.class \
 /Users/jeremyeaton/Desktop/Projects/EatOrNot/platforms/android/ant-build/classes/org/apache/cordova/inappbrowser/InAppBrowser$1.class \
 /Users/jeremyeaton/Desktop/Projects/EatOrNot/platforms/android/ant-build/classes/org/apache/cordova/inappbrowser/InAppBrowser$2.class \

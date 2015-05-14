@@ -91,6 +91,7 @@ var Place = React.createClass({
       like: like,
       imgUrl: this.props.imgUrl,
       id: this.props.id,
+      address: this.props.address
     });
 
     this.setState({disabled: 'disabled'});
