@@ -25,6 +25,19 @@ var Profile = React.createClass({
     this.getUserPlaces();
     this.addClassStyles();
   },
+  componentDidMount: function() {
+    console.log('HEIGHTTTTT: ' + window.innerHeight );
+    var that = this;
+    var $carousel = $(this.refs.carousel.getDOMNode());
+
+    $carousel.owlCarousel({
+      pagination: false,
+      afterMove: function() {
+        $('.active-tab').removeClass('active-tab');
+        $(that.refs[that.props.tabs[this.currentItem]].getDOMNode()).addClass('active-tab');
+      },
+    });
+  },
   addClassStyles: function() {
     var transitionFontWeight = [
       '-webkit-transition: font-weight .1s ease-out;',
@@ -36,7 +49,6 @@ var Profile = React.createClass({
   },
   getUserPlaces: function() {
     Auth.getUser().fetchLikes(function(likedPlaces) {
-      console.log('LIKED PLACES', likedPlaces);
       this.setState({
         likes: likedPlaces,
       });
@@ -52,25 +64,11 @@ var Profile = React.createClass({
     var imgUrl = this.refs.avatar.getDOMNode().src;
     console.log(imgUrl);
   },
-  logout: function() {
-    Firebase.unauth();
-    location.hash = '#';
-  },
   highlightPlace: function(key) {
     console.log('highlight Li: ' + key);
   },
   changeTab: function(key) {
-    var selectedTab = this.refs[this.props.tabs[key]].getDOMNode();
-    if (selectedTab.classList.contains('active-tab')) return;
-
-    var currentTab = document.getElementsByClassName('active-tab')[0];
-    var currentKey = currentTab.getAttribute('data-key');
-
-    currentTab.classList.remove('active-tab');
-    this.refs[this.props.lists[currentKey]].getDOMNode().classList.add('hidden');
-
-    selectedTab.classList.add('active-tab');
-    this.refs[this.props.lists[key]].getDOMNode().classList.remove('hidden');
+    $(this.refs.carousel.getDOMNode()).data('owlCarousel').goTo(key);
   },
   render: function() {
     var likes = this.state.likes.map(function(place, i) {
@@ -101,7 +99,7 @@ var Profile = React.createClass({
 
     return (
       <div className='page'>
-        <Header title={Auth.getUser().firstName} right='home' />
+        <Header left='logout' title={Auth.getUser().firstName} right='home' />
         <div style={styles.avatarContainer}>
           <img
             ref='avatar'
@@ -110,7 +108,7 @@ var Profile = React.createClass({
             onClick={this.uploadAvatar}
           /> 
         </div>
-        <div style={styles.carousel}>
+        <div style={styles.carouselContainer}>
 
           <ul style={styles.tabs}>
             <li style={Utils.merge(styles.tabContainer, {left: '30%'})}>
@@ -134,50 +132,41 @@ var Profile = React.createClass({
               </div>
             </li>
           </ul>
+
           <hr style={styles.tabsHr} />
+
+          <div
+            ref='carousel'
+            className='owl-carousel'>
 
             <ul
               ref='likes'
+              className='list'
               style={styles.list}>
               {likes.length ? likes : <li style={styles.emptyState}>You Have Not Liked Any Places</li>}
             </ul>
 
             <ul
-              className='hidden'
               ref='dislikes'
+              className='list'
               style={styles.list}>
               {dislikes.length ? dislikes : <li style={styles.emptyState}>You Have Not Disliked Any Places</li>}
             </ul>
+          </div>
 
         </div>
-        <button style={styles.logout} onClick={this.logout}>Log Out</button>
       </div> 
     );
   }
 });
 
 styles = {
-  logout: {
-    position: 'absolute',
-    width: '90%',
-    margin: '0 5%',
-    height: 30,
-    bottom: 10,
-    outline: 'none',
-    border: 'none',
-    background: 'rgba(128, 128, 128, 0.5)',
-    fontSize: 14,
-    fontWeight: 100,
-    letterSpacing: 2,
-    textTransform: 'uppercase',
-  },
   avatar: {
     width: '100%',
     margin: 'auto',
     bottom: '-100%',
     top: '-100%',
     position: 'absolute',
-    opacity: 0,
   },
   avatarContainer: {
     width: '100%',
@@ -185,7 +174,7 @@ styles = {
     overflow: 'hidden',
     position: 'relative',
   },
-  carousel: {
+  carouselContainer: {
     width: '100%',
     height: '100%',
   },
@@ -227,13 +216,14 @@ styles = {
     listStyleType: 'none',
     margin: 0,
     padding: '5px 0 0 0',
-    position: 'absolute',
-    width: '100%',
-    top: 320,
-    bottom: 50,
+    height: (window.innerHeight - 327), // meh
     overflowY: 'scroll',
     overflowX: 'hidden',
     WebkitOverflowScrolling: 'touch',
+  },
+  listItem: {
+    position: 'absolute',
+    width: '100%',
   },
   emptyState: {
     textAlign: 'center',

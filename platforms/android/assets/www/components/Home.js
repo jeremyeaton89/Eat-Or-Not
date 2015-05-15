@@ -299,7 +299,6 @@ var Home = React.createClass({
         <hr ref='hr' className='fade-in' style={styles.hr} />
         <ul 
           ref='places'
-          // className='transition-places-list'
           style={styles.places}>
           {places}
         </ul>

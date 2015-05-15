@@ -246,7 +246,7 @@ var styles = {
   body: {
     width: '100%',
     textAlign: 'center',
-  }
+  },
 }
 
 module.exports = Place;

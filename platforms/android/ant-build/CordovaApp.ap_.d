@@ -59,7 +59,6 @@
 /Users/jeremyeaton/Desktop/Projects/EatOrNot/platforms/android/assets/www/index.html \
 /Users/jeremyeaton/Desktop/Projects/EatOrNot/platforms/android/assets/www/index.js \
 /Users/jeremyeaton/Desktop/Projects/EatOrNot/platforms/android/assets/www/lib \
-/Users/jeremyeaton/Desktop/Projects/EatOrNot/platforms/android/assets/www/map.js \
 /Users/jeremyeaton/Desktop/Projects/EatOrNot/platforms/android/assets/www/plugins \
 /Users/jeremyeaton/Desktop/Projects/EatOrNot/platforms/android/assets/www/server.js \
 /Users/jeremyeaton/Desktop/Projects/EatOrNot/platforms/android/assets/www/user.js \
@@ -78,6 +77,7 @@
 /Users/jeremyeaton/Desktop/Projects/EatOrNot/platforms/android/assets/www/img/blue-pearl.png \
 /Users/jeremyeaton/Desktop/Projects/EatOrNot/platforms/android/assets/www/img/facebook_button.png \
 /Users/jeremyeaton/Desktop/Projects/EatOrNot/platforms/android/assets/www/img/home-icon.png \
+/Users/jeremyeaton/Desktop/Projects/EatOrNot/platforms/android/assets/www/img/power-icon.png \
 /Users/jeremyeaton/Desktop/Projects/EatOrNot/platforms/android/assets/www/img/profile-icon.png \
 /Users/jeremyeaton/Desktop/Projects/EatOrNot/platforms/android/assets/www/img/puff.svg \
 /Users/jeremyeaton/Desktop/Projects/EatOrNot/platforms/android/assets/www/img/reset-icon.png \
@@ -88,7 +88,13 @@
 /Users/jeremyeaton/Desktop/Projects/EatOrNot/platforms/android/assets/www/img/thumbs-down.png \
 /Users/jeremyeaton/Desktop/Projects/EatOrNot/platforms/android/assets/www/img/thumbs-up.png \
 /Users/jeremyeaton/Desktop/Projects/EatOrNot/platforms/android/assets/www/img/white-arrow.png \
-/Users/jeremyeaton/Desktop/Projects/EatOrNot/platforms/android/assets/www/lib/fastclick.js \
+/Users/jeremyeaton/Desktop/Projects/EatOrNot/platforms/android/assets/www/lib/css \
+/Users/jeremyeaton/Desktop/Projects/EatOrNot/platforms/android/assets/www/lib/js \
+/Users/jeremyeaton/Desktop/Projects/EatOrNot/platforms/android/assets/www/lib/css/owl.carousel.css \
+/Users/jeremyeaton/Desktop/Projects/EatOrNot/platforms/android/assets/www/lib/css/owl.theme.css \
+/Users/jeremyeaton/Desktop/Projects/EatOrNot/platforms/android/assets/www/lib/js/fastclick.js \
+/Users/jeremyeaton/Desktop/Projects/EatOrNot/platforms/android/assets/www/lib/js/jquery-2.1.4.min.js \
+/Users/jeremyeaton/Desktop/Projects/EatOrNot/platforms/android/assets/www/lib/js/owl.carousel.min.js \
 /Users/jeremyeaton/Desktop/Projects/EatOrNot/platforms/android/assets/www/plugins/com.ionic.keyboard \
 /Users/jeremyeaton/Desktop/Projects/EatOrNot/platforms/android/assets/www/plugins/org.apache.cordova.device \
 /Users/jeremyeaton/Desktop/Projects/EatOrNot/platforms/android/assets/www/plugins/org.apache.cordova.inappbrowser \

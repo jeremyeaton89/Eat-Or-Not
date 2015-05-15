@@ -1,5 +1,6 @@
 /** @jsx React.DOM */
 var React              = require('react/addons');
+var Firebase           = require('../firebase');
 var CSSTransitionGroup = React.addons.CSSTransitionGroup;
 var Utils              = require('../utils');
 var Link               = require('react-router-component').Link;
@@ -32,6 +33,10 @@ var Header = React.createClass({
     ].join('');
 
     Utils.addCSSRule('.searchBar-slide', slide, 1)
+  },
+  logout: function() {
+    Firebase.unauth();
+    location.hash = '#';
   },
   animateSearchBar: function() {
     var searchBar = this.refs.searchBar.getDOMNode();
@@ -69,6 +74,14 @@ var Header = React.createClass({
             style={styles.iconContainer}>
             <div style={Utils.merge(styles.icon, { backgroundImage: 'url(img/white-arrow.png)'})}></div>
           </Link> 
+        break;
+      case 'logout':
+        left =
+          <a
+            onClick={this.logout}
+            style={styles.iconContainer}>
+            <div style={Utils.merge(styles.icon, { backgroundImage: 'url(img/power-icon.png)'})}></div>
+          </a>;
         break;
       case 'search':
         left = 
