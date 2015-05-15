@@ -15,15 +15,15 @@ var Profile = React.createClass({
       dislikes: [], 
     };
   },
-  componentWillMount: function() {
-    this.getUserPlaces();
-    this.addClassStyles();
-  },
   getDefaultProps: function() {
     return {
       tabs:  ['leftTab', 'rightTab'],    
       lists: ['likes', 'dislikes'],
     };
+  },
+  componentWillMount: function() {
+    this.getUserPlaces();
+    this.addClassStyles();
   },
   addClassStyles: function() {
     var transitionFontWeight = [
@@ -177,6 +177,7 @@ styles = {
     bottom: '-100%',
     top: '-100%',
     position: 'absolute',
+    opacity: 0,
   },
   avatarContainer: {
     width: '100%',

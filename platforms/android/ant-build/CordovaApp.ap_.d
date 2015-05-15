@@ -68,6 +68,7 @@
 /Users/jeremyeaton/Desktop/Projects/EatOrNot/platforms/android/assets/www/components/Home.js \
 /Users/jeremyeaton/Desktop/Projects/EatOrNot/platforms/android/assets/www/components/Place.js \
 /Users/jeremyeaton/Desktop/Projects/EatOrNot/platforms/android/assets/www/components/PlaceListItem.js \
+/Users/jeremyeaton/Desktop/Projects/EatOrNot/platforms/android/assets/www/components/PrettyImage.js \
 /Users/jeremyeaton/Desktop/Projects/EatOrNot/platforms/android/assets/www/components/Profile.js \
 /Users/jeremyeaton/Desktop/Projects/EatOrNot/platforms/android/assets/www/components/Search.js \
 /Users/jeremyeaton/Desktop/Projects/EatOrNot/platforms/android/assets/www/components/splash.js \
@@ -83,6 +84,7 @@
 /Users/jeremyeaton/Desktop/Projects/EatOrNot/platforms/android/assets/www/img/restaurant-icon.png \
 /Users/jeremyeaton/Desktop/Projects/EatOrNot/platforms/android/assets/www/img/search-icon.png \
 /Users/jeremyeaton/Desktop/Projects/EatOrNot/platforms/android/assets/www/img/spinning-circles.svg \
+/Users/jeremyeaton/Desktop/Projects/EatOrNot/platforms/android/assets/www/img/three-dots.svg \
 /Users/jeremyeaton/Desktop/Projects/EatOrNot/platforms/android/assets/www/img/thumbs-down.png \
 /Users/jeremyeaton/Desktop/Projects/EatOrNot/platforms/android/assets/www/img/thumbs-up.png \
 /Users/jeremyeaton/Desktop/Projects/EatOrNot/platforms/android/assets/www/img/white-arrow.png \

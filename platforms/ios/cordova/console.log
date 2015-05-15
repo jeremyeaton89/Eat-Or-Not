@@ -1594,3 +1594,241 @@ To disable web storage backup to iCloud, set the BackupWebStorage preference to 
 2015-05-06 21:17:41.770 EatOrNot[31992:2443220] [CDVTimer][TotalPluginStartup] 0.213027ms
 2015-05-06 21:17:41.818 EatOrNot[31992:2443220] Resetting plugins due to page load.
 2015-05-06 21:17:42.118 EatOrNot[31992:2443220] Finished load of: file:///Users/jeremyeaton/Library/Developer/CoreSimulator/Devices/1754065C-D770-4CED-88C2-CBACB746E403/data/Containers/Bundle/Application/D7BE98FC-046F-4B33-9CB5-6472A1E6304F/EatOrNot.app/www/index.html
+2015-05-14 18:12:11.678 EatOrNot[26224:4092681] DiskCookieStorage changing policy from 2 to 0, cookie file: file:///Users/jeremyeaton/Library/Developer/CoreSimulator/Devices/2C5D7B35-5AAF-4254-8285-E262D0F94898/data/Containers/Data/Application/C2F4386B-2B74-4383-BD7D-F2C84AEFA3CC/Library/Cookies/Cookies.binarycookies
+2015-05-14 18:12:11.717 EatOrNot[26224:4092681] Apache Cordova native platform version 3.7.0 is starting.
+2015-05-14 18:12:11.718 EatOrNot[26224:4092681] Multi-tasking -> Device: YES, App: YES
+2015-05-14 18:12:11.729 EatOrNot[26224:4092681] Unlimited access to network resources
+2015-05-14 18:12:11.732 EatOrNot[26224:4092681] 
+
+Started backup to iCloud! Please be careful.
+Your application might be rejected by Apple if you store too much data.
+For more information please read "iOS Data Storage Guidelines" at:
+https://developer.apple.com/icloud/documentation/data-storage/
+To disable web storage backup to iCloud, set the BackupWebStorage preference to "local" in the Cordova config.xml file
+
+2015-05-14 18:12:12.059 EatOrNot[26224:4092681] [CDVTimer][keyboard] 0.060976ms
+2015-05-14 18:12:12.060 EatOrNot[26224:4092681] [CDVTimer][TotalPluginStartup] 0.224948ms
+2015-05-14 18:12:12.340 EatOrNot[26224:4092681] Resetting plugins due to page load.
+2015-05-14 18:12:19.952 EatOrNot[26224:4092681] deviceready has not fired after 5 seconds.
+2015-05-14 18:12:19.953 EatOrNot[26224:4092681] Channel not fired: onDOMContentLoaded
+2015-05-14 18:12:28.318 EatOrNot[26224:4092681] Finished load of: file:///Users/jeremyeaton/Library/Developer/CoreSimulator/Devices/2C5D7B35-5AAF-4254-8285-E262D0F94898/data/Containers/Bundle/Application/CBC4A06A-23E4-4834-8138-54D25E4C6FF3/EatOrNot.app/www/index.html
+2015-05-14 18:12:33.715 EatOrNot[26224:4092681] Setting the WebView's frame to {{0, 0}, {320, 436}}
+2015-05-14 18:12:33.719 EatOrNot[26224:4092681] THREAD WARNING: ['InAppBrowser'] took '64.018799' ms. Plugin should use a background thread.
+2015-05-14 18:12:49.563 EatOrNot[26224:4092681] webView:didFailLoadWithError - -999: The operation couldn’t be completed. (NSURLErrorDomain error -999.)
+2015-05-14 18:13:03.077 EatOrNot[26224:4092681] locationManager::didFailWithError (null)
+2015-05-14 18:13:28.545 EatOrNot[26224:4092681] WARN: Each child in an array should have a unique "key" prop. Check the render method of Profile. See http://fb.me/react-warning-keys for more information.
+2015-05-14 18:13:28.545 EatOrNot[26224:4092681] LIKED PLACES [object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]
+2015-05-14 18:13:28.565 EatOrNot[26224:4092681] WARN: FIREBASE WARNING: Using an unspecified index. Consider adding ".indexOn": "like" at /users/10153158543358604/places to your security rules for better performance 
+2015-05-14 18:13:28.737 EatOrNot[26224:4092681] WARN: FIREBASE WARNING: Using an unspecified index. Consider adding ".indexOn": "like" at /users/10153158543358604/places to your security rules for better performance 
+2015-05-14 18:14:35.157 EatOrNot[26224:4093995] Terminating since there is no system app.
+2015-05-14 18:14:49.748 EatOrNot[26450:4094902] Apache Cordova native platform version 3.7.0 is starting.
+2015-05-14 18:14:49.748 EatOrNot[26450:4094902] Multi-tasking -> Device: YES, App: YES
+2015-05-14 18:14:49.750 EatOrNot[26450:4094902] Unlimited access to network resources
+2015-05-14 18:14:49.751 EatOrNot[26450:4094902] 
+
+Started backup to iCloud! Please be careful.
+Your application might be rejected by Apple if you store too much data.
+For more information please read "iOS Data Storage Guidelines" at:
+https://developer.apple.com/icloud/documentation/data-storage/
+To disable web storage backup to iCloud, set the BackupWebStorage preference to "local" in the Cordova config.xml file
+
+2015-05-14 18:14:49.817 EatOrNot[26450:4094902] [CDVTimer][keyboard] 0.045002ms
+2015-05-14 18:14:49.817 EatOrNot[26450:4094902] [CDVTimer][TotalPluginStartup] 0.169039ms
+2015-05-14 18:14:49.880 EatOrNot[26450:4094902] Resetting plugins due to page load.
+2015-05-14 18:14:50.571 EatOrNot[26450:4094902] Finished load of: file:///Users/jeremyeaton/Library/Developer/CoreSimulator/Devices/2C5D7B35-5AAF-4254-8285-E262D0F94898/data/Containers/Bundle/Application/64FFA94B-5B2B-4D43-B49D-98279E9B3157/EatOrNot.app/www/index.html
+2015-05-14 18:15:06.976 EatOrNot[26450:4094902] WARN: Each child in an array should have a unique "key" prop. Check the render method of Home. See http://fb.me/react-warning-keys for more information.
+2015-05-14 18:16:07.689 EatOrNot[26603:4095955] Apache Cordova native platform version 3.7.0 is starting.
+2015-05-14 18:16:07.689 EatOrNot[26603:4095955] Multi-tasking -> Device: YES, App: YES
+2015-05-14 18:16:07.691 EatOrNot[26603:4095955] Unlimited access to network resources
+2015-05-14 18:16:07.693 EatOrNot[26603:4095955] 
+
+Started backup to iCloud! Please be careful.
+Your application might be rejected by Apple if you store too much data.
+For more information please read "iOS Data Storage Guidelines" at:
+https://developer.apple.com/icloud/documentation/data-storage/
+To disable web storage backup to iCloud, set the BackupWebStorage preference to "local" in the Cordova config.xml file
+
+2015-05-14 18:16:07.782 EatOrNot[26603:4095955] [CDVTimer][keyboard] 0.069022ms
+2015-05-14 18:16:07.782 EatOrNot[26603:4095955] [CDVTimer][TotalPluginStartup] 0.266969ms
+2015-05-14 18:16:07.876 EatOrNot[26603:4095955] Resetting plugins due to page load.
+2015-05-14 18:16:08.222 EatOrNot[26603:4095955] Finished load of: file:///Users/jeremyeaton/Library/Developer/CoreSimulator/Devices/2C5D7B35-5AAF-4254-8285-E262D0F94898/data/Containers/Bundle/Application/288F029A-B1E1-46F8-8571-3C4CD30CA21E/EatOrNot.app/www/index.html
+2015-05-14 18:16:12.303 EatOrNot[26603:4095955] WARN: Each child in an array should have a unique "key" prop. Check the render method of Home. See http://fb.me/react-warning-keys for more information.
+2015-05-14 18:16:13.436 EatOrNot[26603:4095955] No hash history. Returning "/".
+2015-05-14 18:17:00.176 EatOrNot[26603:4096469] Communications error: <OS_xpc_error: <error: 0x2e645f4> { count = 1, contents =
+	"XPCErrorDescription" => <string: 0x2e6483c> { length = 22, contents = "Connection interrupted" }
+}>
+2015-05-14 18:17:00.177 EatOrNot[26603:4096033] Terminating since there is no system app.
+2015-05-14 18:17:05.580 EatOrNot[26800:4097243] Apache Cordova native platform version 3.7.0 is starting.
+2015-05-14 18:17:05.581 EatOrNot[26800:4097243] Multi-tasking -> Device: YES, App: YES
+2015-05-14 18:17:05.582 EatOrNot[26800:4097243] Unlimited access to network resources
+2015-05-14 18:17:05.584 EatOrNot[26800:4097243] 
+
+Started backup to iCloud! Please be careful.
+Your application might be rejected by Apple if you store too much data.
+For more information please read "iOS Data Storage Guidelines" at:
+https://developer.apple.com/icloud/documentation/data-storage/
+To disable web storage backup to iCloud, set the BackupWebStorage preference to "local" in the Cordova config.xml file
+
+2015-05-14 18:17:05.645 EatOrNot[26800:4097243] [CDVTimer][keyboard] 0.046015ms
+2015-05-14 18:17:05.645 EatOrNot[26800:4097243] [CDVTimer][TotalPluginStartup] 0.177979ms
+2015-05-14 18:17:05.716 EatOrNot[26800:4097243] Resetting plugins due to page load.
+2015-05-14 18:17:08.380 EatOrNot[26800:4097243] Finished load of: file:///Users/jeremyeaton/Library/Developer/CoreSimulator/Devices/1754065C-D770-4CED-88C2-CBACB746E403/data/Containers/Bundle/Application/7F3F1D46-4DAB-48A9-ABAD-1D35C78A7A89/EatOrNot.app/www/index.html
+2015-05-14 18:17:09.929 EatOrNot[26800:4097243] Setting the WebView's frame to {{0, 0}, {375, 623}}
+2015-05-14 18:17:09.933 EatOrNot[26800:4097243] THREAD WARNING: ['InAppBrowser'] took '47.895996' ms. Plugin should use a background thread.
+2015-05-14 18:17:17.673 EatOrNot[26800:4097243] locationManager::didFailWithError (null)
+2015-05-14 18:17:51.481 EatOrNot[26940:4097885] Apache Cordova native platform version 3.7.0 is starting.
+2015-05-14 18:17:51.481 EatOrNot[26940:4097885] Multi-tasking -> Device: YES, App: YES
+2015-05-14 18:17:51.482 EatOrNot[26940:4097885] Unlimited access to network resources
+2015-05-14 18:17:51.484 EatOrNot[26940:4097885] 
+
+Started backup to iCloud! Please be careful.
+Your application might be rejected by Apple if you store too much data.
+For more information please read "iOS Data Storage Guidelines" at:
+https://developer.apple.com/icloud/documentation/data-storage/
+To disable web storage backup to iCloud, set the BackupWebStorage preference to "local" in the Cordova config.xml file
+
+2015-05-14 18:17:51.540 EatOrNot[26940:4097885] [CDVTimer][keyboard] 0.047982ms
+2015-05-14 18:17:51.540 EatOrNot[26940:4097885] [CDVTimer][TotalPluginStartup] 0.175953ms
+2015-05-14 18:17:51.596 EatOrNot[26940:4097885] Resetting plugins due to page load.
+2015-05-14 18:17:52.728 EatOrNot[26940:4097885] locationManager::didFailWithError (null)
+2015-05-14 18:17:52.741 EatOrNot[26940:4097885] Finished load of: file:///Users/jeremyeaton/Library/Developer/CoreSimulator/Devices/1754065C-D770-4CED-88C2-CBACB746E403/data/Containers/Bundle/Application/59968645-9CEA-43B1-ACB1-73E063C7B258/EatOrNot.app/www/index.html
+2015-05-14 18:18:48.689 EatOrNot[27139:4099088] Apache Cordova native platform version 3.7.0 is starting.
+2015-05-14 18:18:48.690 EatOrNot[27139:4099088] Multi-tasking -> Device: YES, App: YES
+2015-05-14 18:18:48.691 EatOrNot[27139:4099088] Unlimited access to network resources
+2015-05-14 18:18:48.693 EatOrNot[27139:4099088] 
+
+Started backup to iCloud! Please be careful.
+Your application might be rejected by Apple if you store too much data.
+For more information please read "iOS Data Storage Guidelines" at:
+https://developer.apple.com/icloud/documentation/data-storage/
+To disable web storage backup to iCloud, set the BackupWebStorage preference to "local" in the Cordova config.xml file
+
+2015-05-14 18:18:48.753 EatOrNot[27139:4099088] [CDVTimer][keyboard] 0.047982ms
+2015-05-14 18:18:48.753 EatOrNot[27139:4099088] [CDVTimer][TotalPluginStartup] 0.186980ms
+2015-05-14 18:18:48.841 EatOrNot[27139:4099088] Resetting plugins due to page load.
+2015-05-14 18:18:50.362 EatOrNot[27139:4099088] Finished load of: file:///Users/jeremyeaton/Library/Developer/CoreSimulator/Devices/1754065C-D770-4CED-88C2-CBACB746E403/data/Containers/Bundle/Application/53AB62C4-9AD5-4E04-B6C9-D2FB3F748346/EatOrNot.app/www/index.html
+2015-05-14 18:18:56.643 EatOrNot[27139:4099088] WARN: Each child in an array should have a unique "key" prop. Check the render method of Home. See http://fb.me/react-warning-keys for more information.
+2015-05-14 18:19:44.703 EatOrNot[27290:4099912] Apache Cordova native platform version 3.7.0 is starting.
+2015-05-14 18:19:44.704 EatOrNot[27290:4099912] Multi-tasking -> Device: YES, App: YES
+2015-05-14 18:19:44.706 EatOrNot[27290:4099912] Unlimited access to network resources
+2015-05-14 18:19:44.708 EatOrNot[27290:4099912] 
+
+Started backup to iCloud! Please be careful.
+Your application might be rejected by Apple if you store too much data.
+For more information please read "iOS Data Storage Guidelines" at:
+https://developer.apple.com/icloud/documentation/data-storage/
+To disable web storage backup to iCloud, set the BackupWebStorage preference to "local" in the Cordova config.xml file
+
+2015-05-14 18:19:44.793 EatOrNot[27290:4099912] [CDVTimer][keyboard] 0.078976ms
+2015-05-14 18:19:44.793 EatOrNot[27290:4099912] [CDVTimer][TotalPluginStartup] 0.234008ms
+2015-05-14 18:19:44.892 EatOrNot[27290:4099912] Resetting plugins due to page load.
+2015-05-14 18:19:45.984 EatOrNot[27290:4099912] Finished load of: file:///Users/jeremyeaton/Library/Developer/CoreSimulator/Devices/1754065C-D770-4CED-88C2-CBACB746E403/data/Containers/Bundle/Application/B0420C56-CCDF-4FC1-8927-50044C36B95D/EatOrNot.app/www/index.html
+2015-05-14 18:19:46.295 EatOrNot[27290:4099912] WARN: Each child in an array should have a unique "key" prop. Check the render method of Home. See http://fb.me/react-warning-keys for more information.
+2015-05-14 18:19:52.116 EatOrNot[27290:4099912] User not set. Use Auth.setUser().
+2015-05-14 18:19:53.132 EatOrNot[27290:4099912] User not set. Use Auth.setUser().
+2015-05-14 18:19:54.379 EatOrNot[27290:4099912] LIKED PLACES [object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]
+2015-05-14 18:19:54.379 EatOrNot[27290:4099912] WARN: FIREBASE WARNING: Using an unspecified index. Consider adding ".indexOn": "like" at /users/10153158543358604/places to your security rules for better performance 
+2015-05-14 18:19:54.380 EatOrNot[27290:4099912] WARN: FIREBASE WARNING: Exception was thrown by user callback. invariant@file:///Users/jeremyeaton/Library/Developer/CoreSimulator/Devices/1754065C-D770-4CED-88C2-CBACB746E403/data/Containers/Bundle/Application/B0420C56-CCDF-4FC1-8927-50044C36B95D/EatOrNot.app/www/bundle.js:20233:24
+validateLifeCycleOnReplaceState@file:///Users/jeremyeaton/Library/Developer/CoreSimulator/Devices/1754065C-D770-4CED-88C2-CBACB746E403/data/Containers/Bundle/Application/B0420C56-CCDF-4FC1-8927-50044C36B95D/EatOrNot.app/www/bundle.js:7661:53
+replaceState@file:///Users/jeremyeaton/Library/Developer/CoreSimulator/Devices/1754065C-D770-4CED-88C2-CBACB746E403/data/Containers/Bundle/Application/B0420C56-CCDF-4FC1-8927-50044C36B95D/EatOrNot.app/www/bundle.js:8086:36
+setState@file:///Users/jeremyeaton/Library/Developer/CoreSimulator/Devices/1754065C-D770-4CED-88C2-CBACB746E403/data/Containers/Bundle/Application/B0420C56-CCDF-4FC1-8927-50044C36B95D/EatOrNot.app/www/bundle.js:8067:22
+file:///Users/jeremyeaton/Library/Developer/CoreSimulator/Devices/1754065C-D770-4CED-88C2-CBACB746E403/data/Containers/Bundle/Application/B0420C56-CCDF-4FC1-8927-50044C36B95D/EatOrNot.app/www/bundle.js:23006:20
+[native code]
+file:///Users/jeremyeaton/Library/Developer/CoreSimulator/Devices/1754065C-D770-4CED-88C2-CBACB746E403/data/Containers/Bundle/Application/B0420C56-CCDF-4FC1-8927-50044C36B95D/EatOrNot.app/www/bundle.js:24342:15
+[native code]
+c@https://cdn.firebase.com/js/client/2.2.3/firebase.js:226:69
+https://cdn.firebase.com/js/client/2.2.3/firebase.js:49:646
+Cb@https://cdn.firebase.com/js/client/2.2.3/firebase.js:46:166
+yb@https://cdn.firebase.com/js/client/2.2.3/firebase.js:22:218
+xb@https://cdn.firebase.com/js/client/2.2.3/firebase.js:21:1201
+hc@https://cdn.firebase.com/js/client/2.2.3/firebase.js:225:306
+c@https://cdn.firebase.com/js/client/2.2.3/firebase.js:226:57
+https://cdn.firebase.com/js/client/2.2.3/firebase.js:49:646
+Cb@https://cdn.firebase.com/js/client/2.2.3/firebase.js:46:166
+yb@https://cdn.firebase.com/js/client/2.2.3/firebase.js:22:218
+zb@https://cdn.firebase.com/js/client/2.2.3/firebase.js:21:1261
+Fb@https://cdn.firebase.com/js/client/2.2.3/firebase.js:202:289
+[native code]
+Hd@https://cdn.firebase.com/js/client/2.2.3/firebase.js:189:253
+[native code]
+Hd@https://cdn.firebase.com/js/client/2.2.3/firebase.js:180:366
+https://cdn.firebase.com/js/client/2.2.3/firebase.js:178:283
+eh@https://cdn.firebase.com/js/client/2.2.3/firebase.js:172:466
+onmessage@https://cdn.firebase.com/js/client/2.2.3/firebase.js:171:247 
+2015-05-14 18:19:54.381 EatOrNot[27290:4099912] WARN: FIREBASE WARNING: Exception was thrown by user callback. invariant@file:///Users/jeremyeaton/Library/Developer/CoreSimulator/Devices/1754065C-D770-4CED-88C2-CBACB746E403/data/Containers/Bundle/Application/B0420C56-CCDF-4FC1-8927-50044C36B95D/EatOrNot.app/www/bundle.js:20233:24
+validateLifeCycleOnReplaceState@file:///Users/jeremyeaton/Library/Developer/CoreSimulator/Devices/1754065C-D770-4CED-88C2-CBACB746E403/data/Containers/Bundle/Application/B0420C56-CCDF-4FC1-8927-50044C36B95D/EatOrNot.app/www/bundle.js:7661:53
+replaceState@file:///Users/jeremyeaton/Library/Developer/CoreSimulator/Devices/1754065C-D770-4CED-88C2-CBACB746E403/data/Containers/Bundle/Application/B0420C56-CCDF-4FC1-8927-50044C36B95D/EatOrNot.app/www/bundle.js:8086:36
+setState@file:///Users/jeremyeaton/Library/Developer/CoreSimulator/Devices/1754065C-D770-4CED-88C2-CBACB746E403/data/Containers/Bundle/Application/B0420C56-CCDF-4FC1-8927-50044C36B95D/EatOrNot.app/www/bundle.js:8067:22
+file:///Users/jeremyeaton/Library/Developer/CoreSimulator/Devices/1754065C-D770-4CED-88C2-CBACB746E403/data/Containers/Bundle/Application/B0420C56-CCDF-4FC1-8927-50044C36B95D/EatOrNot.app/www/bundle.js:23001:20
+[native code]
+file:///Users/jeremyeaton/Library/Developer/CoreSimulator/Devices/1754065C-D770-4CED-88C2-CBACB746E403/data/Containers/Bundle/Application/B0420C56-CCDF-4FC1-8927-50044C36B95D/EatOrNot.app/www/bundle.js:24335:15
+[native code]
+c@https://cdn.firebase.com/js/client/2.2.3/firebase.js:226:69
+https://cdn.firebase.com/js/client/2.2.3/firebase.js:49:646
+Cb@https://cdn.firebase.com/js/client/2.2.3/firebase.js:46:166
+yb@https://cdn.firebase.com/js/client/2.2.3/firebase.js:22:218
+zb@https://cdn.firebase.com/js/client/2.2.3/firebase.js:21:1261
+Fb@https://cdn.firebase.com/js/client/2.2.3/firebase.js:202:289
+[native code]
+Hd@https://cdn.firebase.com/js/client/2.2.3/firebase.js:189:253
+[native code]
+Hd@https://cdn.firebase.com/js/client/2.2.3/firebase.js:180:366
+https://cdn.firebase.com/js/client/2.2.3/firebase.js:178:283
+eh@https://cdn.firebase.com/js/client/2.2.3/firebase.js:172:466
+onmessage@https://cdn.firebase.com/js/client/2.2.3/firebase.js:171:247 
+2015-05-14 18:19:54.433 EatOrNot[27290:4099912] WARN: FIREBASE WARNING: Using an unspecified index. Consider adding ".indexOn": "like" at /users/10153158543358604/places to your security rules for better performance 
+2015-05-14 18:19:55.392 EatOrNot[27290:4099912] WARN: Each child in an array should have a unique "key" prop. Check the render method of Profile. See http://fb.me/react-warning-keys for more information.
+2015-05-14 18:19:55.392 EatOrNot[27290:4099912] LIKED PLACES [object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]
+2015-05-14 18:19:55.396 EatOrNot[27290:4099912] WARN: FIREBASE WARNING: Using an unspecified index. Consider adding ".indexOn": "like" at /users/10153158543358604/places to your security rules for better performance 
+2015-05-14 18:19:57.360 EatOrNot[27290:4099912] WARN: FIREBASE WARNING: Using an unspecified index. Consider adding ".indexOn": "like" at /users/10153158543358604/places to your security rules for better performance 
+2015-05-14 18:20:26.743 EatOrNot[27290:4099912] LIKED PLACES [object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]
+2015-05-14 18:20:26.743 EatOrNot[27290:4099912] WARN: FIREBASE WARNING: Using an unspecified index. Consider adding ".indexOn": "like" at /users/10153158543358604/places to your security rules for better performance 
+2015-05-14 18:20:27.008 EatOrNot[27290:4099912] WARN: FIREBASE WARNING: Using an unspecified index. Consider adding ".indexOn": "like" at /users/10153158543358604/places to your security rules for better performance 
+2015-05-14 18:20:36.256 EatOrNot[27290:4099912] highlight Li: 3
+2015-05-14 18:20:38.432 EatOrNot[27290:4099912] LIKED PLACES [object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]
+2015-05-14 18:20:38.432 EatOrNot[27290:4099912] WARN: FIREBASE WARNING: Exception was thrown by user callback. invariant@file:///Users/jeremyeaton/Library/Developer/CoreSimulator/Devices/1754065C-D770-4CED-88C2-CBACB746E403/data/Containers/Bundle/Application/B0420C56-CCDF-4FC1-8927-50044C36B95D/EatOrNot.app/www/bundle.js:20233:24
+validateLifeCycleOnReplaceState@file:///Users/jeremyeaton/Library/Developer/CoreSimulator/Devices/1754065C-D770-4CED-88C2-CBACB746E403/data/Containers/Bundle/Application/B0420C56-CCDF-4FC1-8927-50044C36B95D/EatOrNot.app/www/bundle.js:7661:53
+replaceState@file:///Users/jeremyeaton/Library/Developer/CoreSimulator/Devices/1754065C-D770-4CED-88C2-CBACB746E403/data/Containers/Bundle/Application/B0420C56-CCDF-4FC1-8927-50044C36B95D/EatOrNot.app/www/bundle.js:8086:36
+setState@file:///Users/jeremyeaton/Library/Developer/CoreSimulator/Devices/1754065C-D770-4CED-88C2-CBACB746E403/data/Containers/Bundle/Application/B0420C56-CCDF-4FC1-8927-50044C36B95D/EatOrNot.app/www/bundle.js:8067:22
+file:///Users/jeremyeaton/Library/Developer/CoreSimulator/Devices/1754065C-D770-4CED-88C2-CBACB746E403/data/Containers/Bundle/Application/B0420C56-CCDF-4FC1-8927-50044C36B95D/EatOrNot.app/www/bundle.js:22678:22
+[native code]
+file:///Users/jeremyeaton/Library/Developer/CoreSimulator/Devices/1754065C-D770-4CED-88C2-CBACB746E403/data/Containers/Bundle/Application/B0420C56-CCDF-4FC1-8927-50044C36B95D/EatOrNot.app/www/bundle.js:24379:13
+c@https://cdn.firebase.com/js/client/2.2.3/firebase.js:226:69
+https://cdn.firebase.com/js/client/2.2.3/firebase.js:49:646
+Cb@https://cdn.firebase.com/js/client/2.2.3/firebase.js:46:166
+yb@https://cdn.firebase.com/js/client/2.2.3/firebase.js:22:218
+zb@https://cdn.firebase.com/js/client/2.2.3/firebase.js:21:1261
+Fb@https://cdn.firebase.com/js/client/2.2.3/firebase.js:202:289
+[native code]
+Hd@https://cdn.firebase.com/js/client/2.2.3/firebase.js:189:253
+[native code]
+Hd@https://cdn.firebase.com/js/client/2.2.3/firebase.js:180:366
+https://cdn.firebase.com/js/client/2.2.3/firebase.js:178:283
+eh@https://cdn.firebase.com/js/client/2.2.3/firebase.js:172:466
+onmessage@https://cdn.firebase.com/js/client/2.2.3/firebase.js:171:247 
+2015-05-14 18:20:38.557 EatOrNot[27290:4099912] WARN: FIREBASE WARNING: Using an unspecified index. Consider adding ".indexOn": "like" at /users/10153158543358604/places to your security rules for better performance 
+2015-05-14 18:20:38.560 EatOrNot[27290:4099912] WARN: FIREBASE WARNING: Using an unspecified index. Consider adding ".indexOn": "like" at /users/10153158543358604/places to your security rules for better performance 
+2015-05-14 18:20:54.392 EatOrNot[27484:4101063] Apache Cordova native platform version 3.7.0 is starting.
+2015-05-14 18:20:54.393 EatOrNot[27484:4101063] Multi-tasking -> Device: YES, App: YES
+2015-05-14 18:20:54.394 EatOrNot[27484:4101063] Unlimited access to network resources
+2015-05-14 18:20:54.396 EatOrNot[27484:4101063] 
+
+Started backup to iCloud! Please be careful.
+Your application might be rejected by Apple if you store too much data.
+For more information please read "iOS Data Storage Guidelines" at:
+https://developer.apple.com/icloud/documentation/data-storage/
+To disable web storage backup to iCloud, set the BackupWebStorage preference to "local" in the Cordova config.xml file
+
+2015-05-14 18:20:54.457 EatOrNot[27484:4101063] [CDVTimer][keyboard] 0.044048ms
+2015-05-14 18:20:54.457 EatOrNot[27484:4101063] [CDVTimer][TotalPluginStartup] 0.165999ms
+2015-05-14 18:20:54.513 EatOrNot[27484:4101063] Resetting plugins due to page load.
+2015-05-14 18:20:55.189 EatOrNot[27484:4101063] Finished load of: file:///Users/jeremyeaton/Library/Developer/CoreSimulator/Devices/2C5D7B35-5AAF-4254-8285-E262D0F94898/data/Containers/Bundle/Application/371F0E23-C4F6-447C-AE50-831275270F33/EatOrNot.app/www/index.html
+2015-05-14 18:21:03.996 EatOrNot[27484:4101063] WARN: Each child in an array should have a unique "key" prop. Check the render method of Home. See http://fb.me/react-warning-keys for more information.
+2015-05-14 18:21:08.491 EatOrNot[27484:4101063] WARN: Each child in an array should have a unique "key" prop. Check the render method of Profile. See http://fb.me/react-warning-keys for more information.
+2015-05-14 18:21:08.491 EatOrNot[27484:4101063] LIKED PLACES [object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]
+2015-05-14 18:21:08.529 EatOrNot[27484:4101063] WARN: FIREBASE WARNING: Using an unspecified index. Consider adding ".indexOn": "like" at /users/10153158543358604/places to your security rules for better performance 
+2015-05-14 18:21:09.098 EatOrNot[27484:4101063] WARN: FIREBASE WARNING: Using an unspecified index. Consider adding ".indexOn": "like" at /users/10153158543358604/places to your security rules for better performance 
+2015-05-14 18:21:10.135 EatOrNot[27484:4101063] highlight Li: 0
+2015-05-14 18:21:11.856 EatOrNot[27484:4101063] LIKED PLACES [object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]
+2015-05-14 18:21:11.880 EatOrNot[27484:4101063] WARN: FIREBASE WARNING: Using an unspecified index. Consider adding ".indexOn": "like" at /users/10153158543358604/places to your security rules for better performance 
+2015-05-14 18:21:12.163 EatOrNot[27484:4101063] WARN: FIREBASE WARNING: Using an unspecified index. Consider adding ".indexOn": "like" at /users/10153158543358604/places to your security rules for better performance 

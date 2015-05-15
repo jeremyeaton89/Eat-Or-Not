@@ -15,15 +15,15 @@ var Profile = React.createClass({
       dislikes: [], 
     };
   },
-  componentWillMount: function() {
-    this.getUserPlaces();
-    this.addClassStyles();
-  },
   getDefaultProps: function() {
     return {
       tabs:  ['leftTab', 'rightTab'],    
       lists: ['likes', 'dislikes'],
     };
+  },
+  componentWillMount: function() {
+    this.getUserPlaces();
+    this.addClassStyles();
   },
   addClassStyles: function() {
     var transitionFontWeight = [
@@ -36,6 +36,7 @@ var Profile = React.createClass({
   },
   getUserPlaces: function() {
     Auth.getUser().fetchLikes(function(likedPlaces) {
+      console.log('LIKED PLACES', likedPlaces);
       this.setState({
         likes: likedPlaces,
       });
@@ -70,7 +71,6 @@ var Profile = React.createClass({
 
     selectedTab.classList.add('active-tab');
     this.refs[this.props.lists[key]].getDOMNode().classList.remove('hidden');
-
   },
   render: function() {
     var likes = this.state.likes.map(function(place, i) {
@@ -78,6 +78,7 @@ var Profile = React.createClass({
         <PlaceListItem 
           id={place.id} 
           name={place.name} 
+          address={place.address}
           imgUrl={place.imgUrl} 
           index={i}
           highlightPlace={this.highlightPlace}
@@ -90,6 +91,7 @@ var Profile = React.createClass({
         <PlaceListItem 
           id={place.id} 
           name={place.name} 
+          address={place.address}
           imgUrl={place.imgUrl} 
           index={i}
           highlightPlace={this.highlightPlace}
@@ -175,6 +177,7 @@ styles = {
     bottom: '-100%',
     top: '-100%',
     position: 'absolute',
+    opacity: 0,
   },
   avatarContainer: {
     width: '100%',

@@ -1,9 +1,10 @@
 /** @jsx React.DOM */
-var React    = require('react');
-var Firebase = require('../firebase');
-var Utils    = require('../utils');
-var Header   = require('./Header');
-var Auth     = require('../auth');
+var React       = require('react');
+var Firebase    = require('../firebase');
+var Utils       = require('../utils');
+var Header      = require('./Header');
+var Auth        = require('../auth');
+var PrettyImage = require('./PrettyImage');
 
 var Place = React.createClass({
   componentWillMount: function() {
@@ -21,7 +22,6 @@ var Place = React.createClass({
           likesCount: data.likesCount,
           dislikesCount: data.dislikesCount,
         });
-
         this.updateUIAndProps(data);
       }
     }.bind(this));
@@ -48,9 +48,21 @@ var Place = React.createClass({
     };
   },
   updateUIAndProps: function(data) {
-    if (data.imgUrl)  this.props.imgUrl  = data.imgUrl;
+    if (data.imgUrl) { 
+      this.props.imgUrl = data.imgUrl; 
+      var img = this.refs.img.getDOMNode();
+      img.src = data.imgUrl;
+      setTimeout(function() {
+        var svg = this.refs.svg.getDOMNode();
+        svg.parentNode.removeChild(svg);
+        img.style.opacity = 1;
+      }.bind(this), 200);
+    }
     if (data.website) this.props.website = data.website;
-    if (data.address) this.props.address = data.address;
+    if (data.address) {
+      this.props.address = data.address;
+      this.refs.address.getDOMNode().innerHTML = data.address;
+    }
   },
   getPlaceDetails: function(callback) {
     var map = new google.maps.Map(document.createElement('div')); // dummy map
@@ -91,6 +103,7 @@ var Place = React.createClass({
       like: like,
       imgUrl: this.props.imgUrl,
       id: this.props.id,
+      address: this.props.address,
     });
 
     this.setState({disabled: 'disabled'});
@@ -130,9 +143,21 @@ var Place = React.createClass({
           <img 
             ref='img'
             style={styles.img} 
-            src={this.props.imgUrl}
+            className='fade'
+            src=''
           />
-          <p style={styles.address}>{this.props.address}</p>
+          <div style={styles.svgContainer}>
+            <img 
+              ref='svg'
+              src='img/three-dots.svg' 
+              style={styles.svg}
+            />
+          </div>
+          <p 
+            ref='address'
+            style={styles.address}>
+            {this.props.address}
+          </p>
         </div>
 
         <div style={styles.body}>
@@ -187,12 +212,24 @@ var styles = {
     top: '-100%',
     minHeight: 200,
     position: 'absolute',
+    opacity: 0,
   },
   imgContainer: {
     width: '100%',
     height: 200,
     overflow: 'hidden',
     position: 'relative',
+  },
+  svg: {
+    position: 'relative',
+    left: '-50%',
+    width: '100%',
+  },
+  svgContainer: {
+    width: '40%',
+    position: 'absolute',
+    left: '50%',
+    top: '40%',
   },
   button: {
     outline: 'none',

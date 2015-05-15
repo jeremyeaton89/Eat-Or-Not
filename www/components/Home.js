@@ -114,7 +114,6 @@ var Home = React.createClass({
       this.service = this.service || new google.maps.places.PlacesService(this.map);
       this.service.nearbySearch(request, function(res, status) {
         if (status == google.maps.places.PlacesServiceStatus.OK) {
-          console.log('PLACES', res);
           this.parseNearbyPlaces(res, animated, callback);
         }
       }.bind(this))
@@ -203,7 +202,7 @@ var Home = React.createClass({
 
     var places = data.map(function(obj) {
       var url = obj.photos && obj.photos[0] ? 
-        obj.photos[0].getUrl({'maxWidth': 50, 'maxHeight': 50}) : 
+        obj.photos[0].getUrl({'maxWidth': 80, 'maxHeight': 80}) : 
         'img/restaurant-icon.png';
 
       return {
@@ -349,6 +348,7 @@ var styles = {
     width: '100%',
     background: 'white',
     overflowY: 'scroll',
+    overflowX: 'hidden',
     WebkitOverflowScrolling: 'touch',
     position: 'absolute',
     top: 322,
