@@ -9,7 +9,7 @@ var History            = require('../history');
 var Header = React.createClass({
   getDefaultProps: function() {
     return {
-      searchBarWidth: (window.innerWidth > 0 ? window.innerWidth : screen.width) - 98,
+      searchBarWidth: (window.innerWidth > 0 ? window.innerWidth : screen.width) - 108,
     };
   },
   componentWillMount: function() {
@@ -39,26 +39,51 @@ var Header = React.createClass({
     location.hash = '#';
   },
   animateSearchBar: function() {
-    var searchBar = this.refs.searchBar.getDOMNode();
+    var $searchBar = $(this.refs.searchBar.getDOMNode());
 
-    if (searchBar.classList.contains('invisible')) {
-      searchBar.style.width = this.props.searchBarWidth + 'px';
-      searchBar.classList.remove('invisible');
-      searchBar.addEventListener('webkitTransitionEnd', function() {
-        searchBar.removeEventListener('webkitTransitionEnd', arguments.callee);
-        searchBar.focus();
-      });
+    if ($searchBar.hasClass('invisible')) {
+      $searchBar.css({width: this.props.searchBarWidth});
+      $searchBar.removeClass('invisible');
+      $searchBar.on('webkitTransitionEnd', function() {
+        $searchBar.off('webkitTransitionEnd');
+        $searchBar.focus();
+        setTimeout(function() {
+          $(this.refs.profile.getDOMNode()).addClass('hidden');
+          $(this.refs.cancel.getDOMNode()).removeClass('hidden');
+        }.bind(this), 200);
+      }.bind(this));
     } else {
-      searchBar.style.width = '33px';
-      searchBar.addEventListener('webkitTransitionEnd', function() {
-        searchBar.removeEventListener('webkitTransitionEnd', arguments.callee);
-        searchBar.classList.add('invisible');
-      });
+      $searchBar.css({width: 33});
+      $searchBar.on('webkitTransitionEnd', function() {
+        $searchBar.off('webkitTransitionEnd');
+        $searchBar.val('').addClass('invisible');
+        $(this.refs.profile.getDOMNode()).removeClass('hidden');
+        $(this.refs.cancel.getDOMNode()).addClass('hidden');
+      }.bind(this));
     }
   },
-  handleBlur: function() {
-    if (!this.refs.searchBar.getDOMNode().classList.contains('invisible')) this.animateSearchBar(); // if user taps 'done'
-    this.props.searchHandlers.blur();
+  handleChange: function(e) {
+    var value = this.refs.searchBar.getDOMNode().value;
+    var $xIcon = $(this.refs.xIcon.getDOMNode());
+
+    value ? $xIcon.removeClass('hidden') : $xIcon.addClass('hidden');
+    this.props.searchHandlers.change(e);
+  },
+  handleBlur: function(e) {
+    setTimeout(function() {
+      if (this.xIconClick) {
+        this.xIconClick = false;
+      } else {
+        if (!this.refs.searchBar.getDOMNode().classList.contains('invisible')) this.animateSearchBar(); // if user taps 'done'
+        this.props.searchHandlers.blur();
+      }
+    }.bind(this), 200)
+  },
+  clearSearchBar: function() {
+    this.xIconClick = true;
+    $(this.refs.searchBar.getDOMNode()).val('').focus();
+    $(this.refs.xIcon.getDOMNode()).addClass('hidden');
+    this.handleChange();
   },
   render: function() {
     var left      = '';
@@ -92,28 +117,50 @@ var Header = React.createClass({
           </a>;
 
         searchBar =
-          <input
-            ref         = 'searchBar'
-            type        = 'search'
-            placeholder = 'Search Nearby Places...'
-            className   = 'searchBar-slide invisible'
-            style       = {styles.searchBar} 
-            onKeyUp     = {this.props.searchHandlers.keyup}
-            onFocus     = {this.props.searchHandlers.focus}
-            onBlur      = {this.handleBlur}
-          />;
+          <div>
+            <input
+              ref         = 'searchBar'
+              type        = 'search'
+              placeholder = 'Search Nearby Places...'
+              className   = 'searchBar-slide invisible'
+              style       = {styles.searchBar} 
+              onChange    = {this.handleChange}
+              onBlur      = {this.handleBlur}
+              onFocus     = {this.props.searchHandlers.focus}
+            />
+            <div 
+              ref='xIcon'
+              style={Utils.merge(styles.xIconContainer, {left: this.props.searchBarWidth + 22})}
+              className='hidden'
+              onClick={this.clearSearchBar}>
+              <img 
+                src='img/x-icon.png'
+                style={styles.xIcon}
+              />
+            </div>
+          </div>
         break;
     };
 
     switch(this.props.right) {
       case 'profile':
         right = 
-          <Link
-            noTransition
-            style={Utils.merge(styles.iconContainer, {right: 5})}
-            href='/profile'>
-            <div style={Utils.merge(styles.icon, {backgroundImage: 'url(img/profile-icon.png)'})}></div> 
-          </Link>
+          <div>
+            <Link
+              ref='profile'
+              noTransition
+              style={Utils.merge(styles.iconContainer, {right: 5})}
+              href='/profile'>
+              <div style={Utils.merge(styles.icon, {backgroundImage: 'url(img/profile-icon.png)'})}></div> 
+            </Link>
+            <a
+              ref='cancel'
+              className='hidden'
+              style={Utils.merge(styles.iconContainer, {right: 5})}
+              onClick={this.animateSearchBar.bind(this, true)}>
+              <div style={styles.cancel}>Cancel</div>
+            </a>
+          </div>
         break;
       case 'home':
         right = 
@@ -124,13 +171,6 @@ var Header = React.createClass({
             <div style={Utils.merge(styles.icon, {backgroundImage: 'url(img/home-icon.png)'})}></div> 
           </Link>
         break;
-      case 'cancel':
-        right = 
-          <a
-            style={Utils.merge(styles.iconContainer, {right: 5})}
-            onClick={this.animateSearchBar.bind(this, true)}>
-            <div style={styles.cancel}>Cancel</div>
-          </a>
     };
 
     return(
@@ -204,11 +244,28 @@ var styles = {
     zIndex: 1,
     outline: 'none',
     borderRadius: 20,
-    padding: '5px 0 0 10px',
+    padding: '5px 25px 0 10px',
     boxSizing: 'border-box',
     height: 33,
     border: 'none',
     fontSize: 14,
+  },
+  xIcon: {
+    width: 12,
+    height: 12,
+    position: 'relative',
+    top: -3.5,
+    left: 3,
+  },
+  xIconContainer: {
+    background: 'rgba(0, 0, 0, 0.33)',
+    width: 18,
+    height: 18,
+    borderRadius: 21,
+    position: 'absolute',
+    top: 38,
+    zIndex: 3,
+    cursor: 'pointer',
   },
 }
 

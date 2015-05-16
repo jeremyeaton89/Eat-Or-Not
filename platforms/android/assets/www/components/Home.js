@@ -142,14 +142,14 @@ var Home = React.createClass({
   },
   searchByText: function(e) {
     var places = this.refs.places.getDOMNode();
-    console.log('KEY = ' + e.which);
-    if (e.which == 13 || e.KeyCode == 13 && places.children.length == 1) {
+
+    if (e && (e.which == 13 || e.KeyCode == 13) && places.children.length == 1) {
       places.children[0].children[0].click();
       return;
     }
 
-    var searchBar = e.target;
-    if (searchBar.value.length) {
+    var searchBar = e && e.target;
+    if (searchBar && searchBar.value.length) {
       if (this.map) {
         var request = {
           location: this.mapOptions.center,
@@ -250,6 +250,7 @@ var Home = React.createClass({
       var places = this.refs.places.getDOMNode();
       places.style.top = styles.places.top + 'px';
       places.style.maxHeight = '';
+      this.getNearbyPlaces(); // reset places
     }.bind(this), 350)
   },
   render: function() {
@@ -267,7 +268,7 @@ var Home = React.createClass({
     }.bind(this));
 
     var searchHandlers = {
-      keyup: this.searchByText,
+      change: this.searchByText,
       focus: this.transitionPlacesUp,
       blur:  this.transitionPlacesDown,
     };

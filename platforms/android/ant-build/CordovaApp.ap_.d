@@ -88,6 +88,7 @@
 /Users/jeremyeaton/Desktop/Projects/EatOrNot/platforms/android/assets/www/img/thumbs-down.png \
 /Users/jeremyeaton/Desktop/Projects/EatOrNot/platforms/android/assets/www/img/thumbs-up.png \
 /Users/jeremyeaton/Desktop/Projects/EatOrNot/platforms/android/assets/www/img/white-arrow.png \
+/Users/jeremyeaton/Desktop/Projects/EatOrNot/platforms/android/assets/www/img/x-icon.png \
 /Users/jeremyeaton/Desktop/Projects/EatOrNot/platforms/android/assets/www/lib/css \
 /Users/jeremyeaton/Desktop/Projects/EatOrNot/platforms/android/assets/www/lib/js \
 /Users/jeremyeaton/Desktop/Projects/EatOrNot/platforms/android/assets/www/lib/css/owl.carousel.css \
