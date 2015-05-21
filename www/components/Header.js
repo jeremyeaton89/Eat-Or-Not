@@ -15,15 +15,6 @@ var Header = React.createClass({
   componentWillMount: function() {
     this.addClassStyles();
   },
-  componentDidMount: function() {
-    if (this.props.left == 'search' && location.hash == '#/search') {
-      setTimeout(function() {
-        var searchBar = this.refs.searchBar.getDOMNode();
-        searchBar.focus();  
-        cordova.plugins.Keyboard.show();
-      }.bind(this), 200)
-    }
-  },
   addClassStyles: function() {
     var slide = [
       '-webkit-transition: width .1s cubic-bezier(0.455, 0.03, 0.515, 0.955);',
@@ -47,6 +38,7 @@ var Header = React.createClass({
       $searchBar.on('webkitTransitionEnd', function() {
         $searchBar.off('webkitTransitionEnd');
         $searchBar.focus();
+        cordova.plugins.Keyboard.show();
         setTimeout(function() {
           $(this.refs.profile.getDOMNode()).addClass('hidden');
           $(this.refs.cancel.getDOMNode()).removeClass('hidden');
@@ -57,6 +49,8 @@ var Header = React.createClass({
       $searchBar.on('webkitTransitionEnd', function() {
         $searchBar.off('webkitTransitionEnd');
         $searchBar.val('').addClass('invisible');
+        cordova.plugins.Keyboard.close();
+        $(this.refs.xIcon.getDOMNode()).addClass('hidden')
         $(this.refs.profile.getDOMNode()).removeClass('hidden');
         $(this.refs.cancel.getDOMNode()).addClass('hidden');
       }.bind(this));
@@ -69,7 +63,7 @@ var Header = React.createClass({
     value ? $xIcon.removeClass('hidden') : $xIcon.addClass('hidden');
     this.props.searchHandlers.change(e);
   },
-  handleBlur: function(e) {
+  handleBlur: function() {
     setTimeout(function() {
       if (this.xIconClick) {
         this.xIconClick = false;
