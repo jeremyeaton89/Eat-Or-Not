@@ -10,7 +10,7 @@
     <content src="index.html" />
     <access origin="*" />
 
-    <icon src='www/img/thumbs-up.png'/>
+    <icon src='www/img/thumb-app-icon.png'/>
 
     <platform name='ios'>
       <splash src="www/img/thumbs-up.png" width="320" height="480"/>

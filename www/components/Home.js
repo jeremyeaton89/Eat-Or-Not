@@ -57,7 +57,9 @@ var Home = React.createClass({
         this.mapOptions.center.lat = position.coords.latitude;
         this.mapOptions.center.lng = position.coords.longitude;
         this.initMap();
-      }.bind(this));
+      }.bind(this), function(err) {
+        alert('An Error occured. Is Location Access enabled?');
+      });
     } else if (Auth.getLastMapPosition()) {
       this.initMap();
     } else {

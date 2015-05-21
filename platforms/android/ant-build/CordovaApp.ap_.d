@@ -85,6 +85,7 @@
 /Users/jeremyeaton/Desktop/Projects/EatOrNot/platforms/android/assets/www/img/search-icon.png \
 /Users/jeremyeaton/Desktop/Projects/EatOrNot/platforms/android/assets/www/img/spinning-circles.svg \
 /Users/jeremyeaton/Desktop/Projects/EatOrNot/platforms/android/assets/www/img/three-dots.svg \
+/Users/jeremyeaton/Desktop/Projects/EatOrNot/platforms/android/assets/www/img/thumb-app-icon.png \
 /Users/jeremyeaton/Desktop/Projects/EatOrNot/platforms/android/assets/www/img/thumbs-down.png \
 /Users/jeremyeaton/Desktop/Projects/EatOrNot/platforms/android/assets/www/img/thumbs-up.png \
 /Users/jeremyeaton/Desktop/Projects/EatOrNot/platforms/android/assets/www/img/white-arrow.png \
