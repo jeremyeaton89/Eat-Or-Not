@@ -30,7 +30,7 @@ var Home = React.createClass({
   },
   componentWillUnmount: function() {
     var center = this.map.getCenter();
-    Auth.setLastMapPosition({lat: center.A, lng: center.F});
+    Auth.setLastMapPosition({lat: center.G, lng: center.K});
     Auth.setLastUserPosition(this.props.curPosition);
   },
   addClassStyles: function() {
@@ -43,7 +43,7 @@ var Home = React.createClass({
 
     Utils.addCSSRule('.transition-places-list', transitionPlacesList, 1);
   },
-  loadMap: function() {    
+  loadMap: function() {  
     this.mapOptions = {
       center: Auth.getLastMapPosition() || {lat: 37.7833, lng: 122.4167},
       zoom: 14,
