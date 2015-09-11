@@ -1,6 +1,7 @@
 /** @jsx React.DOM */
 var React = require('react');
 
+
 var Splash = React.createClass({
   render: function() {
     return (
@@ -19,6 +20,13 @@ var Splash = React.createClass({
             style={styles.login}
             onClick={this.props.login}
           />
+        </div>
+        <div style={styles.buttonContainer}>        
+          <button 
+            style={styles.demo}
+            onClick={this.props.demo}>
+            Demo
+          </button>
         </div>
       </div>
     );
@@ -59,7 +67,23 @@ var styles = {
     left: '-50%',
     width: 200,
     cursor: 'pointer',
-  }
+    zIndex: 2,
+  },
+  demo: {
+    position: 'relative',
+    outline: 'none',
+    border: '1px solid white',
+    width: 150,
+    left: '-50%',
+    top: 40,
+    borderRadius: 3,
+    background: 'rgb(28, 189, 32)',
+    textTransform: 'uppercase',
+    padding: 5,
+    fontWeight: 100,
+    color: 'white',
+    zIndex: 2,
+  },
 };
 
 module.exports = Splash;

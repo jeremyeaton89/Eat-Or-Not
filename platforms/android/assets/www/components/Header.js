@@ -26,8 +26,12 @@ var Header = React.createClass({
     Utils.addCSSRule('.searchBar-slide', slide, 1)
   },
   logout: function() {
-    Firebase.unauth();
-    location.hash = '#';
+    if (window.demoId) {
+      location.hash = '#/splash'; 
+    } else {
+      Firebase.unauth();
+      location.hash = '#';  
+    }
   },
   animateSearchBar: function() {
     var $searchBar = $(this.refs.searchBar.getDOMNode());

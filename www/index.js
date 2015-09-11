@@ -63,13 +63,15 @@ var App = React.createClass({
         <Location path='/place/:id/:name' handler={Place} />
         <Location path='/profile'         handler={Profile} />
         <Location path='/search'          handler={Search} />
+        <Location path='/splash'          handler={Splash} />
       </AnimatedLocations>
     )
   }
-})
+});
+
+var container = document.getElementById('container');
 
 var initAuthHandler = function() {
-  var container = document.getElementById('container');
   Firebase.onAuth(function(session) {
     if (session) {
       var id = session.uid.split(':')[1];
@@ -85,7 +87,7 @@ var initAuthHandler = function() {
 
       React.renderComponent(<App />, container);
     } else {
-      React.renderComponent(<Splash login={login} />, container);
+      React.renderComponent(<Splash login={login} demo={demo} />, container);
     }
   }); 
 }
@@ -96,6 +98,22 @@ var login = function(e) {
   });
   e.preventDefault();
   e.stopPropagation();
+};
+
+var demo = function(e) {
+  window.demoId = '117121125308183'
+  User.fetch(demoId, function(user) {
+      console.log('USER', user)
+    if (user) {      
+      Auth.setUser(user)
+    } else {
+      alert('Problem occured with demo account');
+    }
+  });
+  e.preventDefault();
+  e.stopPropagation();
+
+  React.renderComponent(<App />, container);
 };
 
 window.debug = function() {

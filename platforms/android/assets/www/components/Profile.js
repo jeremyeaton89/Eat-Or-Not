@@ -26,7 +26,6 @@ var Profile = React.createClass({
     this.addClassStyles();
   },
   componentDidMount: function() {
-    console.log('HEIGHTTTTT: ' + window.innerHeight );
     var that = this;
     var $carousel = $(this.refs.carousel.getDOMNode());
 
